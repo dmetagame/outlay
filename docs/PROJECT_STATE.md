@@ -3,7 +3,7 @@
 > Living handoff for Codex sessions. Read this file before working. Do not put
 > secrets or raw credential-bearing values here.
 
-Last updated: `2026-09-21T23:28:35Z`
+Last updated: `2026-09-21T23:30:17Z`
 Status: `READY_FOR_WALLET_PROOF`
 Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore Promising Products track.
 
@@ -12,7 +12,7 @@ Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore
 - Repository: `https://github.com/dmetagame/outlay`
 - Worktree: `/home/rouma/outlay`
 - Branch: `main`
-- Commit: `6d0eb28bfa5e34ce82609ee8e204605eca7def8a` (last pushed checkpoint; application checkpoint pending)
+- Commit: `05b22f2cf31b5252189a942dce7b41cd9c9e64bd` (application checkpoint, pushed to `origin/main`)
 - Protected releases/artifacts: none identified; no deployed or verified Outlay contract is claimed.
 
 ## Constraints
@@ -70,9 +70,8 @@ Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore
 
 ## Next Actions
 
-1. Commit and push the application/verification checkpoint.
-2. Deploy the public UI from GitHub/Vercel.
-3. With a funded user wallet, deploy Outlay on Arbitrum One (or rehearse on Sepolia), run the 0.10 + 0.01 loop to a distinct payee, and verify the resulting address with the committed kit.
+1. Deploy the public UI from GitHub/Vercel.
+2. With a funded user wallet, deploy Outlay on Arbitrum One (or rehearse on Sepolia), run the 0.10 + 0.01 loop to a distinct payee, and verify the resulting address with the committed kit.
 
 ## Session Handoff
 
@@ -85,3 +84,4 @@ Start with `git status --short --branch`, this file, `contracts/Outlay.sol`, and
 | 2026-09-21T22:11:05Z | Codex | Session start and repository reconciliation | Public repository is clean and authenticated; prompt-described UI and EVM tests are absent. |
 | 2026-09-21T22:18:00Z | Codex | Contract audit and EVM-test checkpoint | Found one spec mismatch, fixed it minimally, and passed 12 Foundry tests plus the existing accounting suite. |
 | 2026-09-21T23:28:35Z | Codex | Application, verification, funding, and adversarial review checkpoint | Wallet UI and production adapter pass tests/browser smoke; verification artifacts compile exactly; mainnet USDG acquisition remains external. |
+| 2026-09-21T23:30:17Z | Codex | GitHub checkpoint | Commit `05b22f2` pushed to public `dmetagame/outlay` on `origin/main`. |
