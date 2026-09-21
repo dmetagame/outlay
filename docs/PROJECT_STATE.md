@@ -3,7 +3,7 @@
 > Living handoff for Codex sessions. Read this file before working. Do not put
 > secrets or raw credential-bearing values here.
 
-Last updated: `2026-09-21T23:30:17Z`
+Last updated: `2026-09-21T23:34:55Z`
 Status: `READY_FOR_WALLET_PROOF`
 Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore Promising Products track.
 
@@ -12,7 +12,7 @@ Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore
 - Repository: `https://github.com/dmetagame/outlay`
 - Worktree: `/home/rouma/outlay`
 - Branch: `main`
-- Commit: `05b22f2cf31b5252189a942dce7b41cd9c9e64bd` (application checkpoint, pushed to `origin/main`)
+- Commit: `b1aeb05a56dd443acf1dc8d089a4978912fdfcde` (handoff checkpoint, pushed to `origin/main`)
 - Protected releases/artifacts: none identified; no deployed or verified Outlay contract is claimed.
 
 ## Constraints
@@ -42,6 +42,7 @@ Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore
 - Existing contract addresses are accepted only after `usdg()` matches the canonical token for the selected chain.
 - Added deterministic ABI/bytecode generation, exact standard-JSON verification input, constructor encodings, and chain-aware `scripts/verify-contract.sh`.
 - Added the official Nitro/Vercel production adapter and explicit `tanstack-start` framework declaration.
+- Published the app at `https://outlay-theta.vercel.app/`; Vercel project `dmetagames-projects/outlay` is connected to the public GitHub repository.
 - Confirmed the Uniswap URL pins canonical Arbitrum USDG but found no current V3 pool or aggregator route; the UI and README now disclose this and route dry runs to official Paxos Sepolia USDG/faucet.
 
 ## Verification
@@ -58,6 +59,7 @@ Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore
 | Typecheck + production build | pass | `npm run check`; Nitro `.output` generated, 2026-09-21 |
 | Production server | pass | `PORT=3022 npm start`; HTTP 200 with rendered Outlay HTML, 2026-09-21 |
 | Browser smoke | pass | Playwright desktop: 0 console errors; 390px viewport: no horizontal overflow, 2026-09-21 |
+| Public deployment | pass | Vercel deployment `dpl_CpCJKtaMxwtybXmsGrHRV4hhpoLx`; alias HTTP 200 and live browser console 0 errors, 2026-09-21 |
 | Dependency audit | pass | `npm audit --audit-level=high`: 0 vulnerabilities, 2026-09-21 |
 | Verification JSON | pass | solc `0.8.37` standard-JSON compile: 0 errors; bytecode matches Foundry after prefix normalization, 2026-09-21 |
 | Verification CLI dry run | pass | `forge verify-contract --show-standard-json-input`: Cancun, optimizer 200, `contracts/Outlay.sol`, 2026-09-21 |
@@ -70,8 +72,7 @@ Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore
 
 ## Next Actions
 
-1. Deploy the public UI from GitHub/Vercel.
-2. With a funded user wallet, deploy Outlay on Arbitrum One (or rehearse on Sepolia), run the 0.10 + 0.01 loop to a distinct payee, and verify the resulting address with the committed kit.
+1. With a funded user wallet, deploy Outlay on Arbitrum One (or rehearse on Sepolia), run the 0.10 + 0.01 loop to a distinct payee, and verify the resulting address with the committed kit.
 
 ## Session Handoff
 
@@ -85,3 +86,4 @@ Start with `git status --short --branch`, this file, `contracts/Outlay.sol`, and
 | 2026-09-21T22:18:00Z | Codex | Contract audit and EVM-test checkpoint | Found one spec mismatch, fixed it minimally, and passed 12 Foundry tests plus the existing accounting suite. |
 | 2026-09-21T23:28:35Z | Codex | Application, verification, funding, and adversarial review checkpoint | Wallet UI and production adapter pass tests/browser smoke; verification artifacts compile exactly; mainnet USDG acquisition remains external. |
 | 2026-09-21T23:30:17Z | Codex | GitHub checkpoint | Commit `05b22f2` pushed to public `dmetagame/outlay` on `origin/main`. |
+| 2026-09-21T23:34:55Z | Codex | Production deployment | Vercel project linked to GitHub; `https://outlay-theta.vercel.app/` returned HTTP 200 and a clean live-browser smoke test. |

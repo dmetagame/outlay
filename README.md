@@ -2,6 +2,9 @@
 
 Scheduled canonical-USDG payout rooms with a sender-funded settler bounty.
 
+Live app: [outlay-theta.vercel.app](https://outlay-theta.vercel.app/) · Public source:
+[github.com/dmetagame/outlay](https://github.com/dmetagame/outlay)
+
 A sender locks one or more payouts in an isolated room. Once the onchain due time arrives, any
 wallet can call `settle`: the payee receives the payout and the caller receives the bounty in the
 same transaction. One-shot rooms return excess funding to the sender and close. Refund is possible
