@@ -3,8 +3,8 @@
 > Living handoff for Codex sessions. Read this file before working. Do not put
 > secrets or raw credential-bearing values here.
 
-Last updated: `2026-09-21T22:18:00Z`
-Status: `IN_PROGRESS`
+Last updated: `2026-09-21T23:28:35Z`
+Status: `READY_FOR_WALLET_PROOF`
 Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore Promising Products track.
 
 ## Workspace
@@ -12,7 +12,7 @@ Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore
 - Repository: `https://github.com/dmetagame/outlay`
 - Worktree: `/home/rouma/outlay`
 - Branch: `main`
-- Commit: `220569526df540901a5e0b33607e0fa1044d1e0e`
+- Commit: `6d0eb28bfa5e34ce82609ee8e204605eca7def8a` (last pushed checkpoint; application checkpoint pending)
 - Protected releases/artifacts: none identified; no deployed or verified Outlay contract is claimed.
 
 ## Constraints
@@ -37,6 +37,12 @@ Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore
 - Confirmed through the public repository tree and authenticated code search that no `Conduit.sol` or claimed Outlay UI source exists elsewhere under `dmetagame`.
 - Added a pinned Foundry project and public-interface EVM suite in `test/Outlay.t.sol` covering all required room, balance, isolation, ERC-20 return, and reentrancy behaviors.
 - Corrected `refund()` validation order so any room with a settlement reverts `AlreadyPaid`, including a closed one-shot room.
+- Restored the missing TanStack Start/wagmi application entirely under `src/components/outlay` and `src/lib/outlay`; no Conduit source paths or storage keys remain.
+- Added connected-wallet deployment, canonical-USDG balance/allowance reads, payee validation, lock preview, room settlement/refund controls, and transaction plus payee-balance explorer proofs.
+- Existing contract addresses are accepted only after `usdg()` matches the canonical token for the selected chain.
+- Added deterministic ABI/bytecode generation, exact standard-JSON verification input, constructor encodings, and chain-aware `scripts/verify-contract.sh`.
+- Added the official Nitro/Vercel production adapter and explicit `tanstack-start` framework declaration.
+- Confirmed the Uniswap URL pins canonical Arbitrum USDG but found no current V3 pool or aggregator route; the UI and README now disclose this and route dry runs to official Paxos Sepolia USDG/faucet.
 
 ## Verification
 
@@ -47,22 +53,30 @@ Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore
 | Existing UI | missing | Repository/workspace/GitHub search, 2026-09-21 |
 | Foundry EVM suite | pass | `forge test -vv`: 12 passed, 0 failed, 2026-09-21 |
 | Foundry formatting | pass | `forge fmt --check`, 2026-09-21 |
-| Accounting model | pass | `node --experimental-strip-types --test src/lib/outlay/machine.test.ts`, 2026-09-21 |
+| Accounting model | pass | `node --experimental-strip-types src/lib/outlay/machine.test.ts`: 9 passed, 2026-09-21 |
+| Form/address unit tests | pass | Vitest: 5 passed, 0 failed, 2026-09-21 |
+| Typecheck + production build | pass | `npm run check`; Nitro `.output` generated, 2026-09-21 |
+| Production server | pass | `PORT=3022 npm start`; HTTP 200 with rendered Outlay HTML, 2026-09-21 |
+| Browser smoke | pass | Playwright desktop: 0 console errors; 390px viewport: no horizontal overflow, 2026-09-21 |
+| Dependency audit | pass | `npm audit --audit-level=high`: 0 vulnerabilities, 2026-09-21 |
+| Verification JSON | pass | solc `0.8.37` standard-JSON compile: 0 errors; bytecode matches Foundry after prefix normalization, 2026-09-21 |
+| Verification CLI dry run | pass | `forge verify-contract --show-standard-json-input`: Cancun, optimizer 200, `contracts/Outlay.sol`, 2026-09-21 |
 
 ## Risks And Blockers
 
-- High: the claimed live TanStack UI source is not present; completing the requested wallet path requires adding the missing application source to this repository.
-- High: Solidity behavior is represented only by a TypeScript model until Foundry tests pass.
-- External: mainnet proof, deployed address, and explorer verification require the user's wallet.
+- External/blocking for final proof: no indexed DEX pair, standard Uniswap V3 pool, or ParaSwap route was available for canonical Arbitrum One USDG on 2026-09-22. A mainnet proof requires USDG already held on Arbitrum One or a newly available route.
+- External: no Outlay contract is deployed or explorer-verified yet; those steps require the user's wallet and the resulting contract address.
+- Build warning: Nitro/Rolldown reports third-party `use client` directive warnings, but the generated production server returned HTTP 200 and hydrated cleanly in the browser smoke test.
 
 ## Next Actions
 
-1. Commit and push the contract-test checkpoint with this state file.
-2. Add the missing Outlay-only wallet UI, verification kit, funding links, and judge click path.
+1. Commit and push the application/verification checkpoint.
+2. Deploy the public UI from GitHub/Vercel.
+3. With a funded user wallet, deploy Outlay on Arbitrum One (or rehearse on Sepolia), run the 0.10 + 0.01 loop to a distinct payee, and verify the resulting address with the committed kit.
 
 ## Session Handoff
 
-Start with `git status --short --branch`, this file, `contracts/Outlay.sol`, and the Foundry/UI verification commands recorded below as work progresses.
+Start with `git status --short --branch`, this file, `contracts/Outlay.sol`, and `README.md`. Do not claim a deployment, verified badge, mainnet payment, or working Arbitrum One swap until explorer evidence exists.
 
 ## Change Log
 
@@ -70,3 +84,4 @@ Start with `git status --short --branch`, this file, `contracts/Outlay.sol`, and
 | --- | --- | --- | --- |
 | 2026-09-21T22:11:05Z | Codex | Session start and repository reconciliation | Public repository is clean and authenticated; prompt-described UI and EVM tests are absent. |
 | 2026-09-21T22:18:00Z | Codex | Contract audit and EVM-test checkpoint | Found one spec mismatch, fixed it minimally, and passed 12 Foundry tests plus the existing accounting suite. |
+| 2026-09-21T23:28:35Z | Codex | Application, verification, funding, and adversarial review checkpoint | Wallet UI and production adapter pass tests/browser smoke; verification artifacts compile exactly; mainnet USDG acquisition remains external. |

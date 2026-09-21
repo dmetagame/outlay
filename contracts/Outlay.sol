@@ -70,6 +70,8 @@ contract Outlay {
         if (amount == 0 || bounty == 0) revert BadArgs();
         uint256 sum = uint256(amount) + uint256(bounty);
         if (sum > type(uint96).max) revert BadArgs();
+        // Safe because the preceding bound rejects every truncating value.
+        // forge-lint: disable-next-line(unsafe-typecast)
         return uint96(sum);
     }
 
@@ -106,6 +108,8 @@ contract Outlay {
     function settle(uint256 id) external nonReentrant {
         Room storage room = rooms[id];
         if (!room.active) revert Inactive();
+        // Timestamp is the intended payout clock; small proposer drift cannot bypass the fixed due boundary.
+        // forge-lint: disable-next-line(block-timestamp)
         if (block.timestamp < room.nextRunAt) revert NotDue();
 
         uint96 cost = costOf(room.amount, room.bounty);

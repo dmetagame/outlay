@@ -73,8 +73,8 @@ export function settle(room: Room, now: bigint, settler: string): { leftover: bi
 
 export function refund(room: Room, sender: string): bigint {
   if (sender !== room.sender) throw new OutlayError("NotSender");
-  if (!room.active) throw new OutlayError("Inactive");
   if (room.settlements !== 0) throw new OutlayError("AlreadyPaid");
+  if (!room.active) throw new OutlayError("Inactive");
   const leftover = room.remaining;
   room.remaining = 0n;
   room.active = false;

@@ -47,13 +47,13 @@ test("one-shot settle pays once, returns leftover, then is final", () => {
   assert.equal(r.remaining, 0n);
   assert.equal(r.settlements, 1);
   assert.throws(() => settle(r, 2_000n, settler), (e: OutlayError) => e.code === "Inactive");
-  assert.throws(() => refund(r, sender), (e: OutlayError) => e.code === "Inactive");
+  assert.throws(() => refund(r, sender), (e: OutlayError) => e.code === "AlreadyPaid");
 });
 
 test("refund cannot follow a completed payout", () => {
   const r = room();
   settle(r, 1_000n, settler);
-  assert.throws(() => refund(r, sender), OutlayError);
+  assert.throws(() => refund(r, sender), (e: OutlayError) => e.code === "AlreadyPaid");
 });
 
 test("refund before any settlement returns the lock", () => {

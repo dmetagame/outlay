@@ -1,0 +1,39 @@
+{
+  "name": "outlay",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "start": "node .output/server/index.mjs",
+    "test": "vitest run src/lib/outlay/chains.test.ts src/lib/outlay/room-form.test.ts && node --experimental-strip-types src/lib/outlay/machine.test.ts",
+    "test:contracts": "forge test -vv",
+    "check": "tsc --noEmit && npm run test && npm run build",
+    "generate:artifact": "node scripts/generate-artifact.mjs",
+    "generate:verification": "node scripts/generate-verification-kit.mjs",
+    "generate": "forge build && npm run generate:artifact && npm run generate:verification"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "5.103.2",
+    "@tanstack/react-router": "1.170.38",
+    "@tanstack/react-start": "1.168.57",
+    "nitro": "3.0.260903-beta",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "viem": "2.56.8",
+    "wagmi": "3.7.7"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "latest",
+    "typescript": "^5.9.0",
+    "vite": "8.3.0",
+    "vitest": "5.0.1"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
