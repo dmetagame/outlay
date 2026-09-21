@@ -1,0 +1,14 @@
+# Foundry
+/cache/
+/out/
+
+# JavaScript
+/node_modules/
+/.output/
+/dist/
+
+# Local deployment linkage and environment
+/.vercel/
+.env
+.env.*
+!.env.example

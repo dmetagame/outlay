@@ -144,8 +144,8 @@ contract Outlay {
     function refund(uint256 id) external nonReentrant {
         Room storage room = rooms[id];
         if (msg.sender != room.sender) revert NotSender();
-        if (!room.active) revert Inactive();
         if (room.settlements != 0) revert AlreadyPaid();
+        if (!room.active) revert Inactive();
 
         uint96 leftover = room.remaining;
         room.remaining = 0;
