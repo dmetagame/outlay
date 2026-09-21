@@ -1,0 +1,22 @@
+{
+  "language": "Solidity",
+  "settings": {
+    "optimizer": { "enabled": true, "runs": 200 },
+    "evmVersion": "cancun",
+    "outputSelection": {
+      "*": {
+        "*": ["abi", "evm.bytecode.object"]
+      }
+    }
+  },
+  "compiler": {
+    "version": "0.8.37+commit.f401782d",
+    "viaIR": false
+  },
+  "constructor": {
+    "types": ["address"],
+    "arbitrum": "0x004B506865409877C9fA29bfb1ebA929984B9bbC",
+    "robinhood": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+    "arbitrumSepolia": "0xFFC95faa3d63Cde504a05B567C600B78C0b41892"
+  }
+}

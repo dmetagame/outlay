@@ -1,8 +1,6 @@
 # Outlay
 
-Public source for the Outlay protocol: scheduled USDG payout rooms with a settler bounty.
-
-Deploy from the app, then verify the contract on the explorer with the compiler settings below.
+Scheduled USDG payout rooms with a **settler bounty**.
 
 A sender locks canonical USDG in an isolated room: payout to a distinct payee, plus a bounty for whoever calls `settle` once the rule is due. One-shot rooms close on payout and return leftover to the sender. Cancel/refund is only allowed **before the first settlement**.
 
@@ -35,7 +33,7 @@ Paxos mint is institutional. Secondary market: [Uniswap on Arbitrum](https://app
 
 ## Verify on explorer
 
-After deploy, verify [contracts/Outlay.sol](./contracts/Outlay.sol) as a single-file contract:
+After deploy, verify [Outlay.sol](./Outlay.sol) as a single-file contract:
 
 | Setting | Value |
 | --- | --- |
@@ -45,12 +43,8 @@ After deploy, verify [contracts/Outlay.sol](./contracts/Outlay.sol) as a single-
 | License | MIT |
 | Constructor | canonical USDG address for that chain (table above) |
 
-Standard-JSON input: [contracts/compiler.json](./contracts/compiler.json) plus the source as `Outlay.sol`.
+Standard-JSON input: [compiler.json](./compiler.json) plus the source as `Outlay.sol`.
 
 ## Tests
 
-```
-node --experimental-strip-types --test src/lib/outlay/machine.test.ts
-```
-
-Accounting machine is 1:1 with the Solidity guarantees.
+Accounting machine (Node): `src/lib/outlay/machine.test.ts`
