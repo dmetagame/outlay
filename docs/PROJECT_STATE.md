@@ -3,7 +3,7 @@
 > Living handoff for Codex sessions. Read this file before working. Do not put
 > secrets or raw credential-bearing values here.
 
-Last updated: `2026-09-22T12:01:00Z`
+Last updated: `2026-09-22T12:26:51Z`
 Status: `READY_FOR_ROBINHOOD_WALLET_PROOF`
 Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore Promising Products track.
 
@@ -12,7 +12,7 @@ Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore
 - Repository: `https://github.com/dmetagame/outlay`
 - Worktree: `/home/rouma/outlay`
 - Branch: `main`
-- Implementation commit: `2c31322a1a61e11d339361811da866281cefe961` (pushed to `origin/main`; live through the Git-integrated Vercel deployment).
+- Current product checkpoint: `65d841b` (Robinhood default plus bounty-economics disclosure, pushed to `origin/main` and live through the Git-integrated Vercel deployment).
 - Protected releases/artifacts: none identified; no deployed or verified Outlay contract is claimed.
 
 ## Constraints
@@ -53,7 +53,7 @@ Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore
 
 | Check | Result | Evidence/date |
 | --- | --- | --- |
-| Git/GitHub | pass with CLI caveat | `2c31322` matches `origin/main` after successful HTTPS push; `gh auth status` still reports an expired separate CLI token, 2026-09-22 |
+| Git/GitHub | pass with CLI caveat | `65d841b` pushed to `origin/main`; `gh auth status` still reports an expired separate CLI token, 2026-09-22 |
 | Existing EVM tests | missing | No `foundry.toml`, Solidity test, or test dependency at start |
 | Existing UI | missing | Repository/workspace/GitHub search, 2026-09-21 |
 | Foundry EVM suite | pass | `forge test -vv`: 14 passed, 0 failed, 2026-09-22 |
@@ -101,4 +101,4 @@ Start with `git status --short --branch`, this file, `contracts/Outlay.sol`, and
 | 2026-09-22T00:00:00Z | Codex | Session reconciliation for Robinhood-default change | Clean `main` at `27e65a1`, matching `origin/main`; state was stale and GitHub CLI authentication is expired. |
 | 2026-09-22T11:48:26Z | Codex | Robinhood demo-route implementation and verification | Robinhood is the disconnected default; all funding routes are always visible; pinned v3 quote returned `0.274490 USDG` for `0.0001 WETH`; 14 EVM + 7 Vitest + 9 model tests pass. |
 | 2026-09-22T11:56:19Z | Codex | GitHub and production checkpoint | Commit `2c31322` pushed to `origin/main`; Git-integrated Vercel deployment serves the Robinhood-default UI with a clean live-browser smoke. |
-| 2026-09-22T12:01:00Z | Codex | Independent economics critique | Measured `0.050094 gwei`; retained locked demo amounts but disclosed that `0.01 USDG` proves payment, not third-party profitability. |
+| 2026-09-22T12:26:51Z | Codex | Independent economics critique | Measured `0.050094 gwei`; commit `65d841b` retains locked demo amounts but discloses that `0.01 USDG` proves payment, not third-party profitability; public HTML contains the disclosure. |
