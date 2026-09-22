@@ -3,7 +3,7 @@
 > Living handoff for Codex sessions. Read this file before working. Do not put
 > secrets or raw credential-bearing values here.
 
-Last updated: `2026-09-22T11:48:26Z`
+Last updated: `2026-09-22T11:56:19Z`
 Status: `READY_FOR_ROBINHOOD_WALLET_PROOF`
 Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore Promising Products track.
 
@@ -12,7 +12,7 @@ Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore
 - Repository: `https://github.com/dmetagame/outlay`
 - Worktree: `/home/rouma/outlay`
 - Branch: `main`
-- Base commit: `27e65a1751865dfaca9b5d77c447a8f94797e8e7` (matched `origin/main` at session start); Robinhood-default checkpoint is pending commit.
+- Implementation commit: `2c31322a1a61e11d339361811da866281cefe961` (pushed to `origin/main`; live through the Git-integrated Vercel deployment).
 - Protected releases/artifacts: none identified; no deployed or verified Outlay contract is claimed.
 
 ## Constraints
@@ -53,7 +53,7 @@ Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore
 
 | Check | Result | Evidence/date |
 | --- | --- | --- |
-| Git/GitHub | partial | Repository matched `origin/main` at session start, but `gh auth status` reports an expired token; push not yet attempted for this checkpoint, 2026-09-22 |
+| Git/GitHub | pass with CLI caveat | `2c31322` matches `origin/main` after successful HTTPS push; `gh auth status` still reports an expired separate CLI token, 2026-09-22 |
 | Existing EVM tests | missing | No `foundry.toml`, Solidity test, or test dependency at start |
 | Existing UI | missing | Repository/workspace/GitHub search, 2026-09-21 |
 | Foundry EVM suite | pass | `forge test -vv`: 14 passed, 0 failed, 2026-09-22 |
@@ -63,7 +63,7 @@ Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore
 | Typecheck + production build | pass | `npm run check`; 7 Vitest + 9 model tests and Nitro `.output`, 2026-09-22 |
 | Production server | pass | `PORT=3022 npm start`; rendered Outlay production build, 2026-09-22 |
 | Browser smoke | pass | Playwright disconnected desktop: 0 console errors; 390px viewport: no horizontal overflow, 2026-09-22 |
-| Public deployment | pass | Vercel deployment `dpl_CpCJKtaMxwtybXmsGrHRV4hhpoLx`; alias HTTP 200 and live browser console 0 errors, 2026-09-21 |
+| Public deployment | pass | Git-integrated deployment at `https://outlay-theta.vercel.app/`: Robinhood default, 3 disconnected funding routes, exact buy URL, judge path, 0 console errors, responsive at 390px/1280px, 2026-09-22 |
 | Dependency audit | pass | `npm audit --audit-level=high`: 0 vulnerabilities, 2026-09-22 |
 | Verification JSON | pass | solc `0.8.37` standard-JSON compile: 0 errors; bytecode matches Foundry after prefix normalization, 2026-09-21 |
 | Verification CLI dry run | pass | `forge verify-contract --show-standard-json-input`: Cancun, optimizer 200, `contracts/Outlay.sol`, 2026-09-21 |
@@ -72,7 +72,8 @@ Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore
 
 ## Risks And Blockers
 
-- GitHub CLI authentication failed at the 2026-09-22 session start because the saved token is no longer valid. The repository itself is clean and matches `origin/main`; a later HTTPS push must be attempted and verified before new work is called remotely backed up.
+- GitHub CLI authentication is expired, but HTTPS Git push succeeded and local `2c31322` matches `origin/main`.
+- Vercel CLI deployment returned `Not authorized`; the GitHub integration nevertheless deployed the pushed source, proven from the public SSR HTML and browser smoke.
 - Arbitrum One remains existing-holder-only: no indexed pair or executable DEX route was found for its canonical USDG. Gold USD `0x82248d53…` is a forbidden lookalike.
 - External: no Outlay contract is deployed or explorer-verified yet; those steps require the user's wallet and the resulting contract address.
 - External: the Robinhood funding route is live-quoted, but the Outlay money loop is not mainnet-proven until the user supplies a Blockscout settlement transaction showing payee `+0.10 USDG` and settler `+0.01 USDG`.
@@ -80,9 +81,8 @@ Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore
 
 ## Next Actions
 
-1. Commit and push the Robinhood-default checkpoint, deploy the updated UI, and repeat the disconnected live browser smoke.
-2. User adds Robinhood Chain to MetaMask, buys at least `0.11` canonical USDG through the pinned Uniswap route, deploys Outlay, and runs the `0.10 + 0.01` loop to a distinct payee.
-3. Verify the deployed contract on Robinhood Blockscout and record the user-provided settlement transaction only after both USDG transfer legs are visible.
+1. User adds Robinhood Chain to MetaMask, buys at least `0.11` canonical USDG through the pinned Uniswap route, deploys Outlay, and runs the `0.10 + 0.01` loop to a distinct payee.
+2. Verify the deployed contract on Robinhood Blockscout and record the user-provided settlement transaction only after both USDG transfer legs are visible.
 
 ## Session Handoff
 
@@ -99,3 +99,4 @@ Start with `git status --short --branch`, this file, `contracts/Outlay.sol`, and
 | 2026-09-21T23:34:55Z | Codex | Production deployment | Vercel project linked to GitHub; `https://outlay-theta.vercel.app/` returned HTTP 200 and a clean live-browser smoke test. |
 | 2026-09-22T00:00:00Z | Codex | Session reconciliation for Robinhood-default change | Clean `main` at `27e65a1`, matching `origin/main`; state was stale and GitHub CLI authentication is expired. |
 | 2026-09-22T11:48:26Z | Codex | Robinhood demo-route implementation and verification | Robinhood is the disconnected default; all funding routes are always visible; pinned v3 quote returned `0.274490 USDG` for `0.0001 WETH`; 14 EVM + 7 Vitest + 9 model tests pass. |
+| 2026-09-22T11:56:19Z | Codex | GitHub and production checkpoint | Commit `2c31322` pushed to `origin/main`; Git-integrated Vercel deployment serves the Robinhood-default UI with a clean live-browser smoke. |
