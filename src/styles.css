@@ -106,11 +106,22 @@ summary { cursor: pointer; font-weight: 720; }
 .proof { display: grid; gap: 5px; margin-top: 13px; padding: 12px; border-left: 3px solid var(--green); color: #164a35; background: #e4f1e8; font-size: .8rem; }
 .proof-links { display: flex; gap: 14px; margin-top: 4px; font-weight: 800; }
 
+.fund-routes { display: grid; gap: 14px; margin-top: 18px; }
+.fund-route { padding: 16px; border: 1px solid var(--line); background: #f6f2e9; }
+.fund-route.featured { border-color: var(--green); background: #edf6ef; }
+.fund-route.warning-route { border-color: #c8755d; background: #fbe9e3; }
+.fund-route p { margin: 11px 0 14px; color: var(--muted); font-size: .84rem; line-height: 1.5; }
+.route-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .fund-links { display: grid; gap: 10px; }
 .fund-link { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px; border: 1px solid var(--line); text-decoration: none; }
 .fund-link:hover { border-color: var(--ink); }
 .fund-link span { color: var(--muted); font-size: .8rem; }
 .token-address { display: block; margin: 12px 0; overflow-wrap: anywhere; }
+.judge-path { margin-top: 18px; padding: 16px; color: white; background: var(--ink); }
+.judge-path .step { color: #afa99e; }
+.judge-path ol { margin: 12px 0 0; padding-left: 20px; }
+.judge-path li { margin-top: 8px; padding-left: 3px; font-size: .86rem; line-height: 1.45; }
+.institutional-link { margin-top: 14px; }
 .footer { display: flex; justify-content: space-between; gap: 20px; padding-block: 28px; border-top: 1px solid var(--line); color: var(--muted); font-size: .82rem; }
 
 @media (max-width: 840px) {
@@ -128,6 +139,7 @@ summary { cursor: pointer; font-weight: 720; }
   .hero { gap: 30px; }
   .field-grid, .room-facts { grid-template-columns: 1fr; }
   .panel { padding: 19px; }
+  .route-title, .fund-link { align-items: flex-start; flex-direction: column; }
   .footer { flex-direction: column; }
 }
 

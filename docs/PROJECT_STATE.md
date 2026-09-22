@@ -3,8 +3,8 @@
 > Living handoff for Codex sessions. Read this file before working. Do not put
 > secrets or raw credential-bearing values here.
 
-Last updated: `2026-09-21T23:34:55Z`
-Status: `READY_FOR_WALLET_PROOF`
+Last updated: `2026-09-22T11:48:26Z`
+Status: `READY_FOR_ROBINHOOD_WALLET_PROOF`
 Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore Promising Products track.
 
 ## Workspace
@@ -12,13 +12,13 @@ Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore
 - Repository: `https://github.com/dmetagame/outlay`
 - Worktree: `/home/rouma/outlay`
 - Branch: `main`
-- Commit: `b1aeb05a56dd443acf1dc8d089a4978912fdfcde` (handoff checkpoint, pushed to `origin/main`)
+- Base commit: `27e65a1751865dfaca9b5d77c447a8f94797e8e7` (matched `origin/main` at session start); Robinhood-default checkpoint is pending commit.
 - Protected releases/artifacts: none identified; no deployed or verified Outlay contract is claimed.
 
 ## Constraints
 
 - Product is locked: scheduled canonical-USDG payout rooms with a mandatory sender-funded settler bounty.
-- Arbitrum One is the default chain; Robinhood Chain is optional only with funded USDG and ETH.
+- Robinhood Chain is the default demo chain; Arbitrum One remains supported only for wallets already holding canonical USDG because no DEX route was found.
 - Keep auth/database off, enforce `payee != sender`, and do not introduce mock USDG in the application.
 - Do not deploy from an unavailable user key or claim explorer verification before a real deployment.
 
@@ -44,39 +44,49 @@ Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore
 - Added the official Nitro/Vercel production adapter and explicit `tanstack-start` framework declaration.
 - Published the app at `https://outlay-theta.vercel.app/`; Vercel project `dmetagames-projects/outlay` is connected to the public GitHub repository.
 - Confirmed the Uniswap URL pins canonical Arbitrum USDG but found no current V3 pool or aggregator route; the UI and README now disclose this and route dry runs to official Paxos Sepolia USDG/faucet.
+- Changed the disconnected/default demo chain to Robinhood Chain while keeping Arbitrum One and Arbitrum Sepolia supported.
+- Made Robinhood buy, Arbitrum One warning, and Sepolia faucet/docs routes visible without a connected wallet; every route displays its exact canonical token address.
+- Added the complete Robinhood judge click path to the UI and README and preserved the explicit no-mainnet-proof claim until a user-signed transaction exists.
+- Added Foundry coverage for refund-before-settlement and the second recurring `NotDue` boundary.
 
 ## Verification
 
 | Check | Result | Evidence/date |
 | --- | --- | --- |
-| Git/GitHub | pass | Clean `main`; `gh auth status` authenticated as `dmetagame`, 2026-09-21 |
+| Git/GitHub | partial | Repository matched `origin/main` at session start, but `gh auth status` reports an expired token; push not yet attempted for this checkpoint, 2026-09-22 |
 | Existing EVM tests | missing | No `foundry.toml`, Solidity test, or test dependency at start |
 | Existing UI | missing | Repository/workspace/GitHub search, 2026-09-21 |
-| Foundry EVM suite | pass | `forge test -vv`: 12 passed, 0 failed, 2026-09-21 |
-| Foundry formatting | pass | `forge fmt --check`, 2026-09-21 |
+| Foundry EVM suite | pass | `forge test -vv`: 14 passed, 0 failed, 2026-09-22 |
+| Foundry formatting/lint | pass | `forge fmt --check`; `forge lint --deny warnings`, 2026-09-22 |
 | Accounting model | pass | `node --experimental-strip-types src/lib/outlay/machine.test.ts`: 9 passed, 2026-09-21 |
-| Form/address unit tests | pass | Vitest: 5 passed, 0 failed, 2026-09-21 |
-| Typecheck + production build | pass | `npm run check`; Nitro `.output` generated, 2026-09-21 |
-| Production server | pass | `PORT=3022 npm start`; HTTP 200 with rendered Outlay HTML, 2026-09-21 |
-| Browser smoke | pass | Playwright desktop: 0 console errors; 390px viewport: no horizontal overflow, 2026-09-21 |
+| Form/address/chain unit tests | pass | Vitest: 7 passed, 0 failed, 2026-09-22 |
+| Typecheck + production build | pass | `npm run check`; 7 Vitest + 9 model tests and Nitro `.output`, 2026-09-22 |
+| Production server | pass | `PORT=3022 npm start`; rendered Outlay production build, 2026-09-22 |
+| Browser smoke | pass | Playwright disconnected desktop: 0 console errors; 390px viewport: no horizontal overflow, 2026-09-22 |
 | Public deployment | pass | Vercel deployment `dpl_CpCJKtaMxwtybXmsGrHRV4hhpoLx`; alias HTTP 200 and live browser console 0 errors, 2026-09-21 |
-| Dependency audit | pass | `npm audit --audit-level=high`: 0 vulnerabilities, 2026-09-21 |
+| Dependency audit | pass | `npm audit --audit-level=high`: 0 vulnerabilities, 2026-09-22 |
 | Verification JSON | pass | solc `0.8.37` standard-JSON compile: 0 errors; bytecode matches Foundry after prefix normalization, 2026-09-21 |
 | Verification CLI dry run | pass | `forge verify-contract --show-standard-json-input`: Cancun, optimizer 200, `contracts/Outlay.sol`, 2026-09-21 |
+| Robinhood quote | pass | Block `69,615,154`: pool `0x52e65B17fB6E5BA00Ed806f37Afcd2DaA50271Ca` token0 WETH, token1 canonical USDG, fee 100, nonzero liquidity; QuoterV2 returned `0.274490 USDG` for `0.0001 WETH`, 2026-09-22 |
+| Disconnected browser smoke | pass | Local production build: Robinhood token shown by default; all 3 funding routes visible, exact pinned links, 0 console errors, 390px no overflow, 2026-09-22 |
 
 ## Risks And Blockers
 
-- External/blocking for final proof: no indexed DEX pair, standard Uniswap V3 pool, or ParaSwap route was available for canonical Arbitrum One USDG on 2026-09-22. A mainnet proof requires USDG already held on Arbitrum One or a newly available route.
+- GitHub CLI authentication failed at the 2026-09-22 session start because the saved token is no longer valid. The repository itself is clean and matches `origin/main`; a later HTTPS push must be attempted and verified before new work is called remotely backed up.
+- Arbitrum One remains existing-holder-only: no indexed pair or executable DEX route was found for its canonical USDG. Gold USD `0x82248d53…` is a forbidden lookalike.
 - External: no Outlay contract is deployed or explorer-verified yet; those steps require the user's wallet and the resulting contract address.
+- External: the Robinhood funding route is live-quoted, but the Outlay money loop is not mainnet-proven until the user supplies a Blockscout settlement transaction showing payee `+0.10 USDG` and settler `+0.01 USDG`.
 - Build warning: Nitro/Rolldown reports third-party `use client` directive warnings, but the generated production server returned HTTP 200 and hydrated cleanly in the browser smoke test.
 
 ## Next Actions
 
-1. With a funded user wallet, deploy Outlay on Arbitrum One (or rehearse on Sepolia), run the 0.10 + 0.01 loop to a distinct payee, and verify the resulting address with the committed kit.
+1. Commit and push the Robinhood-default checkpoint, deploy the updated UI, and repeat the disconnected live browser smoke.
+2. User adds Robinhood Chain to MetaMask, buys at least `0.11` canonical USDG through the pinned Uniswap route, deploys Outlay, and runs the `0.10 + 0.01` loop to a distinct payee.
+3. Verify the deployed contract on Robinhood Blockscout and record the user-provided settlement transaction only after both USDG transfer legs are visible.
 
 ## Session Handoff
 
-Start with `git status --short --branch`, this file, `contracts/Outlay.sol`, and `README.md`. Do not claim a deployment, verified badge, mainnet payment, or working Arbitrum One swap until explorer evidence exists.
+Start with `git status --short --branch`, this file, `contracts/Outlay.sol`, and `README.md`. Do not claim a deployed/verified Outlay contract or mainnet payment until explorer evidence exists. Robinhood liquidity is quote-proven; Arbitrum One liquidity is not.
 
 ## Change Log
 
@@ -87,3 +97,5 @@ Start with `git status --short --branch`, this file, `contracts/Outlay.sol`, and
 | 2026-09-21T23:28:35Z | Codex | Application, verification, funding, and adversarial review checkpoint | Wallet UI and production adapter pass tests/browser smoke; verification artifacts compile exactly; mainnet USDG acquisition remains external. |
 | 2026-09-21T23:30:17Z | Codex | GitHub checkpoint | Commit `05b22f2` pushed to public `dmetagame/outlay` on `origin/main`. |
 | 2026-09-21T23:34:55Z | Codex | Production deployment | Vercel project linked to GitHub; `https://outlay-theta.vercel.app/` returned HTTP 200 and a clean live-browser smoke test. |
+| 2026-09-22T00:00:00Z | Codex | Session reconciliation for Robinhood-default change | Clean `main` at `27e65a1`, matching `origin/main`; state was stale and GitHub CLI authentication is expired. |
+| 2026-09-22T11:48:26Z | Codex | Robinhood demo-route implementation and verification | Robinhood is the disconnected default; all funding routes are always visible; pinned v3 quote returned `0.274490 USDG` for `0.0001 WETH`; 14 EVM + 7 Vitest + 9 model tests pass. |

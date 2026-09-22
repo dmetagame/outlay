@@ -218,6 +218,38 @@ contract OutlayTest {
         outlay.refund(roomId);
     }
 
+    function testRefundBeforeSettlementReturnsTheWholeRoom() public {
+        uint96 funded = COST * 2;
+        uint256 senderBeforeFunding = token.balanceOf(SENDER);
+        uint256 roomId = _open(funded, 100, 60);
+
+        vm.prank(SENDER);
+        outlay.refund(roomId);
+
+        Outlay.Room memory room = outlay.getRoom(roomId);
+        _assertEq(token.balanceOf(SENDER), senderBeforeFunding, "whole room refunded");
+        _assertEq(token.balanceOf(address(outlay)), 0, "contract balance cleared");
+        _assertEq(room.remaining, 0, "room accounting cleared");
+        require(!room.active, "refunded room remains active");
+    }
+
+    function testSecondRecurringSettlementRevertsUntilNextInterval() public {
+        uint256 roomId = _open(COST * 2, 100, 60);
+        vm.warp(100);
+        vm.prank(SETTLER);
+        outlay.settle(roomId);
+
+        vm.warp(159);
+        vm.expectRevert(Outlay.NotDue.selector);
+        vm.prank(SETTLER);
+        outlay.settle(roomId);
+
+        Outlay.Room memory room = outlay.getRoom(roomId);
+        _assertEq(room.nextRunAt, 160, "next interval changed");
+        _assertEq(room.settlements, 1, "second settlement counted early");
+        _assertEq(room.remaining, COST, "second period charged early");
+    }
+
     function testSupportsTokenWithNoReturnData() public {
         NoReturnToken noReturn = new NoReturnToken();
         Outlay noReturnOutlay = new Outlay(address(noReturn));

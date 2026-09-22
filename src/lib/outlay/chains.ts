@@ -21,7 +21,7 @@ export const robinhood = defineChain({
   },
 });
 
-export const supportedChains = [arbitrum, arbitrumSepolia, robinhood] as const satisfies readonly [
+export const supportedChains = [robinhood, arbitrum, arbitrumSepolia] as const satisfies readonly [
   Chain,
   ...Chain[],
 ];
@@ -41,6 +41,11 @@ export function isCanonicalUsdg(chainId: SupportedChainId, token: string): boole
 export function uniswapArbitrumUsdgUrl(): string {
   const token = canonicalUsdg(arbitrum.id);
   return `https://app.uniswap.org/swap?chain=arbitrum&outputCurrency=${token}`;
+}
+
+export function uniswapRobinhoodUsdgUrl(): string {
+  const token = canonicalUsdg(robinhood.id);
+  return `https://app.uniswap.org/swap?chain=robinhood&inputCurrency=ETH&outputCurrency=${token}`;
 }
 
 export function explorerBase(chainId: SupportedChainId): string {
@@ -63,4 +68,3 @@ export function usdgHolderUrl(chainId: SupportedChainId, holder: string): string
   if (chainId === robinhood.id) return `${base}/token/${token}?a=${holder}`;
   return `${base}/token/${token}?a=${holder}`;
 }
-
