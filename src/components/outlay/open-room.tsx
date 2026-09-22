@@ -161,6 +161,7 @@ export function OpenRoom({ contractAddress, onRoomOpened }: Props) {
         <div className="field">
           <label htmlFor="bounty">Settler bounty</label>
           <div className="input-suffix"><input id="bounty" value={bounty} onChange={(event) => setBounty(event.target.value)} /><span>USDG</span></div>
+          <small>0.01 proves the paid-caller loop; raise it above live gas cost for third-party profit.</small>
         </div>
         <div className="field">
           <label htmlFor="periods">Funded periods</label>

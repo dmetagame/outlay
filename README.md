@@ -21,6 +21,11 @@ The judge defaults are a **0.10 USDG payout**, **0.01 USDG bounty**, one funded 
 different from the connected sender. One MetaMask can deploy, fund, and settle; the payee can be a
 second address controlled by the judge and does not need to connect.
 
+The `0.01 USDG` bounty proves that the caller is paid; it is not a profitability guarantee. At the
+22 Sep 2026 observed Robinhood gas price of `0.050094 gwei`, the tested one-shot settlement gas
+estimate would cost more than one cent at the contemporaneous ETH/USDG quote. A sender seeking
+unattended third-party execution should set the configurable bounty above live transaction cost.
+
 **Proof status:** the Robinhood USDG funding route is live-quoted, but Outlay is not yet claimed as
 mainnet-proven. That claim waits for a user-signed Robinhood Blockscout transaction showing the
 payee received `0.10 USDG` and the settler received `0.01 USDG`.

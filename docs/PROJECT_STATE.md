@@ -3,7 +3,7 @@
 > Living handoff for Codex sessions. Read this file before working. Do not put
 > secrets or raw credential-bearing values here.
 
-Last updated: `2026-09-22T11:56:19Z`
+Last updated: `2026-09-22T12:01:00Z`
 Status: `READY_FOR_ROBINHOOD_WALLET_PROOF`
 Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore Promising Products track.
 
@@ -77,6 +77,7 @@ Active objective: Finish and verify Outlay for the Arbitrum Open House Singapore
 - Arbitrum One remains existing-holder-only: no indexed pair or executable DEX route was found for its canonical USDG. Gold USD `0x82248d53…` is a forbidden lookalike.
 - External: no Outlay contract is deployed or explorer-verified yet; those steps require the user's wallet and the resulting contract address.
 - External: the Robinhood funding route is live-quoted, but the Outlay money loop is not mainnet-proven until the user supplies a Blockscout settlement transaction showing payee `+0.10 USDG` and settler `+0.01 USDG`.
+- Economic caveat: current Robinhood gas was `0.050094 gwei`; the Foundry one-shot settlement estimate implies the locked `0.01 USDG` demo bounty may not cover gas. The bounty remains user-configurable, and UI/README now tell real senders to price it above live transaction cost.
 - Build warning: Nitro/Rolldown reports third-party `use client` directive warnings, but the generated production server returned HTTP 200 and hydrated cleanly in the browser smoke test.
 
 ## Next Actions
@@ -100,3 +101,4 @@ Start with `git status --short --branch`, this file, `contracts/Outlay.sol`, and
 | 2026-09-22T00:00:00Z | Codex | Session reconciliation for Robinhood-default change | Clean `main` at `27e65a1`, matching `origin/main`; state was stale and GitHub CLI authentication is expired. |
 | 2026-09-22T11:48:26Z | Codex | Robinhood demo-route implementation and verification | Robinhood is the disconnected default; all funding routes are always visible; pinned v3 quote returned `0.274490 USDG` for `0.0001 WETH`; 14 EVM + 7 Vitest + 9 model tests pass. |
 | 2026-09-22T11:56:19Z | Codex | GitHub and production checkpoint | Commit `2c31322` pushed to `origin/main`; Git-integrated Vercel deployment serves the Robinhood-default UI with a clean live-browser smoke. |
+| 2026-09-22T12:01:00Z | Codex | Independent economics critique | Measured `0.050094 gwei`; retained locked demo amounts but disclosed that `0.01 USDG` proves payment, not third-party profitability. |
