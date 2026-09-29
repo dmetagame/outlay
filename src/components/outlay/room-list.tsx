@@ -58,22 +58,21 @@ export function RoomList({ contractAddress, refreshKey }: Props) {
   const ids = Array.from({ length: roomCount - oldest + 1 }, (_, index) => BigInt(roomCount - index));
 
   return (
-    <section className="panel rooms-panel">
+    <section className="rooms-panel" aria-labelledby="rooms-title">
       <div className="panel-heading">
         <div>
-          <p className="step">STEP 3</p>
-          <h2>Settle a due room</h2>
+          <h3 id="rooms-title">Settlement queue</h3>
         </div>
-        <span className="badge">{roomCount} ROOM{roomCount === 1 ? "" : "S"}</span>
+        <span className="badge">{roomCount} room{roomCount === 1 ? "" : "s"}</span>
       </div>
       <p className="muted">
-        Anyone can call settlement. The payee receives the payout and the caller receives the bounty
-        in the same transaction.
+        Settle a due room to pay its recipient and collect the caller bounty. Any wallet can call.
       </p>
 
-      {!contractAddress && <p className="empty">Deploy or enter an Outlay contract to load rooms.</p>}
+      {!contractAddress && <div className="empty-state"><span className="empty-mark" aria-hidden="true">↗</span><h4>Your next payment starts here.</h4><p>Choose a contract, then open a room. Its due time and settlement action will appear here.</p><a href="#contract-title">Choose a contract ↑</a></div>}
+      {contractAddress && count.isError && <p className="error" role="alert">Rooms could not be read. Check your network and <button className="text-button" type="button" onClick={() => void count.refetch()}>try again</button>.</p>}
       {contractAddress && count.isLoading && <p className="empty">Reading rooms from the chain…</p>}
-      {contractAddress && !count.isLoading && roomCount === 0 && (
+      {contractAddress && !count.isLoading && !count.isError && roomCount === 0 && (
         <p className="empty">No funded rooms yet. Open the first room from this wallet.</p>
       )}
       <div className="room-list">
@@ -122,7 +121,7 @@ function RoomCard({
     void roomRead.refetch();
   }, [refreshKey, roomRead.refetch]);
 
-  if (!room) return <article className="room-card skeleton">Loading room #{id.toString()}…</article>;
+  if (!room) return <article className="room-card skeleton">{roomRead.isError ? `Could not read room #${id.toString()}.` : `Loading room #${id.toString()}…`}{roomRead.isError && <button className="text-button" type="button" onClick={() => void roomRead.refetch()}>Try again</button>}</article>;
 
   const due = BigInt(now) >= room.nextRunAt;
   const senderConnected = Boolean(address && address.toLowerCase() === room.sender.toLowerCase());
@@ -185,16 +184,16 @@ function RoomCard({
     <article className={`room-card ${room.active ? "" : "closed"}`}>
       <div className="room-title">
         <div>
-          <span className="label">ROOM</span>
+          <span className="label">Room</span>
           <strong>#{id.toString()}</strong>
         </div>
         <span className={`badge ${room.active && due ? "due" : room.active ? "" : "closed-badge"}`}>
-          {!room.active ? "CLOSED" : due ? "DUE" : `IN ${formatCountdown(Number(room.nextRunAt) - now)}`}
+          {!room.active ? "Closed" : due ? "Due" : `In ${formatCountdown(Number(room.nextRunAt) - now)}`}
         </span>
       </div>
 
       <dl className="room-facts">
-        <div><dt>Payee</dt><dd><code>{shortAddress(room.payee, 6)}</code></dd></div>
+        <div><dt>Payee</dt><dd><code title={room.payee}>{shortAddress(room.payee, 6)}</code></dd></div>
         <div><dt>Payout</dt><dd>{formatUsdg(room.amount)} USDG</dd></div>
         <div><dt>Caller earns</dt><dd>{formatUsdg(room.bounty)} USDG</dd></div>
         <div><dt>Remaining</dt><dd>{formatUsdg(room.remaining)} USDG</dd></div>

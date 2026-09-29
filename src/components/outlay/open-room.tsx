@@ -131,84 +131,62 @@ export function OpenRoom({ contractAddress, onRoomOpened }: Props) {
   }
 
   return (
-    <section className="panel">
+    <section className="composer" aria-labelledby="composer-title">
       <div className="panel-heading">
-        <div>
-          <p className="step">STEP 2</p>
-          <h2>Open a payout room</h2>
-        </div>
-        <span className="badge">0.10 + 0.01</span>
+        <div><h3 id="composer-title">New payout room</h3><p>One payee. An isolated balance. A paid caller.</p></div>
       </div>
-
-      <div className="field">
+      <div className="amount-fields">
+        <div className="field amount-field">
+          <label htmlFor="payout">Payee receives</label>
+          <div className="input-suffix"><input id="payout" name="payout" inputMode="decimal" autoComplete="off" aria-describedby="payout-hint" value={payout} onChange={(event) => setPayout(event.target.value)} /><span>USDG</span></div>
+          <small id="payout-hint">Payout per settlement</small>
+        </div>
+        <div className="field amount-field">
+          <label htmlFor="bounty">Caller earns</label>
+          <div className="input-suffix"><input id="bounty" name="bounty" inputMode="decimal" autoComplete="off" aria-describedby="bounty-hint" value={bounty} onChange={(event) => setBounty(event.target.value)} /><span>USDG</span></div>
+          <small id="bounty-hint">Sender-funded settler bounty</small>
+        </div>
+      </div>
+      <div className="field payee-field">
         <label htmlFor="payee">Payee address</label>
-        <input
-          id="payee"
-          placeholder="A different address you control · 0x…"
-          value={payee}
-          onChange={(event) => setPayee(event.target.value)}
-          aria-invalid={Boolean(payee && payeeError)}
-        />
-        <small>Payee must be a different address you control. The contract rejects the connected sender.</small>
-        {payee && payeeError && <span className="field-error">{payeeError}</span>}
+        <input id="payee" name="payee" autoComplete="off" spellCheck={false} placeholder="0x…" value={payee} onChange={(event) => setPayee(event.target.value)} aria-invalid={Boolean(payee && payeeError)} aria-describedby={payee && payeeError ? "payee-hint payee-error" : "payee-hint"} />
+        <small id="payee-hint">Must differ from the sender. The payee does not need to connect.</small>
+        {payee && payeeError && <span id="payee-error" className="field-error" aria-live="polite">{payeeError}</span>}
       </div>
-
-      <div className="field-grid">
-        <div className="field">
-          <label htmlFor="payout">Payout per period</label>
-          <div className="input-suffix"><input id="payout" value={payout} onChange={(event) => setPayout(event.target.value)} /><span>USDG</span></div>
-        </div>
-        <div className="field">
-          <label htmlFor="bounty">Settler bounty</label>
-          <div className="input-suffix"><input id="bounty" value={bounty} onChange={(event) => setBounty(event.target.value)} /><span>USDG</span></div>
-          <small>0.01 proves the paid-caller loop; raise it above live gas cost for third-party profit.</small>
-        </div>
-        <div className="field">
-          <label htmlFor="periods">Funded periods</label>
-          <input id="periods" inputMode="numeric" value={periods} onChange={(event) => setPeriods(event.target.value)} />
-        </div>
-        <div className="field">
-          <label htmlFor="interval">Interval seconds</label>
-          <input id="interval" inputMode="numeric" disabled={parsed?.count === 1} value={interval} onChange={(event) => setInterval(event.target.value)} />
-        </div>
-      </div>
-
-      <fieldset className="segmented">
+      <fieldset className="due-options">
         <legend>First due time</legend>
-        <label><input type="radio" name="due" checked={dueMode === "minute"} onChange={() => setDueMode("minute")} /> In 1 minute</label>
-        <label><input type="radio" name="due" checked={dueMode === "now"} onChange={() => setDueMode("now")} /> Due now</label>
+        <div className="due-choices">
+          <label><input type="radio" name="due" value="minute" checked={dueMode === "minute"} onChange={() => setDueMode("minute")} /><span>In 1 minute</span><small>From wallet request</small></label>
+          <label><input type="radio" name="due" value="now" checked={dueMode === "now"} onChange={() => setDueMode("now")} /><span>Due now</span><small>Ready to settle</small></label>
+        </div>
       </fieldset>
-
-      <div className="lock-preview">
-        <span>LOCK PREVIEW</span>
-        <strong>{parsed ? `${formatUsdg(parsed.funded, 6)} USDG` : "Invalid amounts"}</strong>
-        <small>(payout + bounty) × periods</small>
+      <details className="schedule-options">
+        <summary>Recurring schedule <span>{parsed?.count === 1 ? "One-shot" : `${periods} funded periods`}</span></summary>
+        <div className="field-grid">
+          <div className="field"><label htmlFor="periods">Funded periods</label><input id="periods" name="periods" inputMode="numeric" autoComplete="off" value={periods} onChange={(event) => setPeriods(event.target.value)} /></div>
+          <div className="field"><label htmlFor="interval">Interval in seconds</label><input id="interval" name="interval" inputMode="numeric" autoComplete="off" disabled={parsed?.count === 1} value={interval} onChange={(event) => setInterval(event.target.value)} /></div>
+        </div>
+        <p className="control-hint">One period closes after settlement. Recurring rooms advance from the last settlement.</p>
+      </details>
+      <div className="lock-preview" aria-live="polite">
+        <div><span>Total to lock</span><small>{parsed && parsed.count > 1 ? `(Payout + bounty) × ${parsed.count} periods` : "Payout + bounty · One settlement"}</small></div>
+        <strong>{parsed ? formatUsdg(parsed.funded, 6) : "—"} <span>USDG</span></strong>
       </div>
-
-      {insufficientBalance && <p className="error" role="alert">Wallet USDG balance is below the lock preview.</p>}
-      {!contractAddress && <p className="notice">Deploy or enter an Outlay contract before funding a room.</p>}
-
+      {!parsed && <p className="error" role="alert">Enter positive payout and bounty amounts, with at least one funded period.</p>}
+      {insufficientBalance && <p className="error" role="alert">Your wallet needs more USDG to fund this room. <a href="#funding">View funding routes</a>.</p>}
       {needsApproval ? (
-        <button className="primary full" type="button" disabled={!address || isPending || insufficientBalance} onClick={approve}>
-          {isPending ? "Confirm in wallet…" : `Approve ${parsed ? formatUsdg(parsed.funded, 6) : ""} USDG`}
+        <button className="primary full" type="button" disabled={!address || isPending || approvalReceipt.isLoading || insufficientBalance} onClick={approve}>
+          {isPending ? "Confirm in wallet…" : approvalReceipt.isLoading ? "Approving USDG…" : `Approve ${parsed ? formatUsdg(parsed.funded, 6) : ""} USDG`}
         </button>
       ) : (
-        <button
-          className="primary full"
-          type="button"
-          disabled={!parsed || !contractAddress || Boolean(payeeError) || insufficientBalance || isPending}
-          onClick={openRoom}
-        >
-          {isPending ? "Confirm in wallet…" : "Fund and open room"}
+        <button className="primary full" type="button" disabled={!address || !isSupportedChainId(chainId) || !parsed || !contractAddress || Boolean(payeeError) || insufficientBalance || isPending || openReceipt.isLoading} onClick={openRoom}>
+          {isPending ? "Confirm in wallet…" : openReceipt.isLoading ? "Opening room…" : "Fund and open room"}
         </button>
       )}
-
-      {approvalHash && isSupportedChainId(chainId) && (
-        <a className="inline-link" href={transactionUrl(chainId, approvalHash)} target="_blank" rel="noreferrer">Approval transaction ↗</a>
-      )}
-      {openHash && isSupportedChainId(chainId) && (
-        <a className="inline-link" href={transactionUrl(chainId, openHash)} target="_blank" rel="noreferrer">Room transaction ↗</a>
-      )}
+      {!contractAddress && <p className="control-hint">Choose a contract above before funding your room.</p>}
+      <p className="bounty-note">The bounty pays the caller; profit is not guaranteed. For third-party settlement, price it above live gas cost.</p>
+      {approvalHash && isSupportedChainId(chainId) && <a className="inline-link" href={transactionUrl(chainId, approvalHash)} target="_blank" rel="noreferrer">Approval transaction ↗</a>}
+      {openHash && isSupportedChainId(chainId) && <a className="inline-link" href={transactionUrl(chainId, openHash)} target="_blank" rel="noreferrer">Room transaction ↗</a>}
       {error && <p className="error" role="alert">{error}</p>}
     </section>
   );

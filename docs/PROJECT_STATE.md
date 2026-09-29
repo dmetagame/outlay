@@ -1,8 +1,19 @@
 # Project State
 
 Last updated: `2026-09-29`
-Status: `ROBINHOOD_PROOF_PUBLISHED_AND_LIVE`
-Active objective: Completed — public main and live app present the Robinhood payment proof and Sourcify exact match.
+Status: `SETTLEMENT_DESK_READY_TO_PUBLISH`
+Active objective: Redesign Outlay as a finished settlement desk, preserving calls/proof; check, push main, and confirm the live page.
+
+## Current redesign — 2026-09-29
+
+- Starting main: `4e8770748a8770788cc23a7afda9345e75b9ef56`. User approved using installed frontend/design skills with MystiqueMide's documented product designs after the installation record confirmed his 25 installed skills do not contain a general visual system.
+- Direction and applied skill paths are recorded in `docs/DESIGN.md`: Swiss typography/palette/grid, product-specific settlement receipt and operator console, preserved canonical funding routes and wallet calls.
+- Read the installed design inventory and relevant design-system instructions before CSS. More specific product/frontend guidance and the user's explicit constraints override inapplicable presentation, framework, and branded examples.
+- GitHub CLI authentication now succeeds as `dmetagame`; HTTPS origin remains unchanged. Existing untracked proof script and `.env.example` are outside this change. No `.env` reads or blockchain broadcasts are part of this task.
+- Implemented self-hosted IBM Plex fonts, a payment receipt hero, horizontal contract setup, payout-led composer beside the settlement queue, and full-width funding routes. Light/dark modes, native disclosures/radios, visible focus, and 48px actions follow the recorded system.
+- Preserved deploy/approve/open/settle/refund calls and exact proof links. Browser deployment normalizes only the existing duplicate `0x` text prefix; normalized creation data plus constructor was compared byte-for-byte with the public deployment input. Protected artifact/contract/verification files remain unchanged.
+- Local production browser checks: 1440px desktop, 390px and 320px mobile have no overflow; fonts load; keyboard focus is visible; invalid payee and recurring 3-period total (0.33 USDG) render correctly. The existing public contract loads room 1 as closed, settlements 1, remaining 0. No page errors. Both settlement and Sourcify URLs returned HTTP 200.
+- Isolated `npm run check` passed typecheck, seven Vitest tests, nine model tests, and production build. Final copy refinements passed the same check; native disclosure keyboard activation also passed. Push/live confirmation is next.
 
 ## Workspace and boundaries
 
@@ -43,7 +54,7 @@ Active objective: Completed — public main and live app present the Robinhood p
 - Publication checks (2026-09-29): isolated `npm run check` passed (typecheck, seven Vitest tests, nine model tests, production build). Local production HTML and browser show the exact deployment/settlement/Sourcify links and retain the wallet deploy control; 390px mobile has no horizontal overflow and no page errors. Public-file scan found only allowlisted transaction hashes and no key assignments; protected contract/artifact diff is empty.
 - Historical checks (2026-09-22): 14 Foundry EVM tests; seven Vitest tests; nine accounting-model tests; typecheck and production build; desktop/mobile browser smoke passed.
 - Robinhood Blockscout verification is an open explorer-badge limitation: compiler list lacks `0.8.37`, API returns Cloudflare 403. The CLI attempt and exact error are in the proof. Do not claim a Blockscout verified badge. This does not block the completed payment or Sourcify exact match.
-- GitHub CLI token is invalid; Git HTTPS push succeeded. Public main contains the proof, updated README/state, and app proof strip.
+- GitHub CLI authentication succeeds as `dmetagame` as of this redesign. Public main already contains the payment proof and corrected README.
 - Arbitrum One's canonical-USDG DEX funding route was not found in earlier checks. Existing-holder-only disclosure remains.
 - Vercel CLI previously lacked authorization; deployment uses the existing Git integration.
 

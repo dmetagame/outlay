@@ -13,9 +13,13 @@ export function Header() {
     <header className="header">
       <div className="header-inner shell">
         <a className="brand" href="/" aria-label="Outlay home">
-          <span className="brand-mark">O</span>
-          <span>OUTLAY</span>
+          <span className="brand-mark" aria-hidden="true"><i /><i /></span>
+          <span>outlay</span>
         </a>
+        <nav className="header-nav" aria-label="Main navigation">
+          <a href="#desk">Settlement desk</a>
+          <a href="#funding">Funding routes</a>
+        </nav>
         <div className="wallet-cluster">
         {isConnected ? (
           <>

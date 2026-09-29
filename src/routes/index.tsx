@@ -24,46 +24,42 @@ function App() {
   }, [chainId]);
 
   return (
-    <main>
+    <>
+      <a className="skip-link" href="#desk">Skip to settlement desk</a>
       <Header />
-      <section className="hero shell">
-        <div>
-          <p className="eyebrow">ARBITRUM OPEN HOUSE · PROMISING PRODUCTS</p>
-          <h1>Scheduled payouts.<br />Paid settlement.</h1>
-          <p className="hero-copy">
-            Lock canonical USDG for a different payee. When the room is due, anyone can settle it—and
-            the caller earns the sender-funded bounty.
-          </p>
-        </div>
-        <div className="loop-card" aria-label="Outlay money loop">
-          <span>01 · FUND</span>
-          <strong>USDG enters one isolated room</strong>
-          <span>02 · WAIT</span>
-          <strong>The onchain due time arrives</strong>
-          <span>03 · SETTLE</span>
-          <strong>Payee and caller are paid</strong>
-        </div>
-      </section>
+      <main>
+        <section className="hero shell" aria-labelledby="page-title">
+          <div className="hero-intro">
+            <p className="eyebrow"><span className="status-dot" aria-hidden="true" /> Scheduled USDG settlement</p>
+            <h1 id="page-title">Set the payment.<br />Pay the settler.</h1>
+            <p className="hero-copy">Lock USDG for a payee. When it’s due, anyone can settle the room. The payee gets paid. The caller earns the bounty.</p>
+            <a className="primary button-link" href="#desk">Open a payout room <span aria-hidden="true">↗</span></a>
+            <p className="hero-note">Canonical USDG. Wallet-signed. Permissionless settlement.</p>
+          </div>
+          <MainnetProof />
+        </section>
 
-      <MainnetProof />
-      <UsdgStrip />
-
-      <section className="shell workspace-grid">
-        <div className="stack">
+        <section className="shell desk" id="desk" aria-labelledby="desk-title">
+          <div className="section-heading">
+            <div><p className="eyebrow">Workspace</p><h2 id="desk-title">Settlement desk</h2></div>
+            <p>Configure a room. Fund it once.<br />Settle when the onchain clock is due.</p>
+          </div>
+          <UsdgStrip />
           <DeployCard contractAddress={contractAddress} onContractAddress={setContractAddress} />
-          <OpenRoom
-            contractAddress={contractAddress}
-            onRoomOpened={() => setRefreshKey((value) => value + 1)}
-          />
-          <FundUsdg />
-        </div>
-        <RoomList contractAddress={contractAddress} refreshKey={refreshKey} />
-      </section>
-
+          <div className="workspace-grid">
+            <OpenRoom contractAddress={contractAddress} onRoomOpened={() => setRefreshKey((value) => value + 1)} />
+            <RoomList contractAddress={contractAddress} refreshKey={refreshKey} />
+          </div>
+        </section>
+        <div className="shell"><FundUsdg /></div>
+      </main>
       <footer className="shell footer">
-        <span>Outlay moves the asset. Explorer receipts are evidence, not the product.</span>
-        <a href="https://github.com/dmetagame/outlay" target="_blank" rel="noreferrer">Public source ↗</a>
+        <div><a className="footer-brand" href="#">outlay</a><span>Scheduled payments. Paid settlement.</span></div>
+        <div className="footer-links">
+          <a href="https://github.com/dmetagame/outlay/blob/main/proof/PROOF.md" target="_blank" rel="noreferrer">Proof record ↗</a>
+          <a href="https://github.com/dmetagame/outlay" target="_blank" rel="noreferrer">Source code ↗</a>
+        </div>
       </footer>
-    </main>
+    </>
   );
 }

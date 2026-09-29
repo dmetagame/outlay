@@ -17,12 +17,12 @@ export function UsdgStrip() {
   });
 
   return (
-    <section className="token-strip">
-      <div className="shell token-strip-inner">
-        <div className="token-meta"><span className="token-dot" /><strong>CANONICAL PAXOS USDG</strong></div>
-        <div>Token <code>{token ? shortAddress(token, 7) : "Switch network"}</code></div>
-        <div>Your balance <strong>{balance.data !== undefined ? `${formatUsdg(balance.data, 6)} USDG` : "—"}</strong></div>
+    <div className="token-strip">
+      <div className="token-strip-inner">
+        <div className="token-meta"><span className="token-dot" aria-hidden="true">$</span><strong>Canonical USDG</strong></div>
+        <div className="token-contract">Token <code title={token}>{token ? shortAddress(token, 7) : "Switch network"}</code></div>
+        <div>Wallet balance <strong>{balance.data !== undefined ? `${formatUsdg(balance.data, 6)} USDG` : "—"}</strong></div>
       </div>
-    </section>
+    </div>
   );
 }

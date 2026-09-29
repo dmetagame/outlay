@@ -7,13 +7,15 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Outlay — paid settlement for scheduled USDG" },
+      { name: "color-scheme", content: "light dark" },
+      { title: "Outlay — scheduled USDG settlement desk" },
       {
         name: "description",
         content: "Fund a canonical USDG payout room. When it is due, anyone can settle and earn the bounty.",
       },
     ],
     links: [
+      { rel: "preload", href: "/fonts/ibm-plex-sans-latin.woff2", as: "font", type: "font/woff2", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: stylesHref },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
     ],

@@ -46,7 +46,7 @@ export function DeployCard({ contractAddress, onContractAddress }: Props) {
     try {
       const hash = await deployContractAsync({
         abi: outlayAbi,
-        bytecode: outlayBytecode,
+        bytecode: outlayBytecode.replace(/^0x(?:0x)+/, "0x") as `0x${string}`,
         args: [canonicalUsdg(chainId)],
         chainId,
       });
@@ -84,57 +84,38 @@ export function DeployCard({ contractAddress, onContractAddress }: Props) {
   }
 
   return (
-    <section className="panel">
-      <div className="panel-heading">
-        <div>
-          <p className="step">STEP 1</p>
-          <h2>Deploy Outlay</h2>
+    <section className="contract-setup" aria-labelledby="contract-title">
+      <div className="contract-overview">
+        <div className="contract-copy">
+          <h3 id="contract-title">{contractAddress ? "Contract ready" : "Choose your contract"}</h3>
+          <p>{contractAddress ? "Your rooms are loaded from this contract." : "Deploy from your wallet, or use an existing Outlay address."}</p>
         </div>
-        <span className={contractAddress ? "badge success" : "badge"}>
-          {contractAddress ? "READY" : "WALLET DEPLOY"}
-        </span>
-      </div>
-      <p className="muted">
-        Your connected wallet deploys the tested bytecode with canonical USDG as the immutable token.
-        No server key is used.
-      </p>
-
-      {contractAddress ? (
-        <div className="result-row">
-          <div>
-            <span className="label">Active contract</span>
-            <code>{shortAddress(contractAddress, 8)}</code>
+        {contractAddress ? (
+          <div className="result-row">
+            <code title={contractAddress}>{shortAddress(contractAddress, 8)}</code>
+            {isSupportedChainId(chainId) && <a href={addressUrl(chainId, contractAddress)} target="_blank" rel="noreferrer">View contract ↗</a>}
           </div>
-          {isSupportedChainId(chainId) && (
-            <a href={addressUrl(chainId, contractAddress)} target="_blank" rel="noreferrer">Explorer ↗</a>
-          )}
-        </div>
-      ) : (
-        <button className="primary full" type="button" disabled={!address || isPending || receipt.isLoading} onClick={deploy}>
-          {isPending ? "Confirm in wallet…" : receipt.isLoading ? "Deploying…" : "Deploy from this wallet"}
-        </button>
-      )}
-
-      {deploymentHash && isSupportedChainId(chainId) && (
-        <a className="inline-link" href={transactionUrl(chainId, deploymentHash)} target="_blank" rel="noreferrer">
-          Deployment transaction ↗
-        </a>
-      )}
-
-      <details>
-        <summary>Already deployed?</summary>
+        ) : (
+          <div className="deploy-action">
+            <button className="primary" type="button" disabled={!address || !isSupportedChainId(chainId) || isPending || receipt.isLoading} onClick={deploy}>
+              {isPending ? "Confirm in wallet…" : receipt.isLoading ? "Deploying…" : "Deploy from this wallet"}
+            </button>
+            {!address && <span className="control-hint">Connect your wallet to deploy.</span>}
+          </div>
+        )}
+      </div>
+      <details className="existing-contract">
+        <summary>{contractAddress ? "Use another contract" : "Use an existing contract"}</summary>
         <div className="inline-form">
-          <input
-            aria-label="Existing Outlay contract address"
-            placeholder="0x…"
-            value={existing}
-            onChange={(event) => setExisting(event.target.value)}
-          />
-          <button type="button" className="secondary" disabled={isCheckingExisting} onClick={useExisting}>
-            {isCheckingExisting ? "Checking…" : "Use address"}
-          </button>
+          <div className="field">
+            <label htmlFor="existing-contract">Outlay contract address</label>
+            <input id="existing-contract" name="existing-contract" autoComplete="off" spellCheck={false} placeholder="0x…" value={existing} onChange={(event) => setExisting(event.target.value)} />
+          </div>
+          <button type="button" className="secondary" disabled={isCheckingExisting} onClick={useExisting}>{isCheckingExisting ? "Checking…" : "Use address"}</button>
         </div>
+        <p className="control-hint">The address must use canonical USDG on the selected network.</p>
       </details>
+      {deploymentHash && isSupportedChainId(chainId) && <a className="inline-link" href={transactionUrl(chainId, deploymentHash)} target="_blank" rel="noreferrer">Deployment transaction ↗</a>}
       {error && <p className="error" role="alert">{error}</p>}
     </section>
   );

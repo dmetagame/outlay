@@ -4,21 +4,26 @@ const sourcify = "https://repo.sourcify.dev/4663/0xe1B5d2cF63C43103455ABD802B6B2
 
 export function MainnetProof() {
   return (
-    <section className="mainnet-proof" aria-labelledby="mainnet-proof-title">
-      <div className="shell mainnet-proof-inner">
-        <div className="mainnet-proof-copy">
-          <h2 id="mainnet-proof-title">Robinhood 4663 · Mainnet payment proven</h2>
-          <p>Payee +0.10 USDG · Caller +0.01 USDG · Room closed</p>
-          <a className="mainnet-proof-address" href={`https://robinhoodchain.blockscout.com/address/${contract}`} target="_blank" rel="noreferrer">
-            <span>Deployed contract </span><code>{contract}</code>
-          </a>
-          <p className="mainnet-proof-note">The sender settled this room; the call is permissionless. Blockscout verification is incomplete.</p>
-        </div>
-        <div className="mainnet-proof-links">
-          <a href={settlement} target="_blank" rel="noreferrer">Settlement transaction ↗</a>
-          <a href={sourcify} target="_blank" rel="noreferrer">Sourcify exact match ↗</a>
-        </div>
+    <section className="mainnet-proof" id="mainnet-proof" aria-labelledby="mainnet-proof-title">
+      <div className="receipt-heading">
+        <h2 id="mainnet-proof-title">Mainnet payment proof</h2>
+        <span className="badge success"><span aria-hidden="true">✓</span> Settled</span>
       </div>
+      <div className="receipt-total"><span>Room 1 · Robinhood 4663</span><p>0.11 <span>USDG funded</span></p></div>
+      <div className="allocation-bar" aria-hidden="true"><span /><span /></div>
+      <dl className="receipt-split">
+        <div><dt>Paid to payee</dt><dd>0.10 <span>USDG</span></dd></div>
+        <div><dt>Paid to caller</dt><dd>0.01 <span>USDG</span></dd></div>
+      </dl>
+      <div className="receipt-status"><span>Room closed · Nothing remaining</span><span>Block 75738431</span></div>
+      <a className="mainnet-proof-address" href={`https://robinhoodchain.blockscout.com/address/${contract}`} target="_blank" rel="noreferrer">
+        <span>Deployed contract ↗</span><code>{contract}</code>
+      </a>
+      <div className="mainnet-proof-links">
+        <a href={settlement} target="_blank" rel="noreferrer">Settlement transaction ↗</a>
+        <a href={sourcify} target="_blank" rel="noreferrer">Sourcify exact match ↗</a>
+      </div>
+      <p className="mainnet-proof-note">The sender settled this room. The call is permissionless.<br />Blockscout verification is incomplete.</p>
     </section>
   );
 }
