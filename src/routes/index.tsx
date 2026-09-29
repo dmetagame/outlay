@@ -5,6 +5,7 @@ import { useChainId } from "wagmi";
 import { DeployCard } from "../components/outlay/deploy-card";
 import { FundUsdg } from "../components/outlay/fund-usdg";
 import { Header } from "../components/outlay/header";
+import { MainnetProof } from "../components/outlay/mainnet-proof";
 import { OpenRoom } from "../components/outlay/open-room";
 import { RoomList } from "../components/outlay/room-list";
 import { UsdgStrip } from "../components/outlay/usdg-strip";
@@ -44,6 +45,7 @@ function App() {
         </div>
       </section>
 
+      <MainnetProof />
       <UsdgStrip />
 
       <section className="shell workspace-grid">
@@ -65,4 +67,3 @@ function App() {
     </main>
   );
 }
-

@@ -49,6 +49,16 @@ h1 { margin: 13px 0 18px; max-width: 790px; font-size: clamp(3.1rem, 7vw, 6.6rem
 .loop-card span:first-child { margin-top: 0; }
 .loop-card strong { font-size: .94rem; }
 
+.mainnet-proof { border-top: 1px solid var(--line); background: #edf6ef; }
+.mainnet-proof-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 28px; padding-block: 22px; }
+.mainnet-proof-copy { flex: 1 1 500px; min-width: 0; }
+.mainnet-proof h2 { margin: 0; color: #164a35; font-size: 1rem; letter-spacing: -.02em; }
+.mainnet-proof p { margin: 7px 0; font-size: .88rem; line-height: 1.5; }
+.mainnet-proof-address { font-size: .82rem; overflow-wrap: anywhere; }
+.mainnet-proof .mainnet-proof-note { margin-bottom: 0; color: #4d4a44; font-size: .78rem; }
+.mainnet-proof-links { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: .86rem; font-weight: 750; }
+.mainnet-proof-links a { display: inline-flex; align-items: center; min-height: 44px; }
+
 .token-strip { border-block: 1px solid var(--line); background: #e8e4da; }
 .token-strip-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .token-meta { display: flex; align-items: center; gap: 12px; }

@@ -26,9 +26,27 @@ The `0.01 USDG` bounty proves that the caller is paid; it is not a profitability
 estimate would cost more than one cent at the contemporaneous ETH/USDG quote. A sender seeking
 unattended third-party execution should set the configurable bounty above live transaction cost.
 
-**Proof status:** the Robinhood USDG funding route is live-quoted, but Outlay is not yet claimed as
-mainnet-proven. That claim waits for a user-signed Robinhood Blockscout transaction showing the
-payee received `0.10 USDG` and the settler received `0.01 USDG`.
+## Completed Robinhood mainnet proof
+
+Outlay completed its canonical-USDG payment loop on **Robinhood 4663**. Contract:
+[`0xe1b5d2cf63c43103455abd802b6b241b959a530c`](https://robinhoodchain.blockscout.com/address/0xe1b5d2cf63c43103455abd802b6b241b959a530c).
+
+| Evidence | Block | Result |
+| --- | ---: | --- |
+| [Deploy](https://robinhoodchain.blockscout.com/tx/0xc0cd9fcba279c431dec9756b865994c127a3727fc2aedd77b400a7cfcef5e432) | 75737751 | Committed creation bytecode plus canonical USDG constructor argument |
+| [Open room 1](https://robinhoodchain.blockscout.com/tx/0xfb921ebeccb21e342e4dee63f518da14ca721f9d1ecf94b46cb84c9d902e4633) | 75737838 | 0.11 USDG funded for a 0.10 payout and 0.01 bounty, interval 0 |
+| [Settle](https://robinhoodchain.blockscout.com/tx/0x8463c5c7a56df5781d443981558f3149f8199740b6aeb6569f8a60059c8cdb12) | 75738431 | Payee +0.10 USDG, caller +0.01 USDG; room inactive with zero remaining |
+
+[Sourcify exact match — creation and runtime](https://repo.sourcify.dev/4663/0xe1B5d2cF63C43103455ABD802B6B241b959a530c)
+was verified at `2026-09-29T15:32:34Z` with compiler `0.8.37+commit.f401782d`.
+Full addresses, balances, timing, gas, and verification evidence are in [proof/PROOF.md](./proof/PROOF.md).
+
+The sender called the permissionless `settle(uint256)` function; this was not a third-party keeper
+demo. Robinhood Blockscout verification was **not completed**: its compiler list lacks `0.8.37`
+and its API returns Cloudflare 403. No Blockscout verified badge is claimed. The payment and
+Sourcify exact match are complete; the explorer badge remains a limitation.
+
+To run your own room, follow the [judge click path](#judge-click-path) below.
 
 ## Canonical USDG
 
@@ -141,8 +159,10 @@ deployment, verify without reconstructing settings:
 scripts/verify-contract.sh 4663 0xDEPLOYED_ADDRESS
 ```
 
-Use chain `42161` for Arbitrum One or `421614` for Arbitrum Sepolia. No deployment address, verified
-badge, or mainnet Outlay payment is claimed in this repository yet.
+Use chain `42161` for Arbitrum One or `421614` for Arbitrum Sepolia. The Robinhood deployment above
+has a completed mainnet payment and a Sourcify exact match. The Blockscout command remains available
+for a future retry once its compiler support and API access allow verification; no Blockscout
+verified badge is claimed.
 
 The TanStack Start production build uses Nitro's Node/Vercel adapter. `vercel.json` explicitly selects
 the `tanstack-start` framework; `npm start` serves the built `.output` bundle locally.
@@ -154,4 +174,5 @@ the `tanstack-start` framework; `npm start` serves the built `.output` bundle lo
 - `src/components/outlay` — wallet deployment, funding, room, settlement, and proof UI
 - `src/lib/outlay` — ABI/bytecode, chain constants, formatting, storage, and accounting model
 - `verification` — standard JSON and constructor encoding kit
+- `proof/PROOF.md` — completed Robinhood mainnet payment and Sourcify exact-match evidence
 - `scripts` — deterministic artifact generation and post-deploy explorer verification
