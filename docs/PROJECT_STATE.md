@@ -1,10 +1,10 @@
 # Project State
 
 Last updated: `2026-09-29`
-Status: `SETTLEMENT_DESK_READY_TO_PUBLISH`
-Active objective: Redesign Outlay as a finished settlement desk, preserving calls/proof; check, push main, and confirm the live page.
+Status: `SETTLEMENT_DESK_LIVE`
+Active objective: Complete. The redesigned settlement desk is on main and live; wallet calls and completed proof are preserved.
 
-## Current redesign — 2026-09-29
+## Completed redesign — 2026-09-29
 
 - Starting main: `4e8770748a8770788cc23a7afda9345e75b9ef56`. User approved using installed frontend/design skills with MystiqueMide's documented product designs after the installation record confirmed his 25 installed skills do not contain a general visual system.
 - Direction and applied skill paths are recorded in `docs/DESIGN.md`: Swiss typography/palette/grid, product-specific settlement receipt and operator console, preserved canonical funding routes and wallet calls.
@@ -13,7 +13,9 @@ Active objective: Redesign Outlay as a finished settlement desk, preserving call
 - Implemented self-hosted IBM Plex fonts, a payment receipt hero, horizontal contract setup, payout-led composer beside the settlement queue, and full-width funding routes. Light/dark modes, native disclosures/radios, visible focus, and 48px actions follow the recorded system.
 - Preserved deploy/approve/open/settle/refund calls and exact proof links. Browser deployment normalizes only the existing duplicate `0x` text prefix; normalized creation data plus constructor was compared byte-for-byte with the public deployment input. Protected artifact/contract/verification files remain unchanged.
 - Local production browser checks: 1440px desktop, 390px and 320px mobile have no overflow; fonts load; keyboard focus is visible; invalid payee and recurring 3-period total (0.33 USDG) render correctly. The existing public contract loads room 1 as closed, settlements 1, remaining 0. No page errors. Both settlement and Sourcify URLs returned HTTP 200.
-- Isolated `npm run check` passed typecheck, seven Vitest tests, nine model tests, and production build. Final copy refinements passed the same check; native disclosure keyboard activation also passed. Push/live confirmation is next.
+- Isolated `npm run check` passed typecheck, seven Vitest tests, nine model tests, and production build. Final copy refinements passed the same check; native disclosure keyboard activation also passed. Redesign commit `17280c9` was pushed to main and confirmed on the live site.
+- Production: `https://outlay-theta.vercel.app/` serves the new hero, receipt, console, self-hosted fonts, exact settlement/Sourcify links, and both proof caveats. Desktop and 390px live browser checks show no overflow or page errors; deploy control and Arbitrum One warning remain visible.
+- `.env` remains ignored and absent from Git status/tracked files. Only the pre-existing `.env.example` and proof script remain untracked. No private key or environment file was read or committed during this redesign.
 
 ## Workspace and boundaries
 
@@ -58,7 +60,7 @@ Active objective: Redesign Outlay as a finished settlement desk, preserving call
 - Arbitrum One's canonical-USDG DEX funding route was not found in earlier checks. Existing-holder-only disclosure remains.
 - Vercel CLI previously lacked authorization; deployment uses the existing Git integration.
 
-## Publication result and next actions
+## Earlier proof publication result
 
 - `https://outlay-theta.vercel.app/` serves the new proof strip through the existing Git/Vercel integration. HTTP HTML and a live browser both show the full deployed address, exact settlement URL, and exact Sourcify URL.
 - Live browser at 390px: no horizontal overflow or page errors; wallet deploy control remains present; the sender-settled and incomplete-Blockscout caveats are visible.
@@ -82,3 +84,5 @@ Active objective: Redesign Outlay as a finished settlement desk, preserving call
 | 2026-09-29T15:32:34Z | Sourcify | Source verification | Exact creation/runtime match for compiler 0.8.37+commit.f401782d. |
 | 2026-09-29 | Codex | Public proof publication preparation | Replaced obsolete missing-proof blockers, documented both caveats, added app proof strip; typecheck/tests/build and local browser checks passed; push/live confirmation pending. |
 | 2026-09-29 | Codex | Publication confirmed | `bb4ad4d` pushed to origin/main; live HTTP and browser checks confirm exact proof links, preserved deploy flow, no mobile overflow or page errors. |
+
+| 2026-09-29 | Codex | Settlement desk redesign published | `17280c9` pushed to main; Git-integrated Vercel serves the redesigned page. Typecheck, 16 tests, production build, desktop/mobile/dark-mode checks, real room read, keyboard focus, and proof-link checks passed. Protected contract/artifact/verification files unchanged. |
