@@ -1,12 +1,13 @@
 # Project State
 
 Last updated: `2026-09-29`
-Status: `ROBINHOOD_MAINNET_PAYMENT_PROVEN_SOURCIFY_EXACT_MATCH`
-Active objective: Publish the completed proof in the public repository and live app.
+Status: `ROBINHOOD_PROOF_PUBLISHED_AND_LIVE`
+Active objective: Completed — public main and live app present the Robinhood payment proof and Sourcify exact match.
 
 ## Workspace and boundaries
 
 - Repository: `https://github.com/dmetagame/outlay`; worktree: `/home/rouma/outlay-proof/outlay`; branch: `main`.
+- Published application/proof commit: `bb4ad4dee4f5f5c657dc8c79cf28d7b6566bd90e`, pushed to main and confirmed by `git ls-remote origin refs/heads/main`.
 - Starting commit: `e85f81f4ca65c79136dbdb7869af10ab2e1a37a3`, confirmed on `origin/main` before edits.
 - Protected: `contracts/Outlay.sol`, committed `src/lib/outlay/artifact.ts`, and deployed bytecode. Do not change or regenerate them for this publication.
 - User authorizes commit and push to main, followed by checking the Git-integrated Vercel deployment. No new blockchain transactions are needed.
@@ -42,15 +43,16 @@ Active objective: Publish the completed proof in the public repository and live 
 - Publication checks (2026-09-29): isolated `npm run check` passed (typecheck, seven Vitest tests, nine model tests, production build). Local production HTML and browser show the exact deployment/settlement/Sourcify links and retain the wallet deploy control; 390px mobile has no horizontal overflow and no page errors. Public-file scan found only allowlisted transaction hashes and no key assignments; protected contract/artifact diff is empty.
 - Historical checks (2026-09-22): 14 Foundry EVM tests; seven Vitest tests; nine accounting-model tests; typecheck and production build; desktop/mobile browser smoke passed.
 - Robinhood Blockscout verification is an open explorer-badge limitation: compiler list lacks `0.8.37`, API returns Cloudflare 403. The CLI attempt and exact error are in the proof. Do not claim a Blockscout verified badge. This does not block the completed payment or Sourcify exact match.
-- GitHub CLI token is invalid; Git HTTPS remote access works. Push result will be recorded after publication.
+- GitHub CLI token is invalid; Git HTTPS push succeeded. Public main contains the proof, updated README/state, and app proof strip.
 - Arbitrum One's canonical-USDG DEX funding route was not found in earlier checks. Existing-holder-only disclosure remains.
 - Vercel CLI previously lacked authorization; deployment uses the existing Git integration.
 
-## Next actions
+## Publication result and next actions
 
-1. Stage only the requested public proof/docs/UI changes, confirm `.env` absent from Git status and staging, commit, and push main.
-2. Confirm origin/main and wait for the live app to show settlement and Sourcify links. Record publication evidence here.
-3. Optional later work: obtain a Blockscout badge when compiler support/API access permit; no repeat payment or deployment is needed.
+- `https://outlay-theta.vercel.app/` serves the new proof strip through the existing Git/Vercel integration. HTTP HTML and a live browser both show the full deployed address, exact settlement URL, and exact Sourcify URL.
+- Live browser at 390px: no horizontal overflow or page errors; wallet deploy control remains present; the sender-settled and incomplete-Blockscout caveats are visible.
+- Only six public docs/proof/UI files were committed. `.env` is absent from Git status, tracked files, and staging; no private key values were included. Contract, artifact, and standard JSON remain identical to the starting commit.
+- Publication is complete. Optional later work: obtain a Blockscout badge when compiler support/API access permit; no repeat payment or deployment is needed.
 
 ## Change Log
 
@@ -68,3 +70,4 @@ Active objective: Publish the completed proof in the public repository and live 
 | 2026-09-29 | Codex | Robinhood proof completed | Deployment/open/settlement succeeded; sender settled, payee +0.10 USDG, caller +0.01 USDG. No contract changes. |
 | 2026-09-29T15:32:34Z | Sourcify | Source verification | Exact creation/runtime match for compiler 0.8.37+commit.f401782d. |
 | 2026-09-29 | Codex | Public proof publication preparation | Replaced obsolete missing-proof blockers, documented both caveats, added app proof strip; typecheck/tests/build and local browser checks passed; push/live confirmation pending. |
+| 2026-09-29 | Codex | Publication confirmed | `bb4ad4d` pushed to origin/main; live HTTP and browser checks confirm exact proof links, preserved deploy flow, no mobile overflow or page errors. |
