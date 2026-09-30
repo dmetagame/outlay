@@ -57,6 +57,11 @@ export function RoomList({ contractAddress, refreshKey }: Props) {
   const oldest = Math.max(1, roomCount - 19);
   const ids = Array.from({ length: roomCount - oldest + 1 }, (_, index) => BigInt(roomCount - index));
 
+  if (!contractAddress) return <p className="rooms-empty">Choose a contract, then open a room to see its settlement here.</p>;
+  if (count.isError) return <p className="error rooms-empty" role="alert">Rooms could not be read. Check your network and <button className="text-button" type="button" onClick={() => void count.refetch()}>try again</button>.</p>;
+  if (count.isLoading) return <p className="rooms-empty" role="status">Reading rooms from the chain…</p>;
+  if (roomCount === 0) return <p className="rooms-empty">No funded rooms yet; open the first room from this wallet.</p>;
+
   return (
     <section className="rooms-panel" aria-labelledby="rooms-title">
       <div className="panel-heading">
@@ -69,17 +74,11 @@ export function RoomList({ contractAddress, refreshKey }: Props) {
         Settle a due room to pay its recipient and collect the caller bounty. Any wallet can call.
       </p>
 
-      {!contractAddress && <div className="empty-state"><span className="empty-mark" aria-hidden="true">↗</span><h4>Your next payment starts here.</h4><p>Choose a contract, then open a room. Its due time and settlement action will appear here.</p><a href="#contract-title">Choose a contract ↑</a></div>}
-      {contractAddress && count.isError && <p className="error" role="alert">Rooms could not be read. Check your network and <button className="text-button" type="button" onClick={() => void count.refetch()}>try again</button>.</p>}
-      {contractAddress && count.isLoading && <p className="empty">Reading rooms from the chain…</p>}
-      {contractAddress && !count.isLoading && !count.isError && roomCount === 0 && (
-        <p className="empty">No funded rooms yet. Open the first room from this wallet.</p>
-      )}
       <div className="room-list">
         {ids.map((id) => (
           <RoomCard
             key={id.toString()}
-            contractAddress={contractAddress!}
+            contractAddress={contractAddress}
             id={id}
             refreshKey={refreshKey}
             onChanged={() => void count.refetch()}

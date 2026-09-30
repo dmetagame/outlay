@@ -92,6 +92,7 @@ button:disabled { background: var(--line); color: var(--muted); border-color: tr
 .hero h1 { margin-bottom: 24px; }
 .hero-copy { max-width: 42ch; font-size: 18px; color: var(--muted); margin-bottom: 32px; text-wrap: pretty; }
 .hero-note { max-width: 38ch; font-size: 14px; color: var(--muted); margin-top: 16px; }
+.hero-action-reason { margin-top: 12px; }
 .mainnet-proof { background: var(--surface); border: 1px solid var(--line); border-top: 2px solid var(--accent); padding: 24px 32px; min-width: 0; }
 .receipt-heading { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
 .receipt-heading h2 { font-size: 16px; font-weight: 500; letter-spacing: 0; }
@@ -104,7 +105,7 @@ button:disabled { background: var(--line); color: var(--muted); border-color: tr
 .receipt-total p span { font-family: var(--sans); font-size: 16px; color: var(--muted); letter-spacing: 0; }
 .allocation-bar { height: 8px; display: flex; gap: 3px; }
 .allocation-bar span:first-child { flex: 10; background: var(--accent); }
-.allocation-bar span:last-child { flex: 1; background: var(--control-line); }
+.allocation-bar span:last-child { flex: 1; background: var(--accent); }
 .receipt-split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding-block: 16px 24px; }
 .receipt-split dt { color: var(--muted); font-size: 14px; margin-bottom: 4px; }
 .receipt-split dd { font-family: var(--mono); margin: 0; font-size: 24px; }
@@ -142,8 +143,9 @@ summary::marker { color: var(--muted); }
 .inline-form { display: flex; align-items: end; gap: 16px; margin-block: 16px 8px; }
 .inline-form .field { flex: 1; min-width: 0; }
 .inline-form button { flex-shrink: 0; }
-.workspace-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); border-bottom: 1px solid var(--line); }
-.composer { padding: 32px 32px 32px 24px; }
+.workspace-grid { display: grid; grid-template-columns: minmax(0, 1fr); border-bottom: 1px solid var(--line); }
+.workspace-grid:has(.rooms-panel) { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+.composer { padding: 32px 32px 32px 24px; max-width: 768px; }
 .rooms-panel { padding: 32px 24px 32px 32px; border-left: 1px solid var(--line); background: var(--surface); min-width: 0; }
 .panel-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 24px; }
 .panel-heading p { color: var(--muted); font-size: 14px; margin-top: 8px; }
@@ -187,12 +189,7 @@ input:disabled { background: var(--surface); color: var(--muted); }
 .inline-link { display: inline-block; margin: 16px 16px 0 0; font-size: 14px; }
 .error { color: var(--error); border-left: 2px solid currentColor; background: var(--surface); padding: 12px 16px; margin-block: 16px; overflow-wrap: anywhere; font-size: 14px; }
 .error .text-button { color: inherit; }
-.empty-state { padding-block: 48px; }
-.empty-mark { display: block; font-size: 40px; font-weight: 300; color: var(--accent); margin-bottom: 16px; }
-.empty-state h4 { margin-bottom: 12px; }
-.empty-state p { font-size: 14px; color: var(--muted); margin-bottom: 16px; }
-.empty-state a { font-size: 14px; display: inline-flex; min-height: 44px; align-items: center; }
-.empty { padding-block: 32px; color: var(--muted); font-size: 14px; }
+.rooms-empty { padding: 0 24px 24px; color: var(--muted); font-size: 14px; }
 .room-list { display: grid; gap: 24px; margin-top: 24px; }
 .room-card { padding-block: 24px; border-block: 1px solid var(--line); }
 .room-title { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
@@ -211,7 +208,9 @@ input:disabled { background: var(--surface); color: var(--muted); }
 .route-title { grid-column: 1; grid-row: 1 / 4; display: flex; flex-direction: column; align-items: start; gap: 16px; }
 .route-title h3 { font-size: 22px; }
 .route-title h3 span { display: block; font-family: var(--mono); font-size: 14px; color: var(--muted); margin-top: 8px; letter-spacing: 0; }
-.token-address { grid-column: 2; font-size: 14px; margin-bottom: 12px; }
+.token-address { grid-column: 2; display: flex; flex-wrap: wrap; align-items: center; gap: 0 16px; font-size: 14px; margin-bottom: 12px; }
+.token-address code { white-space: nowrap; overflow-wrap: normal; }
+.address-copy-status { color: var(--muted); font-size: 14px; }
 .fund-route > p { grid-column: 2; color: var(--muted); font-size: 14px; margin-bottom: 16px; max-width: 72ch; }
 .fund-links { display: flex; flex-wrap: wrap; gap: 16px 32px; }
 .fund-route > .fund-links, .fund-route > .fund-link { grid-column: 2; }
@@ -238,7 +237,7 @@ input:disabled { background: var(--surface); color: var(--muted); }
   .header-nav { gap: 16px; }
   .hero { gap: 32px; }
   .mainnet-proof { padding: 24px; }
-  .workspace-grid { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
+  .workspace-grid:has(.rooms-panel) { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
   .composer { padding-left: 0; padding-right: 24px; }
   .rooms-panel { padding-inline: 24px; }
   .rooms-panel .panel-heading { flex-wrap: wrap; gap: 8px; }
@@ -277,7 +276,7 @@ input:disabled { background: var(--surface); color: var(--muted); }
   .contract-overview { align-items: start; flex-direction: column; gap: 16px; }
   .deploy-action { width: 100%; justify-items: stretch; }
   .inline-form { align-items: stretch; flex-direction: column; }
-  .workspace-grid { grid-template-columns: minmax(0, 1fr); }
+  .workspace-grid:has(.rooms-panel) { grid-template-columns: minmax(0, 1fr); }
   .composer { padding: 32px 0; }
   .rooms-panel { padding: 24px; border-left: 0; border-top: 1px solid var(--line); }
   .rooms-panel .panel-heading { flex-wrap: nowrap; }
@@ -286,8 +285,7 @@ input:disabled { background: var(--surface); color: var(--muted); }
   .input-suffix input { font-size: 28px; }
   .due-choices label { padding: 12px 8px; column-gap: 4px; }
   .lock-preview strong { font-size: 22px; }
-  .empty-state { padding-block: 24px 0; }
-  .room-list:empty { margin-top: 0; }
+  .rooms-empty { padding-inline: 0; }
   .funding-panel { padding-block: 48px; }
   .fund-route { grid-template-columns: minmax(0, 1fr); gap: 0; padding-block: 24px; }
   .route-title { grid-column: 1; grid-row: auto; margin-bottom: 16px; }

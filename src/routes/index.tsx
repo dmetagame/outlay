@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import type { Address } from "viem";
-import { useChainId } from "wagmi";
+import { useAccount, useChainId, useConnect } from "wagmi";
 import { DeployCard } from "../components/outlay/deploy-card";
 import { FundUsdg } from "../components/outlay/fund-usdg";
 import { Header } from "../components/outlay/header";
@@ -15,6 +15,8 @@ import { readStoredContract } from "../lib/outlay/storage";
 export const Route = createFileRoute("/")({ component: App });
 
 function App() {
+  const { isConnected } = useAccount();
+  const { connectors, connect, isPending, error } = useConnect();
   const chainId = useChainId();
   const [contractAddress, setContractAddress] = useState<Address>();
   const [refreshKey, setRefreshKey] = useState(0);
@@ -33,7 +35,22 @@ function App() {
             <p className="eyebrow"><span className="status-dot" aria-hidden="true" /> Scheduled USDG settlement</p>
             <h1 id="page-title">Set the payment.<br />Pay the settler.</h1>
             <p className="hero-copy">Lock USDG for a payee. When it’s due, anyone can settle the room. The payee gets paid. The caller earns the bounty.</p>
-            <a className="primary button-link" href="#desk">Open a payout room <span aria-hidden="true">↗</span></a>
+            {!isConnected ? (
+              <button
+                className="primary"
+                type="button"
+                disabled={isPending || connectors.length === 0}
+                onClick={() => connectors[0] && connect({ connector: connectors[0] })}
+              >
+                {isPending ? "Connecting…" : "Connect MetaMask"}
+              </button>
+            ) : contractAddress ? (
+              <a className="primary button-link" href="#desk">Open a payout room</a>
+            ) : (
+              <button className="primary" type="button" disabled aria-describedby="hero-action-reason">Open a payout room</button>
+            )}
+            {isConnected && !contractAddress && <p className="control-hint hero-action-reason" id="hero-action-reason">Deploy or choose a contract to open a payout room.</p>}
+            {!isConnected && error && <p className="error" role="alert">{error.message.split("\n")[0]}</p>}
             <p className="hero-note">Canonical USDG. Wallet-signed. Permissionless settlement.</p>
           </div>
           <MainnetProof />

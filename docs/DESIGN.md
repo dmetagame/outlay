@@ -48,15 +48,19 @@ caller. A proportional strip supports labelled amounts; it never pretends to be 
 The same payout/bounty/total order appears in the composer and room records.
 
 - Header: product name, desk/funding navigation, wallet connection; no event branding.
-- Hero: the settlement proposition and next action alongside the completed receipt. Actual block,
+- Hero: the settlement proposition and wallet-aware next action alongside the completed receipt. A
+  disconnected wallet sees Connect MetaMask; without a contract the connected action explains why
+  opening a room is disabled. Both paid portions of the closed receipt use the success accent. Actual block,
   contract, settlement and Sourcify links stay inspectable. Both verification/settler caveats remain.
 - Contract setup: a horizontal working row with deployment and existing-address selection.
 - Composer: payout and bounty lead; payee, due time, recurring options, funding total, then action.
-- Settlement queue: room state and earned bounty are easy to find. Empty state gives the next step;
+- Settlement queue: room state and earned bounty are easy to find. Without rooms, one sentence gives
+  the next step and no queue panel is rendered;
   a closed room keeps its facts visible. Reads that fail display an error rather than an empty success.
 - Funding: full-width rows with clear network eligibility; Robinhood route, Arbitrum One warning,
   and official Sepolia faucet remain available before connection.
-- Mobile: single column with real reading order, full addresses wrap, no clipped errors or values.
+- Mobile: single column with real reading order; funding addresses stay shortened on one line with
+  controls to copy the full address. Proof addresses remain inspectable; no clipped errors or values.
 
 ## Invariants
 

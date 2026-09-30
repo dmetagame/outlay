@@ -1,3 +1,5 @@
+import { useState } from "react";
+import type { Address } from "viem";
 import { arbitrum, arbitrumSepolia } from "wagmi/chains";
 import {
   canonicalUsdg,
@@ -5,6 +7,7 @@ import {
   uniswapArbitrumUsdgUrl,
   uniswapRobinhoodUsdgUrl,
 } from "../../lib/outlay/chains";
+import { shortAddress } from "../../lib/outlay/format";
 
 const PAXOS_TESTNET = "https://docs.paxos.com/guides/stablecoin/usdg/testnet";
 const PAXOS_FAUCET = "https://faucet.paxos.com/";
@@ -33,7 +36,7 @@ export function FundUsdg() {
             <span className="badge success">Default demo</span>
             <h3>Robinhood Chain <span>4663</span></h3>
           </div>
-          <code className="token-address">{canonicalUsdg(robinhood.id)}</code>
+          <TokenAddress address={canonicalUsdg(robinhood.id)} network="Robinhood Chain" />
           <p>
             Live route check at block 69,615,154: Uniswap QuoterV2 returned <strong>0.274490 USDG</strong> for
             0.0001 WETH through the canonical WETH/USDG 0.01% pool. The swap link uses native ETH and
@@ -60,7 +63,7 @@ export function FundUsdg() {
             <span className="badge warning">No DEX route found</span>
             <h3>Arbitrum One <span>42161</span></h3>
           </div>
-          <code className="token-address">{canonicalUsdg(arbitrum.id)}</code>
+          <TokenAddress address={canonicalUsdg(arbitrum.id)} network="Arbitrum One" />
           <p>
             Supported only if you already hold canonical USDG. Dexscreener returned zero pairs and
             independent Uniswap and aggregator checks found no fill. Do not use Gold USD or another
@@ -77,7 +80,7 @@ export function FundUsdg() {
             <span className="badge">Testnet</span>
             <h3>Arbitrum Sepolia <span>421614</span></h3>
           </div>
-          <code className="token-address">{canonicalUsdg(arbitrumSepolia.id)}</code>
+          <TokenAddress address={canonicalUsdg(arbitrumSepolia.id)} network="Arbitrum Sepolia" />
           <p>
             Paxos publishes this testnet token and faucet. The faucet may require a Paxos developer
             account or sign-in; availability is controlled by Paxos.
@@ -115,5 +118,26 @@ export function FundUsdg() {
       </div>
       <p className="muted"><small>Direct Paxos minting is institutional; it is not the judge path.</small></p>
     </section>
+  );
+}
+
+function TokenAddress({ address, network }: { address: Address; network: string }) {
+  const [status, setStatus] = useState("");
+
+  async function copyAddress() {
+    try {
+      await navigator.clipboard.writeText(address);
+      setStatus("Address copied.");
+    } catch {
+      setStatus("Copy failed. Try again.");
+    }
+  }
+
+  return (
+    <div className="token-address">
+      <code title={address}>{shortAddress(address, 6)}</code>
+      <button className="text-button" type="button" aria-label={`Copy ${network} USDG address`} onClick={copyAddress}>Copy</button>
+      <span className="address-copy-status" role="status">{status}</span>
+    </div>
   );
 }
