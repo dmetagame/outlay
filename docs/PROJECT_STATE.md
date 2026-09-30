@@ -1,8 +1,8 @@
 # Project State
 
 Last updated: `2026-09-30`
-Status: `SETTLEMENT_DESK_FIXES_LIVE_PUSH_PENDING`
-Active objective: All four targeted fixes are deployed and live-verified in light/dark at 1440px/390px. Commit and push this verified source to main, then verify remote publication.
+Status: `SETTLEMENT_DESK_FIXES_COMPLETE`
+Active objective: Complete. All four targeted fixes are live, verified in light/dark at 1440px/390px, and pushed to main after live verification. Proof content and protected files are preserved.
 
 ## Four targeted desk fixes — 2026-09-30
 
@@ -15,7 +15,8 @@ Active objective: All four targeted fixes are deployed and live-verified in ligh
 - Isolated `npm run check` passed typecheck, seven Vitest tests, nine accounting-model tests, and production build. Protected-file and proof-component diff is empty.
 - Local production browser checks passed light/dark at 1440px/390px with screenshots in `/tmp/outlay-desk-evidence/`: no overflow or page errors; all three copy controls copy full 42-character addresses; keyboard focus visible; wallet connection requests accounts; missing-contract action disabled; public contract reads real closed room 1 (remaining 0, settlements 1); ready-contract hero links to desk; simulated zero-room RPC result renders only one sentence. Exact proof text, external links, route descriptions, and bounty caveat match the pre-deployment live snapshot.
 - Vercel CLI 62.0.0 published isolated tracked source to production deployment `dpl_EW3o2AD6GZvZtS4fPfzsQcdaGZTb`; deployment is READY and aliased to `https://outlay-theta.vercel.app/`. Source files match the workspace byte-for-byte.
-- Live checks on 2026-09-30T22:40Z passed the same four viewport/theme cases, exact proof/link/caveat snapshot comparisons, full-address copying, keyboard focus, hero wallet connection, no-contract disabled reason, real closed-room read, ready-contract link, and zero-room empty state. Screenshots and results: `/tmp/outlay-desk-evidence/live-*`. No overflow or page errors. Only after this live verification will main be pushed.
+- Live checks on 2026-09-30T22:40Z passed the same four viewport/theme cases, exact proof/link/caveat snapshot comparisons, full-address copying, keyboard focus, hero wallet connection, no-contract disabled reason, real closed-room read, ready-contract link, and zero-room empty state. Screenshots and results: `/tmp/outlay-desk-evidence/live-*`. No overflow or page errors. Main was pushed only after this live verification.
+- Fixes commit `c1210325f08f2a61b491415d8048baa0cbce0b1f` was then pushed to `origin/main` and verified with `git ls-remote`. Git-integrated production deployment `dpl_3nZzoXrvZyadYBjANgjt83nYk9bE` is READY for that exact SHA; post-push public HTML retains the fixes and checked CSS bundle. This handoff update follows the source commit on main. No remaining task blockers or required actions.
 
 ## Completed redesign — 2026-09-29
 
@@ -33,7 +34,7 @@ Active objective: All four targeted fixes are deployed and live-verified in ligh
 ## Workspace and boundaries
 
 - Repository: `https://github.com/dmetagame/outlay`; worktree: `/home/rouma/outlay-proof/outlay`; branch: `main`.
-- Current published desk/documentation commit: `5b5b335390f810c7c01239c996b7c29d0d042f7e`, matching `origin/main` on 2026-09-30. Original application/proof commit: `bb4ad4dee4f5f5c657dc8c79cf28d7b6566bd90e`.
+- Current published fixes/source commit: `c1210325f08f2a61b491415d8048baa0cbce0b1f`, verified on `origin/main` on 2026-09-30; the final handoff-only commit follows it. Session starting desk/documentation commit: `5b5b335390f810c7c01239c996b7c29d0d042f7e`. Original application/proof commit: `bb4ad4dee4f5f5c657dc8c79cf28d7b6566bd90e`.
 - Starting commit: `e85f81f4ca65c79136dbdb7869af10ab2e1a37a3`, confirmed on `origin/main` before edits.
 - Protected: `contracts/Outlay.sol`, committed `src/lib/outlay/artifact.ts`, and deployed bytecode. Do not change or regenerate them for this publication.
 - Current user authorizes production deployment and commit/push to main only after the live page shows these four fixes. No new blockchain transactions are needed.
@@ -85,6 +86,7 @@ Active objective: All four targeted fixes are deployed and live-verified in ligh
 | Timestamp | Session/agent | Event | Result |
 | --- | --- | --- | --- |
 | 2026-09-30T22:40:46Z | Codex | Four targeted fixes deployed before main push | Typecheck, 16 tests, production build, local and live light/dark at 1440px/390px pass; proof text/links/caveats and protected files unchanged. Main commit/push is next. |
+| 2026-09-30T22:42Z | Codex | Main publication confirmed after live verification | `c121032` pushed and verified on GitHub; Git-integrated production READY for the same SHA and post-push live HTML preserves fixes. Pre-existing untracked files remain untouched. |
 | 2026-09-21T22:11:05Z | Codex | Session start and repository reconciliation | Public repository is clean and authenticated; prompt-described UI and EVM tests are absent. |
 | 2026-09-21T22:18:00Z | Codex | Contract audit and EVM-test checkpoint | Found one spec mismatch, fixed it minimally, and passed 12 Foundry tests plus the existing accounting suite. |
 | 2026-09-21T23:28:35Z | Codex | Application, verification, funding, and adversarial review checkpoint | Wallet UI and production adapter pass tests/browser smoke; verification artifacts compile exactly; mainnet USDG acquisition remains external. |
