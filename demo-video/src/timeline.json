@@ -1,0 +1,3052 @@
+[
+  {
+    "id": "intro",
+    "chapter": "Scheduled USDG settlement",
+    "title": "Set the payment. Pay the settler.",
+    "kind": "walkthrough",
+    "text": "This is Outlay. Set a payment, and pay the person who settles it. You fund a room with canonical USDG, choose a recipient, and set a due time. When the room is due, any wallet can call settlement. The recipient gets the payout, and the caller receives a sender-funded bounty.",
+    "audioDuration": 17.088,
+    "durationInFrames": 546,
+    "captions": [
+      {
+        "text": " This",
+        "startMs": 89.28571428571428,
+        "endMs": 325.3714285714285,
+        "timestampMs": 89.28571428571428,
+        "confidence": null
+      },
+      {
+        "text": " is",
+        "startMs": 336.12321428571425,
+        "endMs": 454.16607142857146,
+        "timestampMs": 336.12321428571425,
+        "confidence": null
+      },
+      {
+        "text": " Outlay.",
+        "startMs": 464.8803571428571,
+        "endMs": 872.6928571428571,
+        "timestampMs": 464.8803571428571,
+        "confidence": null
+      },
+      {
+        "text": " Set",
+        "startMs": 1611.4205357142855,
+        "endMs": 1826.0410714285713,
+        "timestampMs": 1611.4205357142855,
+        "confidence": null
+      },
+      {
+        "text": " a",
+        "startMs": 1836.792857142857,
+        "endMs": 1890.4383928571428,
+        "timestampMs": 1836.792857142857,
+        "confidence": null
+      },
+      {
+        "text": " payment,",
+        "startMs": 1901.1901785714285,
+        "endMs": 2276.7848214285714,
+        "timestampMs": 1901.1901785714285,
+        "confidence": null
+      },
+      {
+        "text": " and",
+        "startMs": 2448.474107142857,
+        "endMs": 2555.8026785714287,
+        "timestampMs": 2448.474107142857,
+        "confidence": null
+      },
+      {
+        "text": " pay",
+        "startMs": 2566.517857142857,
+        "endMs": 2727.4919642857144,
+        "timestampMs": 2566.517857142857,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 2738.2437499999996,
+        "endMs": 2813.355357142857,
+        "timestampMs": 2738.2437499999996,
+        "confidence": null
+      },
+      {
+        "text": " person",
+        "startMs": 2824.1071428571427,
+        "endMs": 3135.304464285714,
+        "timestampMs": 2824.1071428571427,
+        "confidence": null
+      },
+      {
+        "text": " who",
+        "startMs": 3146.0187499999997,
+        "endMs": 3285.5276785714286,
+        "timestampMs": 3146.0187499999997,
+        "confidence": null
+      },
+      {
+        "text": " settles",
+        "startMs": 3296.279464285714,
+        "endMs": 3671.8741071428567,
+        "timestampMs": 3296.279464285714,
+        "confidence": null
+      },
+      {
+        "text": " it.",
+        "startMs": 3682.5892857142853,
+        "endMs": 3886.4955357142853,
+        "timestampMs": 3682.5892857142853,
+        "confidence": null
+      },
+      {
+        "text": " You",
+        "startMs": 4626.971428571428,
+        "endMs": 4787.945535714285,
+        "timestampMs": 4626.971428571428,
+        "confidence": null
+      },
+      {
+        "text": " fund",
+        "startMs": 4798.660714285714,
+        "endMs": 5024.032142857142,
+        "timestampMs": 4798.660714285714,
+        "confidence": null
+      },
+      {
+        "text": " a",
+        "startMs": 5034.783928571428,
+        "endMs": 5066.963303571428,
+        "timestampMs": 5034.783928571428,
+        "confidence": null
+      },
+      {
+        "text": " room",
+        "startMs": 5077.678571428571,
+        "endMs": 5324.51607142857,
+        "timestampMs": 5077.678571428571,
+        "confidence": null
+      },
+      {
+        "text": " with",
+        "startMs": 5335.267857142857,
+        "endMs": 5442.596428571428,
+        "timestampMs": 5335.267857142857,
+        "confidence": null
+      },
+      {
+        "text": " canonical",
+        "startMs": 5453.310714285713,
+        "endMs": 5893.302678571428,
+        "timestampMs": 5453.310714285713,
+        "confidence": null
+      },
+      {
+        "text": " USDG,",
+        "startMs": 5904.017857142857,
+        "endMs": 6687.424999999999,
+        "timestampMs": 5904.017857142857,
+        "confidence": null
+      },
+      {
+        "text": " choose",
+        "startMs": 6934.225892857142,
+        "endMs": 7138.132142857142,
+        "timestampMs": 6934.225892857142,
+        "confidence": null
+      },
+      {
+        "text": " a",
+        "startMs": 7148.8839285714275,
+        "endMs": 7202.529464285713,
+        "timestampMs": 7148.8839285714275,
+        "confidence": null
+      },
+      {
+        "text": " recipient,",
+        "startMs": 7213.243749999999,
+        "endMs": 7781.993749999998,
+        "timestampMs": 7213.243749999999,
+        "confidence": null
+      },
+      {
+        "text": " and",
+        "startMs": 7943.005357142856,
+        "endMs": 8028.867857142855,
+        "timestampMs": 7943.005357142856,
+        "confidence": null
+      },
+      {
+        "text": " set",
+        "startMs": 8039.583035714286,
+        "endMs": 8222.023214285715,
+        "timestampMs": 8039.583035714286,
+        "confidence": null
+      },
+      {
+        "text": " a",
+        "startMs": 8232.7375,
+        "endMs": 8297.13482142857,
+        "timestampMs": 8232.7375,
+        "confidence": null
+      },
+      {
+        "text": " due",
+        "startMs": 8307.849107142856,
+        "endMs": 8543.93482142857,
+        "timestampMs": 8307.849107142856,
+        "confidence": null
+      },
+      {
+        "text": " time.",
+        "startMs": 8554.6875,
+        "endMs": 8973.214285714284,
+        "timestampMs": 8554.6875,
+        "confidence": null
+      },
+      {
+        "text": " When",
+        "startMs": 9713.690178571429,
+        "endMs": 9939.061607142856,
+        "timestampMs": 9713.690178571429,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 9949.776785714284,
+        "endMs": 10024.888392857141,
+        "timestampMs": 9949.776785714284,
+        "confidence": null
+      },
+      {
+        "text": " room",
+        "startMs": 10035.639285714284,
+        "endMs": 10239.545535714284,
+        "timestampMs": 10035.639285714284,
+        "confidence": null
+      },
+      {
+        "text": " is",
+        "startMs": 10250.25982142857,
+        "endMs": 10357.588392857142,
+        "timestampMs": 10250.25982142857,
+        "confidence": null
+      },
+      {
+        "text": " due,",
+        "startMs": 10368.30357142857,
+        "endMs": 10625.855357142857,
+        "timestampMs": 10368.30357142857,
+        "confidence": null
+      },
+      {
+        "text": " any",
+        "startMs": 10840.475892857143,
+        "endMs": 10969.270535714286,
+        "timestampMs": 10840.475892857143,
+        "confidence": null
+      },
+      {
+        "text": " wallet",
+        "startMs": 10979.98482142857,
+        "endMs": 11259.002678571427,
+        "timestampMs": 10979.98482142857,
+        "confidence": null
+      },
+      {
+        "text": " can",
+        "startMs": 11269.754464285714,
+        "endMs": 11409.263392857141,
+        "timestampMs": 11269.754464285714,
+        "confidence": null
+      },
+      {
+        "text": " call",
+        "startMs": 11419.977678571428,
+        "endMs": 11666.815178571427,
+        "timestampMs": 11419.977678571428,
+        "confidence": null
+      },
+      {
+        "text": " settlement.",
+        "startMs": 11677.529464285713,
+        "endMs": 12192.633035714285,
+        "timestampMs": 11677.529464285713,
+        "confidence": null
+      },
+      {
+        "text": " The",
+        "startMs": 12933.10982142857,
+        "endMs": 13061.904464285713,
+        "timestampMs": 12933.10982142857,
+        "confidence": null
+      },
+      {
+        "text": " recipient",
+        "startMs": 13072.61875,
+        "endMs": 13523.324999999999,
+        "timestampMs": 13072.61875,
+        "confidence": null
+      },
+      {
+        "text": " gets",
+        "startMs": 13534.076785714284,
+        "endMs": 13737.983035714284,
+        "timestampMs": 13534.076785714284,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 13748.69732142857,
+        "endMs": 13823.808928571427,
+        "timestampMs": 13748.69732142857,
+        "confidence": null
+      },
+      {
+        "text": " payout,",
+        "startMs": 13834.560714285713,
+        "endMs": 14263.801785714284,
+        "timestampMs": 13834.560714285713,
+        "confidence": null
+      },
+      {
+        "text": " and",
+        "startMs": 14414.062499999998,
+        "endMs": 14489.174107142855,
+        "timestampMs": 14414.062499999998,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 14499.924999999997,
+        "endMs": 14564.32232142857,
+        "timestampMs": 14499.924999999997,
+        "confidence": null
+      },
+      {
+        "text": " caller",
+        "startMs": 14575.036607142854,
+        "endMs": 14854.054464285711,
+        "timestampMs": 14575.036607142854,
+        "confidence": null
+      },
+      {
+        "text": " receives",
+        "startMs": 14864.76875,
+        "endMs": 15251.115178571426,
+        "timestampMs": 14864.76875,
+        "confidence": null
+      },
+      {
+        "text": " a",
+        "startMs": 15261.830357142855,
+        "endMs": 15315.475892857141,
+        "timestampMs": 15261.830357142855,
+        "confidence": null
+      },
+      {
+        "text": " sender-funded",
+        "startMs": 15326.227678571428,
+        "endMs": 15916.442857142856,
+        "timestampMs": 15326.227678571428,
+        "confidence": null
+      },
+      {
+        "text": " bounty.",
+        "startMs": 15927.194642857141,
+        "endMs": 16324.255357142853,
+        "timestampMs": 15927.194642857141,
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "id": "contract",
+    "chapter": "01 / Choose the contract",
+    "title": "Start with a verified contract",
+    "kind": "reconstruction",
+    "text": "Let's walk through a small, one-shot payment. This part reconstructs the interface flow; it does not send new transactions. Connect a wallet on Robinhood Chain, then select the existing Outlay deployment. The app checks its deployed runtime before enabling funding.",
+    "audioDuration": 15.336,
+    "durationInFrames": 494,
+    "captions": [
+      {
+        "text": " Let's",
+        "startMs": 89.28571428571428,
+        "endMs": 346.8375,
+        "timestampMs": 89.28571428571428,
+        "confidence": null
+      },
+      {
+        "text": " walk",
+        "startMs": 357.58928571428567,
+        "endMs": 593.6749999999998,
+        "timestampMs": 357.58928571428567,
+        "confidence": null
+      },
+      {
+        "text": " through",
+        "startMs": 604.3892857142857,
+        "endMs": 786.8294642857143,
+        "timestampMs": 604.3892857142857,
+        "confidence": null
+      },
+      {
+        "text": " a",
+        "startMs": 797.5446428571428,
+        "endMs": 851.1901785714284,
+        "timestampMs": 797.5446428571428,
+        "confidence": null
+      },
+      {
+        "text": " small,",
+        "startMs": 861.9419642857142,
+        "endMs": 1226.8223214285713,
+        "timestampMs": 861.9419642857142,
+        "confidence": null
+      },
+      {
+        "text": " one-shot",
+        "startMs": 1398.511607142857,
+        "endMs": 1849.2178571428572,
+        "timestampMs": 1398.511607142857,
+        "confidence": null
+      },
+      {
+        "text": " payment.",
+        "startMs": 1859.9696428571428,
+        "endMs": 2353.6080357142855,
+        "timestampMs": 1859.9696428571428,
+        "confidence": null
+      },
+      {
+        "text": " This",
+        "startMs": 3092.373214285714,
+        "endMs": 3328.4589285714283,
+        "timestampMs": 3092.373214285714,
+        "confidence": null
+      },
+      {
+        "text": " part",
+        "startMs": 3339.210714285714,
+        "endMs": 3564.582142857143,
+        "timestampMs": 3339.210714285714,
+        "confidence": null
+      },
+      {
+        "text": " reconstructs",
+        "startMs": 3575.297321428571,
+        "endMs": 4165.5125,
+        "timestampMs": 3575.297321428571,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 4176.2642857142855,
+        "endMs": 4272.841071428571,
+        "timestampMs": 4176.2642857142855,
+        "confidence": null
+      },
+      {
+        "text": " interface",
+        "startMs": 4283.55625,
+        "endMs": 4702.083035714285,
+        "timestampMs": 4283.55625,
+        "confidence": null
+      },
+      {
+        "text": " flow;",
+        "startMs": 4712.834821428571,
+        "endMs": 4981.138392857142,
+        "timestampMs": 4712.834821428571,
+        "confidence": null
+      },
+      {
+        "text": " it",
+        "startMs": 5217.187499999999,
+        "endMs": 5303.049999999999,
+        "timestampMs": 5217.187499999999,
+        "confidence": null
+      },
+      {
+        "text": " does",
+        "startMs": 5313.801785714285,
+        "endMs": 5453.310714285713,
+        "timestampMs": 5313.801785714285,
+        "confidence": null
+      },
+      {
+        "text": " not",
+        "startMs": 5464.024999999999,
+        "endMs": 5624.999107142857,
+        "timestampMs": 5464.024999999999,
+        "confidence": null
+      },
+      {
+        "text": " send",
+        "startMs": 5635.714285714285,
+        "endMs": 5850.334821428571,
+        "timestampMs": 5635.714285714285,
+        "confidence": null
+      },
+      {
+        "text": " new",
+        "startMs": 5861.085714285714,
+        "endMs": 6022.059821428571,
+        "timestampMs": 5861.085714285714,
+        "confidence": null
+      },
+      {
+        "text": " transactions.",
+        "startMs": 6032.812499999999,
+        "endMs": 6837.685714285713,
+        "timestampMs": 6032.812499999999,
+        "confidence": null
+      },
+      {
+        "text": " Connect",
+        "startMs": 7578.124999999999,
+        "endMs": 7943.005357142856,
+        "timestampMs": 7578.124999999999,
+        "confidence": null
+      },
+      {
+        "text": " a",
+        "startMs": 7953.7196428571415,
+        "endMs": 7985.899017857141,
+        "timestampMs": 7953.7196428571415,
+        "confidence": null
+      },
+      {
+        "text": " wallet",
+        "startMs": 7996.651785714285,
+        "endMs": 8275.669642857141,
+        "timestampMs": 7996.651785714285,
+        "confidence": null
+      },
+      {
+        "text": " on",
+        "startMs": 8286.383928571428,
+        "endMs": 8415.17857142857,
+        "timestampMs": 8286.383928571428,
+        "confidence": null
+      },
+      {
+        "text": " Robinhood",
+        "startMs": 8425.892857142857,
+        "endMs": 8822.95357142857,
+        "timestampMs": 8425.892857142857,
+        "confidence": null
+      },
+      {
+        "text": " Chain,",
+        "startMs": 8833.705357142857,
+        "endMs": 9144.902678571427,
+        "timestampMs": 8833.705357142857,
+        "confidence": null
+      },
+      {
+        "text": " then",
+        "startMs": 9359.560714285713,
+        "endMs": 9488.355357142857,
+        "timestampMs": 9359.560714285713,
+        "confidence": null
+      },
+      {
+        "text": " select",
+        "startMs": 9499.069642857143,
+        "endMs": 9778.0875,
+        "timestampMs": 9499.069642857143,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 9788.801785714286,
+        "endMs": 9874.664285714285,
+        "timestampMs": 9788.801785714286,
+        "confidence": null
+      },
+      {
+        "text": " existing",
+        "startMs": 9885.379464285714,
+        "endMs": 10303.906249999998,
+        "timestampMs": 9885.379464285714,
+        "confidence": null
+      },
+      {
+        "text": " Outlay",
+        "startMs": 10314.65714285714,
+        "endMs": 10550.742857142855,
+        "timestampMs": 10314.65714285714,
+        "confidence": null
+      },
+      {
+        "text": " deployment.",
+        "startMs": 10561.458035714286,
+        "endMs": 11130.208035714286,
+        "timestampMs": 10561.458035714286,
+        "confidence": null
+      },
+      {
+        "text": " The",
+        "startMs": 11870.721428571427,
+        "endMs": 12042.40982142857,
+        "timestampMs": 11870.721428571427,
+        "confidence": null
+      },
+      {
+        "text": " app",
+        "startMs": 12053.124999999998,
+        "endMs": 12235.565178571427,
+        "timestampMs": 12053.124999999998,
+        "confidence": null
+      },
+      {
+        "text": " checks",
+        "startMs": 12246.316964285714,
+        "endMs": 12503.86875,
+        "timestampMs": 12246.316964285714,
+        "confidence": null
+      },
+      {
+        "text": " its",
+        "startMs": 12514.583035714286,
+        "endMs": 12632.625892857142,
+        "timestampMs": 12514.583035714286,
+        "confidence": null
+      },
+      {
+        "text": " deployed",
+        "startMs": 12643.377678571427,
+        "endMs": 13018.97232142857,
+        "timestampMs": 12643.377678571427,
+        "confidence": null
+      },
+      {
+        "text": " runtime",
+        "startMs": 13029.687499999998,
+        "endMs": 13448.214285714284,
+        "timestampMs": 13029.687499999998,
+        "confidence": null
+      },
+      {
+        "text": " before",
+        "startMs": 13458.965178571427,
+        "endMs": 13716.516964285713,
+        "timestampMs": 13458.965178571427,
+        "confidence": null
+      },
+      {
+        "text": " enabling",
+        "startMs": 13727.232142857141,
+        "endMs": 14113.57857142857,
+        "timestampMs": 13727.232142857141,
+        "confidence": null
+      },
+      {
+        "text": " funding.",
+        "startMs": 14124.330357142855,
+        "endMs": 14575.036607142854,
+        "timestampMs": 14124.330357142855,
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "id": "configure",
+    "chapter": "02 / Configure the payout",
+    "title": "Two amounts. One funded room.",
+    "kind": "reconstruction",
+    "text": "Enter the recipient's address. Here, the payee receives zero point one USDG, and the caller earns zero point zero one. Together, that's zero point one one USDG to lock. Choose due now for this walkthrough. The payout and the bounty are both funded by the sender.",
+    "audioDuration": 17.256,
+    "durationInFrames": 551,
+    "captions": [
+      {
+        "text": " Enter",
+        "startMs": 89.28571428571428,
+        "endMs": 346.8375,
+        "timestampMs": 89.28571428571428,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 357.58928571428567,
+        "endMs": 421.9866071428571,
+        "timestampMs": 357.58928571428567,
+        "confidence": null
+      },
+      {
+        "text": " recipient's",
+        "startMs": 432.70089285714283,
+        "endMs": 958.55625,
+        "timestampMs": 432.70089285714283,
+        "confidence": null
+      },
+      {
+        "text": " address.",
+        "startMs": 969.2705357142856,
+        "endMs": 1462.9089285714285,
+        "timestampMs": 969.2705357142856,
+        "confidence": null
+      },
+      {
+        "text": " Here,",
+        "startMs": 2201.674107142857,
+        "endMs": 2523.6232142857143,
+        "timestampMs": 2201.674107142857,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 2620.2008928571427,
+        "endMs": 2706.063392857143,
+        "timestampMs": 2620.2008928571427,
+        "confidence": null
+      },
+      {
+        "text": " payee",
+        "startMs": 2716.7776785714286,
+        "endMs": 2899.217857142857,
+        "timestampMs": 2716.7776785714286,
+        "confidence": null
+      },
+      {
+        "text": " receives",
+        "startMs": 2909.9330357142853,
+        "endMs": 3339.174107142857,
+        "timestampMs": 2909.9330357142853,
+        "confidence": null
+      },
+      {
+        "text": " zero",
+        "startMs": 3349.9249999999997,
+        "endMs": 3650.4080357142857,
+        "timestampMs": 3349.9249999999997,
+        "confidence": null
+      },
+      {
+        "text": " point",
+        "startMs": 3661.1607142857138,
+        "endMs": 3918.712499999999,
+        "timestampMs": 3661.1607142857138,
+        "confidence": null
+      },
+      {
+        "text": " one",
+        "startMs": 3929.426785714285,
+        "endMs": 4122.581249999999,
+        "timestampMs": 3929.426785714285,
+        "confidence": null
+      },
+      {
+        "text": " USDG,",
+        "startMs": 4133.333035714285,
+        "endMs": 4991.851785714285,
+        "timestampMs": 4133.333035714285,
+        "confidence": null
+      },
+      {
+        "text": " and",
+        "startMs": 5185.007142857142,
+        "endMs": 5270.869642857142,
+        "timestampMs": 5185.007142857142,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 5281.584821428571,
+        "endMs": 5345.982142857142,
+        "timestampMs": 5281.584821428571,
+        "confidence": null
+      },
+      {
+        "text": " caller",
+        "startMs": 5356.696428571428,
+        "endMs": 5667.893749999999,
+        "timestampMs": 5356.696428571428,
+        "confidence": null
+      },
+      {
+        "text": " earns",
+        "startMs": 5678.645535714285,
+        "endMs": 5968.377678571428,
+        "timestampMs": 5678.645535714285,
+        "confidence": null
+      },
+      {
+        "text": " zero",
+        "startMs": 5979.129464285714,
+        "endMs": 6290.3267857142855,
+        "timestampMs": 5979.129464285714,
+        "confidence": null
+      },
+      {
+        "text": " point",
+        "startMs": 6301.07857142857,
+        "endMs": 6569.382142857142,
+        "timestampMs": 6301.07857142857,
+        "confidence": null
+      },
+      {
+        "text": " zero",
+        "startMs": 6580.096428571427,
+        "endMs": 6869.82857142857,
+        "timestampMs": 6580.096428571427,
+        "confidence": null
+      },
+      {
+        "text": " one.",
+        "startMs": 6880.580357142857,
+        "endMs": 7202.529464285713,
+        "timestampMs": 6880.580357142857,
+        "confidence": null
+      },
+      {
+        "text": " Together,",
+        "startMs": 7943.005357142856,
+        "endMs": 8382.99732142857,
+        "timestampMs": 7943.005357142856,
+        "confidence": null
+      },
+      {
+        "text": " that's",
+        "startMs": 8490.290178571428,
+        "endMs": 8683.444642857143,
+        "timestampMs": 8490.290178571428,
+        "confidence": null
+      },
+      {
+        "text": " zero",
+        "startMs": 8694.196428571428,
+        "endMs": 8983.92857142857,
+        "timestampMs": 8694.196428571428,
+        "confidence": null
+      },
+      {
+        "text": " point",
+        "startMs": 8994.679464285713,
+        "endMs": 9262.983035714284,
+        "timestampMs": 8994.679464285713,
+        "confidence": null
+      },
+      {
+        "text": " one",
+        "startMs": 9273.69732142857,
+        "endMs": 9488.317857142856,
+        "timestampMs": 9273.69732142857,
+        "confidence": null
+      },
+      {
+        "text": " one",
+        "startMs": 9499.069642857143,
+        "endMs": 9692.224107142858,
+        "timestampMs": 9499.069642857143,
+        "confidence": null
+      },
+      {
+        "text": " USDG",
+        "startMs": 9702.93839285714,
+        "endMs": 10464.880357142856,
+        "timestampMs": 9702.93839285714,
+        "confidence": null
+      },
+      {
+        "text": " to",
+        "startMs": 10475.632142857143,
+        "endMs": 10582.960714285715,
+        "timestampMs": 10475.632142857143,
+        "confidence": null
+      },
+      {
+        "text": " lock.",
+        "startMs": 10593.674999999997,
+        "endMs": 10958.555357142855,
+        "timestampMs": 10593.674999999997,
+        "confidence": null
+      },
+      {
+        "text": " Choose",
+        "startMs": 11698.995535714284,
+        "endMs": 11988.727678571428,
+        "timestampMs": 11698.995535714284,
+        "confidence": null
+      },
+      {
+        "text": " due",
+        "startMs": 11999.47857142857,
+        "endMs": 12192.633035714285,
+        "timestampMs": 11999.47857142857,
+        "confidence": null
+      },
+      {
+        "text": " now",
+        "startMs": 12203.38482142857,
+        "endMs": 12428.756249999997,
+        "timestampMs": 12203.38482142857,
+        "confidence": null
+      },
+      {
+        "text": " for",
+        "startMs": 12439.471428571427,
+        "endMs": 12546.8,
+        "timestampMs": 12439.471428571427,
+        "confidence": null
+      },
+      {
+        "text": " this",
+        "startMs": 12557.514285714284,
+        "endMs": 12739.954464285713,
+        "timestampMs": 12557.514285714284,
+        "confidence": null
+      },
+      {
+        "text": " walkthrough.",
+        "startMs": 12750.669642857141,
+        "endMs": 13297.99107142857,
+        "timestampMs": 12750.669642857141,
+        "confidence": null
+      },
+      {
+        "text": " The",
+        "startMs": 14038.466964285713,
+        "endMs": 14188.690178571427,
+        "timestampMs": 14038.466964285713,
+        "confidence": null
+      },
+      {
+        "text": " payout",
+        "startMs": 14199.441964285714,
+        "endMs": 14607.254464285714,
+        "timestampMs": 14199.441964285714,
+        "confidence": null
+      },
+      {
+        "text": " and",
+        "startMs": 14617.968749999998,
+        "endMs": 14682.36607142857,
+        "timestampMs": 14617.968749999998,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 14693.080357142855,
+        "endMs": 14757.477678571428,
+        "timestampMs": 14693.080357142855,
+        "confidence": null
+      },
+      {
+        "text": " bounty",
+        "startMs": 14768.191964285714,
+        "endMs": 15143.786607142856,
+        "timestampMs": 14768.191964285714,
+        "confidence": null
+      },
+      {
+        "text": " are",
+        "startMs": 15154.538392857141,
+        "endMs": 15229.649999999998,
+        "timestampMs": 15154.538392857141,
+        "confidence": null
+      },
+      {
+        "text": " both",
+        "startMs": 15240.401785714284,
+        "endMs": 15508.705357142855,
+        "timestampMs": 15240.401785714284,
+        "confidence": null
+      },
+      {
+        "text": " funded",
+        "startMs": 15519.419642857141,
+        "endMs": 15841.368749999998,
+        "timestampMs": 15519.419642857141,
+        "confidence": null
+      },
+      {
+        "text": " by",
+        "startMs": 15852.083035714282,
+        "endMs": 15970.125892857139,
+        "timestampMs": 15852.083035714282,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 15980.840178571429,
+        "endMs": 16066.70267857143,
+        "timestampMs": 15980.840178571429,
+        "confidence": null
+      },
+      {
+        "text": " sender.",
+        "startMs": 16077.455357142855,
+        "endMs": 16485.267857142855,
+        "timestampMs": 16077.455357142855,
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "id": "approve",
+    "chapter": "03 / Approve the amount",
+    "title": "Approve exactly what the room needs",
+    "kind": "reconstruction",
+    "text": "First, approve the room's funding amount. This authorizes the selected contract to move that amount of USDG. Approval alone doesn't create a room. Outlay waits for a successful receipt before offering the funding step.",
+    "audioDuration": 13.296,
+    "durationInFrames": 432,
+    "captions": [
+      {
+        "text": " First,",
+        "startMs": 89.28571428571428,
+        "endMs": 572.2098214285713,
+        "timestampMs": 89.28571428571428,
+        "confidence": null
+      },
+      {
+        "text": " approve",
+        "startMs": 711.7187499999999,
+        "endMs": 1033.6678571428572,
+        "timestampMs": 711.7187499999999,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 1044.3821428571428,
+        "endMs": 1130.2446428571427,
+        "timestampMs": 1044.3821428571428,
+        "confidence": null
+      },
+      {
+        "text": " room's",
+        "startMs": 1140.9598214285713,
+        "endMs": 1398.511607142857,
+        "timestampMs": 1140.9598214285713,
+        "confidence": null
+      },
+      {
+        "text": " funding",
+        "startMs": 1409.2633928571427,
+        "endMs": 1731.2124999999999,
+        "timestampMs": 1409.2633928571427,
+        "confidence": null
+      },
+      {
+        "text": " amount.",
+        "startMs": 1741.9267857142856,
+        "endMs": 2203.3848214285713,
+        "timestampMs": 1741.9267857142856,
+        "confidence": null
+      },
+      {
+        "text": " This",
+        "startMs": 2942.1499999999996,
+        "endMs": 3178.235714285714,
+        "timestampMs": 2942.1499999999996,
+        "confidence": null
+      },
+      {
+        "text": " authorizes",
+        "startMs": 3188.9508928571427,
+        "endMs": 3736.272321428571,
+        "timestampMs": 3188.9508928571427,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 3746.986607142857,
+        "endMs": 3832.849107142857,
+        "timestampMs": 3746.986607142857,
+        "confidence": null
+      },
+      {
+        "text": " selected",
+        "startMs": 3843.563392857143,
+        "endMs": 4229.9098214285705,
+        "timestampMs": 3843.563392857143,
+        "confidence": null
+      },
+      {
+        "text": " contract",
+        "startMs": 4240.625,
+        "endMs": 4648.4375,
+        "timestampMs": 4240.625,
+        "confidence": null
+      },
+      {
+        "text": " to",
+        "startMs": 4659.151785714285,
+        "endMs": 4734.263392857142,
+        "timestampMs": 4659.151785714285,
+        "confidence": null
+      },
+      {
+        "text": " move",
+        "startMs": 4745.0142857142855,
+        "endMs": 4991.851785714285,
+        "timestampMs": 4745.0142857142855,
+        "confidence": null
+      },
+      {
+        "text": " that",
+        "startMs": 5002.566964285714,
+        "endMs": 5152.790178571428,
+        "timestampMs": 5002.566964285714,
+        "confidence": null
+      },
+      {
+        "text": " amount",
+        "startMs": 5163.541071428571,
+        "endMs": 5421.092857142857,
+        "timestampMs": 5163.541071428571,
+        "confidence": null
+      },
+      {
+        "text": " of",
+        "startMs": 5431.844642857142,
+        "endMs": 5496.241964285714,
+        "timestampMs": 5431.844642857142,
+        "confidence": null
+      },
+      {
+        "text": " USDG.",
+        "startMs": 5506.956249999999,
+        "endMs": 6290.363392857143,
+        "timestampMs": 5506.956249999999,
+        "confidence": null
+      },
+      {
+        "text": " Approval",
+        "startMs": 7030.803571428571,
+        "endMs": 7438.616071428571,
+        "timestampMs": 7030.803571428571,
+        "confidence": null
+      },
+      {
+        "text": " alone",
+        "startMs": 7449.330357142857,
+        "endMs": 7739.062499999999,
+        "timestampMs": 7449.330357142857,
+        "confidence": null
+      },
+      {
+        "text": " doesn't",
+        "startMs": 7749.8133928571415,
+        "endMs": 7975.184821428569,
+        "timestampMs": 7749.8133928571415,
+        "confidence": null
+      },
+      {
+        "text": " create",
+        "startMs": 7985.937499999999,
+        "endMs": 8275.669642857141,
+        "timestampMs": 7985.937499999999,
+        "confidence": null
+      },
+      {
+        "text": " a",
+        "startMs": 8286.383928571428,
+        "endMs": 8350.78125,
+        "timestampMs": 8286.383928571428,
+        "confidence": null
+      },
+      {
+        "text": " room.",
+        "startMs": 8361.53214285714,
+        "endMs": 8715.661607142856,
+        "timestampMs": 8361.53214285714,
+        "confidence": null
+      },
+      {
+        "text": " Outlay",
+        "startMs": 9456.138392857141,
+        "endMs": 9799.55357142857,
+        "timestampMs": 9456.138392857141,
+        "confidence": null
+      },
+      {
+        "text": " waits",
+        "startMs": 9810.267857142857,
+        "endMs": 10078.571428571428,
+        "timestampMs": 9810.267857142857,
+        "confidence": null
+      },
+      {
+        "text": " for",
+        "startMs": 10089.285714285714,
+        "endMs": 10185.8625,
+        "timestampMs": 10089.285714285714,
+        "confidence": null
+      },
+      {
+        "text": " a",
+        "startMs": 10196.614285714286,
+        "endMs": 10250.259821428572,
+        "timestampMs": 10196.614285714286,
+        "confidence": null
+      },
+      {
+        "text": " successful",
+        "startMs": 10260.974107142856,
+        "endMs": 10776.077678571426,
+        "timestampMs": 10260.974107142856,
+        "confidence": null
+      },
+      {
+        "text": " receipt",
+        "startMs": 10786.830357142857,
+        "endMs": 11119.49375,
+        "timestampMs": 10786.830357142857,
+        "confidence": null
+      },
+      {
+        "text": " before",
+        "startMs": 11130.245535714284,
+        "endMs": 11441.442857142856,
+        "timestampMs": 11130.245535714284,
+        "confidence": null
+      },
+      {
+        "text": " offering",
+        "startMs": 11452.194642857143,
+        "endMs": 11752.677678571426,
+        "timestampMs": 11452.194642857143,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 11763.392857142857,
+        "endMs": 11817.038392857143,
+        "timestampMs": 11763.392857142857,
+        "confidence": null
+      },
+      {
+        "text": " funding",
+        "startMs": 11827.790178571428,
+        "endMs": 12192.670535714284,
+        "timestampMs": 11827.790178571428,
+        "confidence": null
+      },
+      {
+        "text": " step.",
+        "startMs": 12203.38482142857,
+        "endMs": 12546.799999999997,
+        "timestampMs": 12203.38482142857,
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "id": "fund",
+    "chapter": "04 / Fund and open",
+    "title": "The payment is ready to settle",
+    "kind": "reconstruction",
+    "text": "Now fund and open the room. After confirmation, it appears in the settlement queue with the payee, payout, bounty, and remaining balance. A due room is ready for a caller. The contract holds the funds until settlement or an eligible refund.",
+    "audioDuration": 14.328,
+    "durationInFrames": 463,
+    "captions": [
+      {
+        "text": " Now",
+        "startMs": 89.28571428571428,
+        "endMs": 346.8375,
+        "timestampMs": 89.28571428571428,
+        "confidence": null
+      },
+      {
+        "text": " fund",
+        "startMs": 357.58928571428567,
+        "endMs": 615.1410714285714,
+        "timestampMs": 357.58928571428567,
+        "confidence": null
+      },
+      {
+        "text": " and",
+        "startMs": 625.8553571428571,
+        "endMs": 711.717857142857,
+        "timestampMs": 625.8553571428571,
+        "confidence": null
+      },
+      {
+        "text": " open",
+        "startMs": 722.4330357142857,
+        "endMs": 937.0535714285713,
+        "timestampMs": 722.4330357142857,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 947.8044642857142,
+        "endMs": 1012.2017857142856,
+        "timestampMs": 947.8044642857142,
+        "confidence": null
+      },
+      {
+        "text": " room.",
+        "startMs": 1022.9160714285713,
+        "endMs": 1377.0455357142855,
+        "timestampMs": 1022.9160714285713,
+        "confidence": null
+      },
+      {
+        "text": " After",
+        "startMs": 2115.8107142857143,
+        "endMs": 2384.1142857142854,
+        "timestampMs": 2115.8107142857143,
+        "confidence": null
+      },
+      {
+        "text": " confirmation,",
+        "startMs": 2394.828571428571,
+        "endMs": 3006.5098214285713,
+        "timestampMs": 2394.828571428571,
+        "confidence": null
+      },
+      {
+        "text": " it",
+        "startMs": 3188.9508928571427,
+        "endMs": 3264.0624999999995,
+        "timestampMs": 3188.9508928571427,
+        "confidence": null
+      },
+      {
+        "text": " appears",
+        "startMs": 3274.813392857143,
+        "endMs": 3586.010714285714,
+        "timestampMs": 3274.813392857143,
+        "confidence": null
+      },
+      {
+        "text": " in",
+        "startMs": 3596.7633928571427,
+        "endMs": 3650.408928571428,
+        "timestampMs": 3596.7633928571427,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 3661.1607142857138,
+        "endMs": 3736.272321428571,
+        "timestampMs": 3661.1607142857138,
+        "confidence": null
+      },
+      {
+        "text": " settlement",
+        "startMs": 3746.986607142857,
+        "endMs": 4122.58125,
+        "timestampMs": 3746.986607142857,
+        "confidence": null
+      },
+      {
+        "text": " queue",
+        "startMs": 4133.333035714285,
+        "endMs": 4347.95357142857,
+        "timestampMs": 4133.333035714285,
+        "confidence": null
+      },
+      {
+        "text": " with",
+        "startMs": 4358.705357142857,
+        "endMs": 4466.033928571428,
+        "timestampMs": 4358.705357142857,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 4476.748214285713,
+        "endMs": 4541.145535714285,
+        "timestampMs": 4476.748214285713,
+        "confidence": null
+      },
+      {
+        "text": " payee,",
+        "startMs": 4551.85982142857,
+        "endMs": 4970.3866071428565,
+        "timestampMs": 4551.85982142857,
+        "confidence": null
+      },
+      {
+        "text": " payout,",
+        "startMs": 5163.541071428571,
+        "endMs": 5603.533035714286,
+        "timestampMs": 5163.541071428571,
+        "confidence": null
+      },
+      {
+        "text": " bounty,",
+        "startMs": 5785.974107142857,
+        "endMs": 6172.320535714285,
+        "timestampMs": 5785.974107142857,
+        "confidence": null
+      },
+      {
+        "text": " and",
+        "startMs": 6397.656249999999,
+        "endMs": 6504.98482142857,
+        "timestampMs": 6397.656249999999,
+        "confidence": null
+      },
+      {
+        "text": " remaining",
+        "startMs": 6515.6991071428565,
+        "endMs": 6966.405357142857,
+        "timestampMs": 6515.6991071428565,
+        "confidence": null
+      },
+      {
+        "text": " balance.",
+        "startMs": 6977.157142857142,
+        "endMs": 7470.795535714286,
+        "timestampMs": 6977.157142857142,
+        "confidence": null
+      },
+      {
+        "text": " A",
+        "startMs": 8211.27232142857,
+        "endMs": 8350.78125,
+        "timestampMs": 8211.27232142857,
+        "confidence": null
+      },
+      {
+        "text": " due",
+        "startMs": 8361.53214285714,
+        "endMs": 8586.90357142857,
+        "timestampMs": 8361.53214285714,
+        "confidence": null
+      },
+      {
+        "text": " room",
+        "startMs": 8597.61875,
+        "endMs": 8812.239285714286,
+        "timestampMs": 8597.61875,
+        "confidence": null
+      },
+      {
+        "text": " is",
+        "startMs": 8822.99107142857,
+        "endMs": 8941.033928571429,
+        "timestampMs": 8822.99107142857,
+        "confidence": null
+      },
+      {
+        "text": " ready",
+        "startMs": 8951.748214285713,
+        "endMs": 9187.833928571428,
+        "timestampMs": 8951.748214285713,
+        "confidence": null
+      },
+      {
+        "text": " for",
+        "startMs": 9198.585714285713,
+        "endMs": 9338.09464285714,
+        "timestampMs": 9198.585714285713,
+        "confidence": null
+      },
+      {
+        "text": " a",
+        "startMs": 9348.808928571427,
+        "endMs": 9402.454464285713,
+        "timestampMs": 9348.808928571427,
+        "confidence": null
+      },
+      {
+        "text": " caller.",
+        "startMs": 9413.20625,
+        "endMs": 9799.552678571428,
+        "timestampMs": 9413.20625,
+        "confidence": null
+      },
+      {
+        "text": " The",
+        "startMs": 10539.991964285713,
+        "endMs": 10658.03482142857,
+        "timestampMs": 10539.991964285713,
+        "confidence": null
+      },
+      {
+        "text": " contract",
+        "startMs": 10668.786607142856,
+        "endMs": 11108.77857142857,
+        "timestampMs": 10668.786607142856,
+        "confidence": null
+      },
+      {
+        "text": " holds",
+        "startMs": 11119.49375,
+        "endMs": 11355.579464285713,
+        "timestampMs": 11119.49375,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 11366.331249999997,
+        "endMs": 11441.442857142856,
+        "timestampMs": 11366.331249999997,
+        "confidence": null
+      },
+      {
+        "text": " funds",
+        "startMs": 11452.194642857143,
+        "endMs": 11741.926785714286,
+        "timestampMs": 11452.194642857143,
+        "confidence": null
+      },
+      {
+        "text": " until",
+        "startMs": 11752.67857142857,
+        "endMs": 12031.696428571428,
+        "timestampMs": 11752.67857142857,
+        "confidence": null
+      },
+      {
+        "text": " settlement",
+        "startMs": 12042.410714285714,
+        "endMs": 12503.86875,
+        "timestampMs": 12042.410714285714,
+        "confidence": null
+      },
+      {
+        "text": " or",
+        "startMs": 12514.583035714286,
+        "endMs": 12589.694642857143,
+        "timestampMs": 12514.583035714286,
+        "confidence": null
+      },
+      {
+        "text": " an",
+        "startMs": 12600.446428571428,
+        "endMs": 12675.558035714284,
+        "timestampMs": 12600.446428571428,
+        "confidence": null
+      },
+      {
+        "text": " eligible",
+        "startMs": 12686.308928571427,
+        "endMs": 13061.90357142857,
+        "timestampMs": 12686.308928571427,
+        "confidence": null
+      },
+      {
+        "text": " refund.",
+        "startMs": 13072.61875,
+        "endMs": 13566.257142857143,
+        "timestampMs": 13072.61875,
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "id": "settle",
+    "chapter": "05 / Settle the room",
+    "title": "One call pays both wallets",
+    "kind": "reconstruction",
+    "text": "Click settle to execute the payment. A successful settlement transfers the payout to the payee and the bounty to the calling wallet. This one-shot room then closes with nothing remaining. The interface also compares the payee's token balance before and after the transaction.",
+    "audioDuration": 14.928,
+    "durationInFrames": 481,
+    "captions": [
+      {
+        "text": " Click",
+        "startMs": 89.28571428571428,
+        "endMs": 314.65714285714284,
+        "timestampMs": 89.28571428571428,
+        "confidence": null
+      },
+      {
+        "text": " settle",
+        "startMs": 325.3714285714285,
+        "endMs": 604.3892857142856,
+        "timestampMs": 325.3714285714285,
+        "confidence": null
+      },
+      {
+        "text": " to",
+        "startMs": 615.1410714285713,
+        "endMs": 690.2526785714285,
+        "timestampMs": 615.1410714285713,
+        "confidence": null
+      },
+      {
+        "text": " execute",
+        "startMs": 700.9669642857142,
+        "endMs": 1162.4249999999997,
+        "timestampMs": 700.9669642857142,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 1173.1767857142856,
+        "endMs": 1237.5741071428572,
+        "timestampMs": 1173.1767857142856,
+        "confidence": null
+      },
+      {
+        "text": " payment.",
+        "startMs": 1248.2883928571428,
+        "endMs": 1709.7464285714286,
+        "timestampMs": 1248.2883928571428,
+        "confidence": null
+      },
+      {
+        "text": " A",
+        "startMs": 2448.474107142857,
+        "endMs": 2555.8026785714287,
+        "timestampMs": 2448.474107142857,
+        "confidence": null
+      },
+      {
+        "text": " successful",
+        "startMs": 2566.517857142857,
+        "endMs": 3081.6214285714286,
+        "timestampMs": 2566.517857142857,
+        "confidence": null
+      },
+      {
+        "text": " settlement",
+        "startMs": 3092.373214285714,
+        "endMs": 3489.433928571428,
+        "timestampMs": 3092.373214285714,
+        "confidence": null
+      },
+      {
+        "text": " transfers",
+        "startMs": 3500.185714285714,
+        "endMs": 3993.8241071428574,
+        "timestampMs": 3500.185714285714,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 4004.5383928571423,
+        "endMs": 4079.649999999999,
+        "timestampMs": 4004.5383928571423,
+        "confidence": null
+      },
+      {
+        "text": " payout",
+        "startMs": 4090.4017857142853,
+        "endMs": 4390.884821428571,
+        "timestampMs": 4090.4017857142853,
+        "confidence": null
+      },
+      {
+        "text": " to",
+        "startMs": 4401.599107142857,
+        "endMs": 4465.996428571429,
+        "timestampMs": 4401.599107142857,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 4476.748214285713,
+        "endMs": 4551.85982142857,
+        "timestampMs": 4476.748214285713,
+        "confidence": null
+      },
+      {
+        "text": " payee",
+        "startMs": 4562.5741071428565,
+        "endMs": 4916.70357142857,
+        "timestampMs": 4562.5741071428565,
+        "confidence": null
+      },
+      {
+        "text": " and",
+        "startMs": 4927.455357142857,
+        "endMs": 5034.783928571428,
+        "timestampMs": 4927.455357142857,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 5045.498214285713,
+        "endMs": 5120.60982142857,
+        "timestampMs": 5045.498214285713,
+        "confidence": null
+      },
+      {
+        "text": " bounty",
+        "startMs": 5131.361607142857,
+        "endMs": 5464.024999999999,
+        "timestampMs": 5131.361607142857,
+        "confidence": null
+      },
+      {
+        "text": " to",
+        "startMs": 5474.776785714285,
+        "endMs": 5560.6392857142855,
+        "timestampMs": 5474.776785714285,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 5571.353571428571,
+        "endMs": 5635.750892857142,
+        "timestampMs": 5571.353571428571,
+        "confidence": null
+      },
+      {
+        "text": " calling",
+        "startMs": 5646.465178571429,
+        "endMs": 5979.1285714285705,
+        "timestampMs": 5646.465178571429,
+        "confidence": null
+      },
+      {
+        "text": " wallet.",
+        "startMs": 5989.880357142857,
+        "endMs": 6376.226785714285,
+        "timestampMs": 5989.880357142857,
+        "confidence": null
+      },
+      {
+        "text": " This",
+        "startMs": 7116.666071428571,
+        "endMs": 7363.5035714285705,
+        "timestampMs": 7116.666071428571,
+        "confidence": null
+      },
+      {
+        "text": " one-shot",
+        "startMs": 7374.218749999999,
+        "endMs": 7824.924999999998,
+        "timestampMs": 7374.218749999999,
+        "confidence": null
+      },
+      {
+        "text": " room",
+        "startMs": 7835.676785714286,
+        "endMs": 8028.83125,
+        "timestampMs": 7835.676785714286,
+        "confidence": null
+      },
+      {
+        "text": " then",
+        "startMs": 8039.583035714286,
+        "endMs": 8189.80625,
+        "timestampMs": 8039.583035714286,
+        "confidence": null
+      },
+      {
+        "text": " closes",
+        "startMs": 8200.558035714284,
+        "endMs": 8629.799107142857,
+        "timestampMs": 8200.558035714284,
+        "confidence": null
+      },
+      {
+        "text": " with",
+        "startMs": 8640.55,
+        "endMs": 8758.592857142856,
+        "timestampMs": 8640.55,
+        "confidence": null
+      },
+      {
+        "text": " nothing",
+        "startMs": 8769.308035714284,
+        "endMs": 9112.723214285714,
+        "timestampMs": 8769.308035714284,
+        "confidence": null
+      },
+      {
+        "text": " remaining.",
+        "startMs": 9123.4375,
+        "endMs": 9606.361607142857,
+        "timestampMs": 9123.4375,
+        "confidence": null
+      },
+      {
+        "text": " The",
+        "startMs": 10346.8375,
+        "endMs": 10475.632142857143,
+        "timestampMs": 10346.8375,
+        "confidence": null
+      },
+      {
+        "text": " interface",
+        "startMs": 10486.346428571427,
+        "endMs": 10937.052678571426,
+        "timestampMs": 10486.346428571427,
+        "confidence": null
+      },
+      {
+        "text": " also",
+        "startMs": 10947.804464285713,
+        "endMs": 11237.536607142856,
+        "timestampMs": 10947.804464285713,
+        "confidence": null
+      },
+      {
+        "text": " compares",
+        "startMs": 11248.288392857143,
+        "endMs": 11623.883035714285,
+        "timestampMs": 11248.288392857143,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 11634.598214285714,
+        "endMs": 11720.460714285713,
+        "timestampMs": 11634.598214285714,
+        "confidence": null
+      },
+      {
+        "text": " payee's",
+        "startMs": 11731.2125,
+        "endMs": 12020.944642857143,
+        "timestampMs": 11731.2125,
+        "confidence": null
+      },
+      {
+        "text": " token",
+        "startMs": 12031.696428571428,
+        "endMs": 12332.179464285713,
+        "timestampMs": 12031.696428571428,
+        "confidence": null
+      },
+      {
+        "text": " balance",
+        "startMs": 12342.893749999997,
+        "endMs": 12654.09107142857,
+        "timestampMs": 12342.893749999997,
+        "confidence": null
+      },
+      {
+        "text": " before",
+        "startMs": 12664.843749999998,
+        "endMs": 13051.190178571427,
+        "timestampMs": 12664.843749999998,
+        "confidence": null
+      },
+      {
+        "text": " and",
+        "startMs": 13061.904464285713,
+        "endMs": 13158.481249999999,
+        "timestampMs": 13061.904464285713,
+        "confidence": null
+      },
+      {
+        "text": " after",
+        "startMs": 13169.196428571428,
+        "endMs": 13405.28214285714,
+        "timestampMs": 13169.196428571428,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 13416.033928571427,
+        "endMs": 13491.145535714284,
+        "timestampMs": 13416.033928571427,
+        "confidence": null
+      },
+      {
+        "text": " transaction.",
+        "startMs": 13501.89732142857,
+        "endMs": 14167.261607142857,
+        "timestampMs": 13501.89732142857,
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "id": "proof",
+    "chapter": "06 / The published payment",
+    "title": "Real funds. Recorded onchain.",
+    "kind": "proof",
+    "text": "Here's the actual published payment, separate from the reconstructed walkthrough. On Robinhood Chain, room one was funded with zero point one one USDG. The recorded settlement paid zero point one to the payee and zero point zero one to the caller. The sender made this settlement call; this was not an independent keeper demonstration.",
+    "audioDuration": 18.696,
+    "durationInFrames": 594,
+    "captions": [
+      {
+        "text": " Here's",
+        "startMs": 89.28571428571428,
+        "endMs": 346.8375,
+        "timestampMs": 89.28571428571428,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 357.58928571428567,
+        "endMs": 464.9178571428571,
+        "timestampMs": 357.58928571428567,
+        "confidence": null
+      },
+      {
+        "text": " actual",
+        "startMs": 475.6321428571428,
+        "endMs": 819.0473214285713,
+        "timestampMs": 475.6321428571428,
+        "confidence": null
+      },
+      {
+        "text": " published",
+        "startMs": 829.7616071428571,
+        "endMs": 1194.6419642857143,
+        "timestampMs": 829.7616071428571,
+        "confidence": null
+      },
+      {
+        "text": " payment,",
+        "startMs": 1205.3571428571427,
+        "endMs": 1580.9517857142855,
+        "timestampMs": 1205.3571428571427,
+        "confidence": null
+      },
+      {
+        "text": " separate",
+        "startMs": 1763.3928571428569,
+        "endMs": 2096.05625,
+        "timestampMs": 1763.3928571428569,
+        "confidence": null
+      },
+      {
+        "text": " from",
+        "startMs": 2106.8080357142853,
+        "endMs": 2224.8508928571428,
+        "timestampMs": 2106.8080357142853,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 2235.5651785714285,
+        "endMs": 2310.6767857142854,
+        "timestampMs": 2235.5651785714285,
+        "confidence": null
+      },
+      {
+        "text": " reconstructed",
+        "startMs": 2321.428571428571,
+        "endMs": 2986.792857142857,
+        "timestampMs": 2321.428571428571,
+        "confidence": null
+      },
+      {
+        "text": " walkthrough.",
+        "startMs": 2997.5071428571428,
+        "endMs": 3587.7223214285714,
+        "timestampMs": 2997.5071428571428,
+        "confidence": null
+      },
+      {
+        "text": " On",
+        "startMs": 4326.4875,
+        "endMs": 4530.393749999999,
+        "timestampMs": 4326.4875,
+        "confidence": null
+      },
+      {
+        "text": " Robinhood",
+        "startMs": 4541.1080357142855,
+        "endMs": 4927.454464285714,
+        "timestampMs": 4541.1080357142855,
+        "confidence": null
+      },
+      {
+        "text": " Chain,",
+        "startMs": 4938.169642857142,
+        "endMs": 5270.833035714285,
+        "timestampMs": 4938.169642857142,
+        "confidence": null
+      },
+      {
+        "text": " room",
+        "startMs": 5442.558928571429,
+        "endMs": 5657.179464285714,
+        "timestampMs": 5442.558928571429,
+        "confidence": null
+      },
+      {
+        "text": " one",
+        "startMs": 5667.931249999999,
+        "endMs": 5861.085714285713,
+        "timestampMs": 5667.931249999999,
+        "confidence": null
+      },
+      {
+        "text": " was",
+        "startMs": 5871.837499999999,
+        "endMs": 6000.632142857142,
+        "timestampMs": 5871.837499999999,
+        "confidence": null
+      },
+      {
+        "text": " funded",
+        "startMs": 6011.346428571428,
+        "endMs": 6322.543749999999,
+        "timestampMs": 6011.346428571428,
+        "confidence": null
+      },
+      {
+        "text": " with",
+        "startMs": 6333.2589285714275,
+        "endMs": 6451.301785714285,
+        "timestampMs": 6333.2589285714275,
+        "confidence": null
+      },
+      {
+        "text": " zero",
+        "startMs": 6462.053571428571,
+        "endMs": 6816.183035714285,
+        "timestampMs": 6462.053571428571,
+        "confidence": null
+      },
+      {
+        "text": " point",
+        "startMs": 6826.933928571428,
+        "endMs": 7084.485714285714,
+        "timestampMs": 6826.933928571428,
+        "confidence": null
+      },
+      {
+        "text": " one",
+        "startMs": 7095.200892857142,
+        "endMs": 7309.8214285714275,
+        "timestampMs": 7095.200892857142,
+        "confidence": null
+      },
+      {
+        "text": " one",
+        "startMs": 7320.57232142857,
+        "endMs": 7503.012499999999,
+        "timestampMs": 7320.57232142857,
+        "confidence": null
+      },
+      {
+        "text": " USDG.",
+        "startMs": 7513.7276785714275,
+        "endMs": 8436.64375,
+        "timestampMs": 7513.7276785714275,
+        "confidence": null
+      },
+      {
+        "text": " The",
+        "startMs": 9177.120535714284,
+        "endMs": 9295.163392857143,
+        "timestampMs": 9177.120535714284,
+        "confidence": null
+      },
+      {
+        "text": " recorded",
+        "startMs": 9305.877678571429,
+        "endMs": 9670.758035714285,
+        "timestampMs": 9305.877678571429,
+        "confidence": null
+      },
+      {
+        "text": " settlement",
+        "startMs": 9681.473214285714,
+        "endMs": 10089.285714285714,
+        "timestampMs": 9681.473214285714,
+        "confidence": null
+      },
+      {
+        "text": " paid",
+        "startMs": 10099.999999999998,
+        "endMs": 10346.8375,
+        "timestampMs": 10099.999999999998,
+        "confidence": null
+      },
+      {
+        "text": " zero",
+        "startMs": 10357.589285714284,
+        "endMs": 10668.786607142856,
+        "timestampMs": 10357.589285714284,
+        "confidence": null
+      },
+      {
+        "text": " point",
+        "startMs": 10679.50089285714,
+        "endMs": 10947.804464285713,
+        "timestampMs": 10679.50089285714,
+        "confidence": null
+      },
+      {
+        "text": " one",
+        "startMs": 10958.518749999997,
+        "endMs": 11151.673214285713,
+        "timestampMs": 10958.518749999997,
+        "confidence": null
+      },
+      {
+        "text": " to",
+        "startMs": 11162.424999999997,
+        "endMs": 11237.536607142856,
+        "timestampMs": 11162.424999999997,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 11248.288392857143,
+        "endMs": 11323.4,
+        "timestampMs": 11248.288392857143,
+        "confidence": null
+      },
+      {
+        "text": " payee",
+        "startMs": 11334.151785714284,
+        "endMs": 11752.67857142857,
+        "timestampMs": 11334.151785714284,
+        "confidence": null
+      },
+      {
+        "text": " and",
+        "startMs": 11763.392857142857,
+        "endMs": 11881.435714285713,
+        "timestampMs": 11763.392857142857,
+        "confidence": null
+      },
+      {
+        "text": " zero",
+        "startMs": 11892.187499999998,
+        "endMs": 12203.38482142857,
+        "timestampMs": 11892.187499999998,
+        "confidence": null
+      },
+      {
+        "text": " point",
+        "startMs": 12214.099107142856,
+        "endMs": 12471.650892857142,
+        "timestampMs": 12214.099107142856,
+        "confidence": null
+      },
+      {
+        "text": " zero",
+        "startMs": 12482.402678571427,
+        "endMs": 12761.420535714284,
+        "timestampMs": 12482.402678571427,
+        "confidence": null
+      },
+      {
+        "text": " one",
+        "startMs": 12772.13482142857,
+        "endMs": 13008.220535714283,
+        "timestampMs": 12772.13482142857,
+        "confidence": null
+      },
+      {
+        "text": " to",
+        "startMs": 13018.973214285714,
+        "endMs": 13094.08482142857,
+        "timestampMs": 13018.973214285714,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 13104.835714285713,
+        "endMs": 13169.233035714284,
+        "timestampMs": 13104.835714285713,
+        "confidence": null
+      },
+      {
+        "text": " caller.",
+        "startMs": 13179.94732142857,
+        "endMs": 13555.541964285712,
+        "timestampMs": 13179.94732142857,
+        "confidence": null
+      },
+      {
+        "text": " The",
+        "startMs": 14296.018749999997,
+        "endMs": 14435.527678571427,
+        "timestampMs": 14296.018749999997,
+        "confidence": null
+      },
+      {
+        "text": " sender",
+        "startMs": 14446.241964285713,
+        "endMs": 14703.793749999999,
+        "timestampMs": 14446.241964285713,
+        "confidence": null
+      },
+      {
+        "text": " made",
+        "startMs": 14714.545535714286,
+        "endMs": 14929.166071428572,
+        "timestampMs": 14714.545535714286,
+        "confidence": null
+      },
+      {
+        "text": " this",
+        "startMs": 14939.917857142855,
+        "endMs": 15090.141071428568,
+        "timestampMs": 14939.917857142855,
+        "confidence": null
+      },
+      {
+        "text": " settlement",
+        "startMs": 15100.892857142855,
+        "endMs": 15433.556249999998,
+        "timestampMs": 15100.892857142855,
+        "confidence": null
+      },
+      {
+        "text": " call;",
+        "startMs": 15444.270535714282,
+        "endMs": 15680.356249999999,
+        "timestampMs": 15444.270535714282,
+        "confidence": null
+      },
+      {
+        "text": " this",
+        "startMs": 15852.083035714282,
+        "endMs": 16013.057142857142,
+        "timestampMs": 15852.083035714282,
+        "confidence": null
+      },
+      {
+        "text": " was",
+        "startMs": 16023.77232142857,
+        "endMs": 16163.281249999998,
+        "timestampMs": 16023.77232142857,
+        "confidence": null
+      },
+      {
+        "text": " not",
+        "startMs": 16174.032142857142,
+        "endMs": 16356.47232142857,
+        "timestampMs": 16174.032142857142,
+        "confidence": null
+      },
+      {
+        "text": " an",
+        "startMs": 16367.187499999998,
+        "endMs": 16442.299107142855,
+        "timestampMs": 16367.187499999998,
+        "confidence": null
+      },
+      {
+        "text": " independent",
+        "startMs": 16453.05,
+        "endMs": 16957.439285714285,
+        "timestampMs": 16453.05,
+        "confidence": null
+      },
+      {
+        "text": " keeper",
+        "startMs": 16968.15446428571,
+        "endMs": 17225.706249999996,
+        "timestampMs": 16968.15446428571,
+        "confidence": null
+      },
+      {
+        "text": " demonstration.",
+        "startMs": 17236.420535714286,
+        "endMs": 17944.679464285713,
+        "timestampMs": 17236.420535714286,
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "id": "evidence",
+    "chapter": "07 / Inspect the evidence",
+    "title": "Verify the payment yourself",
+    "kind": "proof",
+    "text": "The proof record links the deployment, room opening, and settlement transactions. Token transfer logs support both payments, and room one is closed with a zero remaining balance. Sourcify provides an exact source match for the deployment. The Blockscout verification badge remains incomplete.",
+    "audioDuration": 16.68,
+    "durationInFrames": 534,
+    "captions": [
+      {
+        "text": " The",
+        "startMs": 89.28571428571428,
+        "endMs": 218.0803571428571,
+        "timestampMs": 89.28571428571428,
+        "confidence": null
+      },
+      {
+        "text": " proof",
+        "startMs": 228.79464285714283,
+        "endMs": 486.3464285714286,
+        "timestampMs": 228.79464285714283,
+        "confidence": null
+      },
+      {
+        "text": " record",
+        "startMs": 497.0982142857142,
+        "endMs": 808.2955357142856,
+        "timestampMs": 497.0982142857142,
+        "confidence": null
+      },
+      {
+        "text": " links",
+        "startMs": 819.0098214285714,
+        "endMs": 1012.1642857142856,
+        "timestampMs": 819.0098214285714,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 1022.9160714285713,
+        "endMs": 1098.0276785714284,
+        "timestampMs": 1022.9160714285713,
+        "confidence": null
+      },
+      {
+        "text": " deployment,",
+        "startMs": 1108.7794642857143,
+        "endMs": 1656.1008928571428,
+        "timestampMs": 1108.7794642857143,
+        "confidence": null
+      },
+      {
+        "text": " room",
+        "startMs": 1881.435714285714,
+        "endMs": 2042.4098214285714,
+        "timestampMs": 1881.435714285714,
+        "confidence": null
+      },
+      {
+        "text": " opening,",
+        "startMs": 2053.125,
+        "endMs": 2460.9374999999995,
+        "timestampMs": 2053.125,
+        "confidence": null
+      },
+      {
+        "text": " and",
+        "startMs": 2675.5580357142853,
+        "endMs": 2782.886607142857,
+        "timestampMs": 2675.5580357142853,
+        "confidence": null
+      },
+      {
+        "text": " settlement",
+        "startMs": 2793.6008928571428,
+        "endMs": 3222.841964285714,
+        "timestampMs": 2793.6008928571428,
+        "confidence": null
+      },
+      {
+        "text": " transactions.",
+        "startMs": 3233.5937499999995,
+        "endMs": 4049.181249999999,
+        "timestampMs": 3233.5937499999995,
+        "confidence": null
+      },
+      {
+        "text": " Token",
+        "startMs": 4787.946428571428,
+        "endMs": 5109.895535714285,
+        "timestampMs": 4787.946428571428,
+        "confidence": null
+      },
+      {
+        "text": " transfer",
+        "startMs": 5120.60982142857,
+        "endMs": 5506.956249999998,
+        "timestampMs": 5120.60982142857,
+        "confidence": null
+      },
+      {
+        "text": " logs",
+        "startMs": 5517.6705357142855,
+        "endMs": 5785.974107142857,
+        "timestampMs": 5517.6705357142855,
+        "confidence": null
+      },
+      {
+        "text": " support",
+        "startMs": 5796.688392857142,
+        "endMs": 6118.637499999999,
+        "timestampMs": 5796.688392857142,
+        "confidence": null
+      },
+      {
+        "text": " both",
+        "startMs": 6129.3892857142855,
+        "endMs": 6344.009821428571,
+        "timestampMs": 6129.3892857142855,
+        "confidence": null
+      },
+      {
+        "text": " payments,",
+        "startMs": 6354.724107142857,
+        "endMs": 6762.536607142857,
+        "timestampMs": 6354.724107142857,
+        "confidence": null
+      },
+      {
+        "text": " and",
+        "startMs": 6880.580357142857,
+        "endMs": 7009.374999999999,
+        "timestampMs": 6880.580357142857,
+        "confidence": null
+      },
+      {
+        "text": " room",
+        "startMs": 7020.089285714285,
+        "endMs": 7223.995535714285,
+        "timestampMs": 7020.089285714285,
+        "confidence": null
+      },
+      {
+        "text": " one",
+        "startMs": 7234.709821428571,
+        "endMs": 7438.616071428571,
+        "timestampMs": 7234.709821428571,
+        "confidence": null
+      },
+      {
+        "text": " is",
+        "startMs": 7449.330357142857,
+        "endMs": 7567.373214285714,
+        "timestampMs": 7449.330357142857,
+        "confidence": null
+      },
+      {
+        "text": " closed",
+        "startMs": 7578.124999999999,
+        "endMs": 7953.7196428571415,
+        "timestampMs": 7578.124999999999,
+        "confidence": null
+      },
+      {
+        "text": " with",
+        "startMs": 7964.471428571428,
+        "endMs": 8082.5142857142855,
+        "timestampMs": 7964.471428571428,
+        "confidence": null
+      },
+      {
+        "text": " a",
+        "startMs": 8093.22857142857,
+        "endMs": 8146.874107142856,
+        "timestampMs": 8093.22857142857,
+        "confidence": null
+      },
+      {
+        "text": " zero",
+        "startMs": 8157.6258928571415,
+        "endMs": 8490.289285714285,
+        "timestampMs": 8157.6258928571415,
+        "confidence": null
+      },
+      {
+        "text": " remaining",
+        "startMs": 8501.04107142857,
+        "endMs": 8919.567857142856,
+        "timestampMs": 8501.04107142857,
+        "confidence": null
+      },
+      {
+        "text": " balance.",
+        "startMs": 8930.28214285714,
+        "endMs": 9380.98839285714,
+        "timestampMs": 8930.28214285714,
+        "confidence": null
+      },
+      {
+        "text": " Sourcify",
+        "startMs": 10121.465178571427,
+        "endMs": 10625.854464285712,
+        "timestampMs": 10121.465178571427,
+        "confidence": null
+      },
+      {
+        "text": " provides",
+        "startMs": 10636.607142857141,
+        "endMs": 11033.667857142857,
+        "timestampMs": 10636.607142857141,
+        "confidence": null
+      },
+      {
+        "text": " an",
+        "startMs": 11044.382142857143,
+        "endMs": 11130.244642857142,
+        "timestampMs": 11044.382142857143,
+        "confidence": null
+      },
+      {
+        "text": " exact",
+        "startMs": 11140.95982142857,
+        "endMs": 11441.442857142856,
+        "timestampMs": 11140.95982142857,
+        "confidence": null
+      },
+      {
+        "text": " source",
+        "startMs": 11452.194642857143,
+        "endMs": 11699.032142857142,
+        "timestampMs": 11452.194642857143,
+        "confidence": null
+      },
+      {
+        "text": " match",
+        "startMs": 11709.746428571427,
+        "endMs": 11956.583928571426,
+        "timestampMs": 11709.746428571427,
+        "confidence": null
+      },
+      {
+        "text": " for",
+        "startMs": 11967.299107142857,
+        "endMs": 12031.696428571428,
+        "timestampMs": 11967.299107142857,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 12042.410714285714,
+        "endMs": 12117.52232142857,
+        "timestampMs": 12042.410714285714,
+        "confidence": null
+      },
+      {
+        "text": " deployment.",
+        "startMs": 12128.273214285713,
+        "endMs": 12707.774107142855,
+        "timestampMs": 12128.273214285713,
+        "confidence": null
+      },
+      {
+        "text": " The",
+        "startMs": 13448.214285714284,
+        "endMs": 13577.008928571428,
+        "timestampMs": 13448.214285714284,
+        "confidence": null
+      },
+      {
+        "text": " Blockscout",
+        "startMs": 13587.723214285714,
+        "endMs": 14081.361607142855,
+        "timestampMs": 13587.723214285714,
+        "confidence": null
+      },
+      {
+        "text": " verification",
+        "startMs": 14092.112499999997,
+        "endMs": 14693.079464285713,
+        "timestampMs": 14092.112499999997,
+        "confidence": null
+      },
+      {
+        "text": " badge",
+        "startMs": 14703.794642857141,
+        "endMs": 14961.346428571425,
+        "timestampMs": 14703.794642857141,
+        "confidence": null
+      },
+      {
+        "text": " remains",
+        "startMs": 14972.098214285714,
+        "endMs": 15347.692857142856,
+        "timestampMs": 14972.098214285714,
+        "confidence": null
+      },
+      {
+        "text": " incomplete.",
+        "startMs": 15358.444642857141,
+        "endMs": 15927.194642857141,
+        "timestampMs": 15358.444642857141,
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "id": "recurring",
+    "chapter": "08 / Beyond a one-shot payout",
+    "title": "Fund more than one period",
+    "kind": "reconstruction",
+    "text": "For recurring payments, choose funded periods and an interval. Three periods at these amounts require zero point three three USDG. Each successful settlement advances the next due time from that settlement. An external caller still has to submit a transaction, and the bounty does not guarantee a profit after gas.",
+    "audioDuration": 17.88,
+    "durationInFrames": 570,
+    "captions": [
+      {
+        "text": " For",
+        "startMs": 89.28571428571428,
+        "endMs": 239.50892857142856,
+        "timestampMs": 89.28571428571428,
+        "confidence": null
+      },
+      {
+        "text": " recurring",
+        "startMs": 250.2598214285714,
+        "endMs": 668.7866071428571,
+        "timestampMs": 250.2598214285714,
+        "confidence": null
+      },
+      {
+        "text": " payments,",
+        "startMs": 679.5008928571428,
+        "endMs": 1076.5616071428572,
+        "timestampMs": 679.5008928571428,
+        "confidence": null
+      },
+      {
+        "text": " choose",
+        "startMs": 1259.0026785714285,
+        "endMs": 1527.3062499999999,
+        "timestampMs": 1259.0026785714285,
+        "confidence": null
+      },
+      {
+        "text": " funded",
+        "startMs": 1538.0205357142856,
+        "endMs": 1859.9696428571428,
+        "timestampMs": 1538.0205357142856,
+        "confidence": null
+      },
+      {
+        "text": " periods",
+        "startMs": 1870.7214285714285,
+        "endMs": 2267.782142857143,
+        "timestampMs": 1870.7214285714285,
+        "confidence": null
+      },
+      {
+        "text": " and",
+        "startMs": 2278.4964285714286,
+        "endMs": 2439.4705357142857,
+        "timestampMs": 2278.4964285714286,
+        "confidence": null
+      },
+      {
+        "text": " an",
+        "startMs": 2450.223214285714,
+        "endMs": 2536.0857142857144,
+        "timestampMs": 2450.223214285714,
+        "confidence": null
+      },
+      {
+        "text": " interval.",
+        "startMs": 2546.7999999999997,
+        "endMs": 2965.3267857142855,
+        "timestampMs": 2546.7999999999997,
+        "confidence": null
+      },
+      {
+        "text": " Three",
+        "startMs": 3704.054464285714,
+        "endMs": 3983.0723214285713,
+        "timestampMs": 3704.054464285714,
+        "confidence": null
+      },
+      {
+        "text": " periods",
+        "startMs": 3993.8241071428565,
+        "endMs": 4390.88482142857,
+        "timestampMs": 3993.8241071428565,
+        "confidence": null
+      },
+      {
+        "text": " at",
+        "startMs": 4401.599107142857,
+        "endMs": 4487.461607142857,
+        "timestampMs": 4401.599107142857,
+        "confidence": null
+      },
+      {
+        "text": " these",
+        "startMs": 4498.214285714285,
+        "endMs": 4680.654464285713,
+        "timestampMs": 4498.214285714285,
+        "confidence": null
+      },
+      {
+        "text": " amounts",
+        "startMs": 4691.36875,
+        "endMs": 4991.851785714285,
+        "timestampMs": 4691.36875,
+        "confidence": null
+      },
+      {
+        "text": " require",
+        "startMs": 5002.566964285714,
+        "endMs": 5388.913392857142,
+        "timestampMs": 5002.566964285714,
+        "confidence": null
+      },
+      {
+        "text": " zero",
+        "startMs": 5399.627678571428,
+        "endMs": 5721.576785714285,
+        "timestampMs": 5399.627678571428,
+        "confidence": null
+      },
+      {
+        "text": " point",
+        "startMs": 5732.32857142857,
+        "endMs": 5989.880357142856,
+        "timestampMs": 5732.32857142857,
+        "confidence": null
+      },
+      {
+        "text": " three",
+        "startMs": 6000.594642857142,
+        "endMs": 6247.432142857142,
+        "timestampMs": 6000.594642857142,
+        "confidence": null
+      },
+      {
+        "text": " three",
+        "startMs": 6258.147321428571,
+        "endMs": 6504.98482142857,
+        "timestampMs": 6258.147321428571,
+        "confidence": null
+      },
+      {
+        "text": " USDG.",
+        "startMs": 6515.6991071428565,
+        "endMs": 7384.932142857142,
+        "timestampMs": 6515.6991071428565,
+        "confidence": null
+      },
+      {
+        "text": " Each",
+        "startMs": 8125.4464285714275,
+        "endMs": 8361.53214285714,
+        "timestampMs": 8125.4464285714275,
+        "confidence": null
+      },
+      {
+        "text": " successful",
+        "startMs": 8372.246428571427,
+        "endMs": 8887.349999999999,
+        "timestampMs": 8372.246428571427,
+        "confidence": null
+      },
+      {
+        "text": " settlement",
+        "startMs": 8898.102678571428,
+        "endMs": 9316.629464285714,
+        "timestampMs": 8898.102678571428,
+        "confidence": null
+      },
+      {
+        "text": " advances",
+        "startMs": 9327.34375,
+        "endMs": 9810.267857142857,
+        "timestampMs": 9327.34375,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 9820.982142857141,
+        "endMs": 9896.093749999998,
+        "timestampMs": 9820.982142857141,
+        "confidence": null
+      },
+      {
+        "text": " next",
+        "startMs": 9906.84464285714,
+        "endMs": 10153.682142857142,
+        "timestampMs": 9906.84464285714,
+        "confidence": null
+      },
+      {
+        "text": " due",
+        "startMs": 10164.39732142857,
+        "endMs": 10346.8375,
+        "timestampMs": 10164.39732142857,
+        "confidence": null
+      },
+      {
+        "text": " time",
+        "startMs": 10357.589285714284,
+        "endMs": 10615.14107142857,
+        "timestampMs": 10357.589285714284,
+        "confidence": null
+      },
+      {
+        "text": " from",
+        "startMs": 10625.855357142857,
+        "endMs": 10765.364285714286,
+        "timestampMs": 10625.855357142857,
+        "confidence": null
+      },
+      {
+        "text": " that",
+        "startMs": 10776.11607142857,
+        "endMs": 10926.339285714284,
+        "timestampMs": 10776.11607142857,
+        "confidence": null
+      },
+      {
+        "text": " settlement.",
+        "startMs": 10937.05357142857,
+        "endMs": 11441.442857142856,
+        "timestampMs": 10937.05357142857,
+        "confidence": null
+      },
+      {
+        "text": " An",
+        "startMs": 12181.919642857141,
+        "endMs": 12321.42857142857,
+        "timestampMs": 12181.919642857141,
+        "confidence": null
+      },
+      {
+        "text": " external",
+        "startMs": 12332.142857142855,
+        "endMs": 12761.383928571428,
+        "timestampMs": 12332.142857142855,
+        "confidence": null
+      },
+      {
+        "text": " caller",
+        "startMs": 12772.13482142857,
+        "endMs": 13051.152678571427,
+        "timestampMs": 12772.13482142857,
+        "confidence": null
+      },
+      {
+        "text": " still",
+        "startMs": 13061.904464285713,
+        "endMs": 13308.741964285715,
+        "timestampMs": 13061.904464285713,
+        "confidence": null
+      },
+      {
+        "text": " has",
+        "startMs": 13319.456249999997,
+        "endMs": 13448.25089285714,
+        "timestampMs": 13319.456249999997,
+        "confidence": null
+      },
+      {
+        "text": " to",
+        "startMs": 13458.965178571427,
+        "endMs": 13534.076785714284,
+        "timestampMs": 13458.965178571427,
+        "confidence": null
+      },
+      {
+        "text": " submit",
+        "startMs": 13544.82857142857,
+        "endMs": 13813.132142857143,
+        "timestampMs": 13544.82857142857,
+        "confidence": null
+      },
+      {
+        "text": " a",
+        "startMs": 13823.846428571427,
+        "endMs": 13866.777678571429,
+        "timestampMs": 13823.846428571427,
+        "confidence": null
+      },
+      {
+        "text": " transaction,",
+        "startMs": 13877.491964285713,
+        "endMs": 14467.70714285714,
+        "timestampMs": 13877.491964285713,
+        "confidence": null
+      },
+      {
+        "text": " and",
+        "startMs": 14703.794642857141,
+        "endMs": 14789.657142857142,
+        "timestampMs": 14703.794642857141,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 14800.408928571425,
+        "endMs": 14875.520535714284,
+        "timestampMs": 14800.408928571425,
+        "confidence": null
+      },
+      {
+        "text": " bounty",
+        "startMs": 14886.234821428568,
+        "endMs": 15208.183928571425,
+        "timestampMs": 14886.234821428568,
+        "confidence": null
+      },
+      {
+        "text": " does",
+        "startMs": 15218.935714285712,
+        "endMs": 15401.375892857139,
+        "timestampMs": 15218.935714285712,
+        "confidence": null
+      },
+      {
+        "text": " not",
+        "startMs": 15412.090178571429,
+        "endMs": 15583.778571428571,
+        "timestampMs": 15412.090178571429,
+        "confidence": null
+      },
+      {
+        "text": " guarantee",
+        "startMs": 15594.531249999998,
+        "endMs": 16055.989285714282,
+        "timestampMs": 15594.531249999998,
+        "confidence": null
+      },
+      {
+        "text": " a",
+        "startMs": 16066.703571428568,
+        "endMs": 16131.100892857141,
+        "timestampMs": 16066.703571428568,
+        "confidence": null
+      },
+      {
+        "text": " profit",
+        "startMs": 16141.815178571425,
+        "endMs": 16485.230357142853,
+        "timestampMs": 16141.815178571425,
+        "confidence": null
+      },
+      {
+        "text": " after",
+        "startMs": 16495.98214285714,
+        "endMs": 16699.88839285714,
+        "timestampMs": 16495.98214285714,
+        "confidence": null
+      },
+      {
+        "text": " gas.",
+        "startMs": 16710.602678571428,
+        "endMs": 17129.129464285714,
+        "timestampMs": 16710.602678571428,
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "id": "outro",
+    "chapter": "Outlay",
+    "title": "Scheduled payments. Paid settlement.",
+    "kind": "closing",
+    "text": "Outlay. Scheduled payments, paid settlement. Explore the app, inspect the proof, and read the source at the links on screen.",
+    "audioDuration": 8.328,
+    "durationInFrames": 283,
+    "captions": [
+      {
+        "text": " Outlay.",
+        "startMs": 89.28571428571428,
+        "endMs": 582.9241071428571,
+        "timestampMs": 89.28571428571428,
+        "confidence": null
+      },
+      {
+        "text": " Scheduled",
+        "startMs": 1321.6883928571426,
+        "endMs": 1793.860714285714,
+        "timestampMs": 1321.6883928571426,
+        "confidence": null
+      },
+      {
+        "text": " payments,",
+        "startMs": 1804.6124999999997,
+        "endMs": 2266.070535714285,
+        "timestampMs": 1804.6124999999997,
+        "confidence": null
+      },
+      {
+        "text": " paid",
+        "startMs": 2469.9401785714285,
+        "endMs": 2738.2437499999996,
+        "timestampMs": 2469.9401785714285,
+        "confidence": null
+      },
+      {
+        "text": " settlement.",
+        "startMs": 2748.9580357142854,
+        "endMs": 3306.9937499999996,
+        "timestampMs": 2748.9580357142854,
+        "confidence": null
+      },
+      {
+        "text": " Explore",
+        "startMs": 4047.469642857143,
+        "endMs": 4465.996428571429,
+        "timestampMs": 4047.469642857143,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 4476.748214285713,
+        "endMs": 4605.5428571428565,
+        "timestampMs": 4476.748214285713,
+        "confidence": null
+      },
+      {
+        "text": " app,",
+        "startMs": 4616.257142857142,
+        "endMs": 4809.411607142856,
+        "timestampMs": 4616.257142857142,
+        "confidence": null
+      },
+      {
+        "text": " inspect",
+        "startMs": 4981.100892857142,
+        "endMs": 5303.049999999999,
+        "timestampMs": 4981.100892857142,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 5313.801785714285,
+        "endMs": 5388.913392857142,
+        "timestampMs": 5313.801785714285,
+        "confidence": null
+      },
+      {
+        "text": " proof,",
+        "startMs": 5399.627678571428,
+        "endMs": 5732.29107142857,
+        "timestampMs": 5399.627678571428,
+        "confidence": null
+      },
+      {
+        "text": " and",
+        "startMs": 5893.303571428571,
+        "endMs": 6000.632142857142,
+        "timestampMs": 5893.303571428571,
+        "confidence": null
+      },
+      {
+        "text": " read",
+        "startMs": 6011.346428571428,
+        "endMs": 6172.320535714285,
+        "timestampMs": 6011.346428571428,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 6183.035714285714,
+        "endMs": 6236.681249999999,
+        "timestampMs": 6183.035714285714,
+        "confidence": null
+      },
+      {
+        "text": " source",
+        "startMs": 6247.433035714285,
+        "endMs": 6537.1651785714275,
+        "timestampMs": 6247.433035714285,
+        "confidence": null
+      },
+      {
+        "text": " at",
+        "startMs": 6547.916071428571,
+        "endMs": 6633.778571428571,
+        "timestampMs": 6547.916071428571,
+        "confidence": null
+      },
+      {
+        "text": " the",
+        "startMs": 6644.493749999999,
+        "endMs": 6698.139285714285,
+        "timestampMs": 6644.493749999999,
+        "confidence": null
+      },
+      {
+        "text": " links",
+        "startMs": 6708.89107142857,
+        "endMs": 6944.976785714285,
+        "timestampMs": 6708.89107142857,
+        "confidence": null
+      },
+      {
+        "text": " on",
+        "startMs": 6955.691964285714,
+        "endMs": 7073.73482142857,
+        "timestampMs": 6955.691964285714,
+        "confidence": null
+      },
+      {
+        "text": " screen.",
+        "startMs": 7084.486607142857,
+        "endMs": 7567.410714285714,
+        "timestampMs": 7084.486607142857,
+        "confidence": null
+      }
+    ]
+  }
+]

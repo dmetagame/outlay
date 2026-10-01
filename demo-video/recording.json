@@ -1,0 +1,74 @@
+{
+  "raw": "Disposable raw capture omitted; edited footage is committed.",
+  "clips": [
+    {
+      "id": "intro",
+      "from": 3.866,
+      "duration": 6.061
+    },
+    {
+      "id": "contract",
+      "from": 9.927,
+      "duration": 8.468
+    },
+    {
+      "id": "configure",
+      "from": 18.395,
+      "duration": 11.603000000000002
+    },
+    {
+      "id": "approve",
+      "from": 29.998,
+      "duration": 8.937000000000001
+    },
+    {
+      "id": "fund",
+      "from": 38.936,
+      "duration": 9.357
+    },
+    {
+      "id": "settle",
+      "from": 48.293,
+      "duration": 13.668
+    },
+    {
+      "id": "proof",
+      "from": 61.962,
+      "duration": 9.064999999999998
+    },
+    {
+      "id": "recurring",
+      "from": 71.027,
+      "duration": 7.531000000000006
+    },
+    {
+      "id": "outro",
+      "from": 78.558,
+      "duration": 4.7379999999999995
+    }
+  ],
+  "sends": [
+    {
+      "method": "approve",
+      "destination": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+      "intercepted": true
+    },
+    {
+      "method": "openRoom",
+      "destination": "0xe1b5d2cf63c43103455abd802b6b241b959a530c",
+      "intercepted": true
+    },
+    {
+      "method": "settle",
+      "destination": "0xe1b5d2cf63c43103455abd802b6b241b959a530c",
+      "intercepted": true
+    }
+  ],
+  "broadcastCount": 0,
+  "viewport": {
+    "width": 1600,
+    "height": 800
+  },
+  "zoom": 1.12,
+  "recordedAt": "2026-10-01T21:04:14.174Z"
+}

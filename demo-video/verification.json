@@ -1,0 +1,20 @@
+{
+  "verifiedAt": "2026-10-01T21:10:46.997Z",
+  "totalFrames": 4948,
+  "durationSeconds": 164.93333333333334,
+  "sceneCount": 10,
+  "transferLogAssertions": 2,
+  "browserErrors": 0,
+  "interceptedWalletRequests": 3,
+  "broadcasts": 0,
+  "protectedHashes": {
+    "contracts/Outlay.sol": "5eba684ed436464064f8d0da6f1cdd0eadc0b69db8d94edbbda181cb7c54b3bc",
+    "src/lib/outlay/artifact.ts": "a6a1c14904a0360ef82e38188594a1ce63e58e70187f59a1a45becd0f2923a93",
+    "src/lib/outlay/runtime.ts": "c96aeee71fa341d7f585fc3da99187036643d2da9790ae6c629fef23770f2194",
+    "verification/standard-json-input.json": "5b1ab7f2a3ca850f72a9c5e78608d8bd3009f01e525c141a95ebd4be0db138a9",
+    "verification/constructor-args.json": "77300ba14b689e8249f1252837311035d0ff41bba1fbe6a6e3dbad7773523367",
+    "proof/PROOF.md": "62ed0f12ad1d284fd0f818515f4c3f7bd5aaee98c82f188bbd4dca7d43737916",
+    "src/components/outlay/mainnet-proof.tsx": "9b5da722bf47d6ecf03a011e9e26668a94f89cd62216650533f4f51cac4e1c18"
+  },
+  "sourceCommit": "ffa721b26b9976fac4020500d0510f133cb91a8c"
+}

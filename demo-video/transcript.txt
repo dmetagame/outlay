@@ -1,0 +1,29 @@
+Scheduled USDG settlement
+This is Outlay. Set a payment, and pay the person who settles it. You fund a room with canonical USDG, choose a recipient, and set a due time. When the room is due, any wallet can call settlement. The recipient gets the payout, and the caller receives a sender-funded bounty.
+
+01 / Choose the contract
+Let's walk through a small, one-shot payment. This part reconstructs the interface flow; it does not send new transactions. Connect a wallet on Robinhood Chain, then select the existing Outlay deployment. The app checks its deployed runtime before enabling funding.
+
+02 / Configure the payout
+Enter the recipient's address. Here, the payee receives zero point one USDG, and the caller earns zero point zero one. Together, that's zero point one one USDG to lock. Choose due now for this walkthrough. The payout and the bounty are both funded by the sender.
+
+03 / Approve the amount
+First, approve the room's funding amount. This authorizes the selected contract to move that amount of USDG. Approval alone doesn't create a room. Outlay waits for a successful receipt before offering the funding step.
+
+04 / Fund and open
+Now fund and open the room. After confirmation, it appears in the settlement queue with the payee, payout, bounty, and remaining balance. A due room is ready for a caller. The contract holds the funds until settlement or an eligible refund.
+
+05 / Settle the room
+Click settle to execute the payment. A successful settlement transfers the payout to the payee and the bounty to the calling wallet. This one-shot room then closes with nothing remaining. The interface also compares the payee's token balance before and after the transaction.
+
+06 / The published payment
+Here's the actual published payment, separate from the reconstructed walkthrough. On Robinhood Chain, room one was funded with zero point one one USDG. The recorded settlement paid zero point one to the payee and zero point zero one to the caller. The sender made this settlement call; this was not an independent keeper demonstration.
+
+07 / Inspect the evidence
+The proof record links the deployment, room opening, and settlement transactions. Token transfer logs support both payments, and room one is closed with a zero remaining balance. Sourcify provides an exact source match for the deployment. The Blockscout verification badge remains incomplete.
+
+08 / Beyond a one-shot payout
+For recurring payments, choose funded periods and an interval. Three periods at these amounts require zero point three three USDG. Each successful settlement advances the next due time from that settlement. An external caller still has to submit a transaction, and the bounty does not guarantee a profit after gas.
+
+Outlay
+Outlay. Scheduled payments, paid settlement. Explore the app, inspect the proof, and read the source at the links on screen.

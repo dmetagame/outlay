@@ -1,8 +1,19 @@
 # Project State
 
 Last updated: `2026-10-01`
-Status: `AUDIT_COVERAGE_COMPLETE`
-Active objective: Completed: the eleven-claim audit coverage and read-only deployment verifier are verified and published. USDG issuer controls and remote lifetime boundaries remain explicit dependencies/limitations. The verified contract, artifact, runtime, verification JSON, counter and published proof are preserved. No environment-file reads or blockchain broadcasts. No required implementation work remains in this scope.
+Status: `DEMO_VIDEO_RENDERING`
+Active objective: Produce the user-requested Outlay demo video following the supplied MystiqueMide/Kovrell reference. The editable 1080p composition, generated narration, captions, intercepted browser walkthrough and separately captured published proof are complete; the full MP4 export is rendering. Audit coverage is already complete. Preserve the application, contract and published proof; no environment-file reads or blockchain broadcasts.
+
+## Demo video — 2026-10-01
+
+- User explicitly requests the Outlay demo video after supplying `https://x.com/MystiqueMide/status/2105303495444246574?s=20`. Inspected the 2:43 Kovrell reference: framed application walkthrough, deliberate cuts, narration/captions and evidence. Its editing software is unconfirmed; no claim that MystiqueMide uses Remotion.
+- Starting `main` / GitHub main both `ffa721b26b9976fac4020500d0510f133cb91a8c`; GitHub authentication succeeds. The two pre-existing untracked files remain excluded. Updated this state to the newly authorized video scope; previous audit entries below are historical completed work.
+- Added isolated `demo-video/` Remotion 4.0.532 project: ten scenes, 4948 frames, 164.93 seconds, 1920×1080 at 30 fps. Live Outlay browser footage, its IBM Plex fonts/forest palette, word-timed captions, generated English narration, recurring setup, public-proof panel and closing app/source links.
+- Approve/open/settle reconstruction visibly labeled throughout. All three wallet requests and browser RPC calls are intercepted. No actual wallet, signatures or broadcasts. Real receipt and room 1 re-read separately over public RPC: successful settlement at block 75738431, exact token transfer logs of 100000/10000 units, one settlement, inactive, zero remaining. Proof screenshot captured from a fresh unconnected browser without fixtures.
+- `demo-video/recording.json`, `src/evidence.json` and `verification.json` retain reviewable evidence. Sender-settled, incomplete Blockscout verification and no guaranteed keeper profit remain explicit. Contract/artifact/runtime/verification/proof remain byte-for-byte equal to HEAD; the application source is unchanged.
+- `npm run lint` (ESLint/TypeScript), matching Remotion versions and `node tools/verify.mjs` pass. Reviewed representative composition stills for intro, configure, evidence and outro. Studio runs locally on port 3005. Final H.264/AAC export is rendering to task-owned temporary storage before final decode/frame/audio checks and publication.
+- Root disk was nearly full; video-only dependencies, npm cache and renderer output use `/dev/shm/outlay-video-*`. No unfamiliar cache or user files were removed. The editable sources, assets, subtitles and final artifact will remain in the repository; task-created disposable raw captures/cache can be cleaned after export.
+- Next: finish the export, inspect representative encoded frames and captions, verify audio/duration/decoding, save the final MP4/thumbnail, then commit/push the finished deliverables and confirm remote hashes.
 
 ## Audit coverage — 2026-10-01
 
@@ -61,7 +72,7 @@ Active objective: Completed: the eleven-claim audit coverage and read-only deplo
 - Current published wallet-fixes/source commit: `ffd5a9acf9913c2032fe16aa7aa66591c0634631`, verified on `origin/main` and live production on 2026-10-01; a documentation-only handoff commit follows it. Wallet session starting commit: `340f0bf426b733eed79ed026b6ccdd60b8ddc27d`. Earlier desk-fixes source commit: `c1210325f08f2a61b491415d8048baa0cbce0b1f`. Session starting desk/documentation commit: `5b5b335390f810c7c01239c996b7c29d0d042f7e`. Original application/proof commit: `bb4ad4dee4f5f5c657dc8c79cf28d7b6566bd90e`.
 - Starting commit: `e85f81f4ca65c79136dbdb7869af10ab2e1a37a3`, confirmed on `origin/main` before edits.
 - Protected: `contracts/Outlay.sol`, committed `src/lib/outlay/artifact.ts`, and deployed bytecode. Do not change or regenerate them for this publication.
-- Current user authorizes closing remaining audit verification gaps. Existing main-push authorization and this workspace's checkpoint policy continue to apply. No new contract deployment or blockchain transactions are authorized.
+- Current user authorizes creating the Outlay demo video. Prior audit verification is complete. Existing main-push authorization and this workspace's checkpoint policy continue to apply. No new contract deployment or blockchain transactions are authorized.
 - Do not read, print, or commit `.env` or any private key. Metadata-only Git checks confirm `.env` is ignored and untracked. Build checks run in a temporary checkout without `.env` to avoid Vite loading it.
 - The earlier proof script and `.env.example` remain local, untracked files from the broadcasting session; they are outside this publication's staged files.
 

@@ -1,0 +1,37 @@
+{
+  "name": "outlay-demo-video",
+  "version": "1.0.0",
+  "description": "Outlay product walkthrough and published USDG payment proof",
+  "repository": "https://github.com/dmetagame/outlay",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@remotion/captions": "4.0.532",
+    "@remotion/cli": "4.0.532",
+    "@remotion/fonts": "4.0.532",
+    "@remotion/media": "4.0.532",
+    "@remotion/transitions": "4.0.532",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.532"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.532",
+    "@types/react": "19.2.7",
+    "@types/web": "0.0.166",
+    "eslint": "9.39.5",
+    "playwright": "^1.59.1",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "dev": "remotion studio",
+    "render": "remotion render OutlayDemo outlay-demo.mp4 --codec=h264 --crf=18 --jpeg-quality=92 --audio-codec=aac --pixel-format=yuv420p",
+    "capture": "node --experimental-strip-types tools/capture.mjs && node tools/published-proof.mjs && python3 tools/prepare.py",
+    "verify": "node tools/verify.mjs",
+    "voiceover": "python3 tools/voiceover.py",
+    "build": "remotion bundle",
+    "upgrade": "remotion upgrade",
+    "lint": "eslint src && tsc"
+  }
+}
