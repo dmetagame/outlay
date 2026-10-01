@@ -1,8 +1,8 @@
 # Project State
 
 Last updated: `2026-10-01`
-Status: `WALLET_PAGE_FIXES_READY_TO_PUBLISH`
-Active objective: Fix confirmed wallet-page defects, update the audit, push to main, and confirm the live proof is unchanged. Preserve the verified deployment, contract, artifact, verification JSON, uint32 counter, and proof. No environment-file reads or blockchain broadcasts.
+Status: `WALLET_PAGE_FIXES_COMPLETE`
+Active objective: Complete. Wallet-page defects are fixed, pushed to main, and verified live. The deployed contract remains safe; contract, artifact, verification JSON, uint32 counter, and published proof are unchanged. No environment-file reads or blockchain broadcasts.
 
 ## Wallet-page security fixes — 2026-10-01
 
@@ -10,7 +10,7 @@ Active objective: Fix confirmed wallet-page defects, update the audit, push to m
 - The prior read-only audit remains in `docs/AUDIT.md`; user requested F1 severity Medium because selection requires pasting an address, wallet spender disclosure, and a finite room allowance. Added the preventing files under all five findings; contract verdict remains safe.
 - `runtime.ts` pins the independently audited 4113-byte Robinhood runtime. Entered, stored, and wallet-deployed candidates must match `getCode`; unknown-chain runtime verification fails closed. Only chain-bound verified contracts reach wallet funding actions.
 - Approve/open/settle/refund explicitly require receipt status success; reverted transactions keep links and show errors, without room refresh or payment proof. Payee validation rejects zero/sender/Outlay/USDG, gates Approve and opening, and USDG parsing rejects more than six fractional digits before rounding.
-- Isolated typecheck, 39 Vitest tests in the existing files, nine supplemental model tests, unchanged 14 Foundry tests, and production build pass. Eleven local production browser scenarios pass: entered/stored impostors rejected; payee and precision gates; errors and links for four reverted paths; visible wallet rejection; successful approve/open/settle; exact published proof snapshot. All wallet sends are intercepted. Main push and live verification are next. No environment files are copied into the isolated build.
+- Isolated typecheck, 39 Vitest tests in the existing files, nine supplemental model tests, unchanged 14 Foundry tests, and production build pass. Eleven local production browser scenarios pass: entered/stored impostors rejected; payee and precision gates; errors and links for four reverted paths; visible wallet rejection; successful approve/open/settle; exact published proof snapshot. All wallet sends are intercepted. Source commit `ffd5a9acf9913c2032fe16aa7aa66591c0634631` is pushed and verified on remote main. Production `dpl_4vWRZH4hfU441KvetgLWQ3J8EcqK` is READY and aliased to the live domain; all eleven live browser scenarios pass as of 2026-10-01T00:08Z. Exact proof text and all three links match the pre-change snapshot. No required work remains. No environment files are copied into the isolated build.
 
 ## Four targeted desk fixes — 2026-09-30
 
@@ -42,7 +42,7 @@ Active objective: Fix confirmed wallet-page defects, update the audit, push to m
 ## Workspace and boundaries
 
 - Repository: `https://github.com/dmetagame/outlay`; worktree: `/home/rouma/outlay-proof/outlay`; branch: `main`.
-- Current published fixes/source commit: `c1210325f08f2a61b491415d8048baa0cbce0b1f`, verified on `origin/main` on 2026-09-30; the final handoff-only commit follows it. Session starting desk/documentation commit: `5b5b335390f810c7c01239c996b7c29d0d042f7e`. Original application/proof commit: `bb4ad4dee4f5f5c657dc8c79cf28d7b6566bd90e`.
+- Current published wallet-fixes/source commit: `ffd5a9acf9913c2032fe16aa7aa66591c0634631`, verified on `origin/main` and live production on 2026-10-01; a documentation-only handoff commit follows it. Wallet session starting commit: `340f0bf426b733eed79ed026b6ccdd60b8ddc27d`. Earlier desk-fixes source commit: `c1210325f08f2a61b491415d8048baa0cbce0b1f`. Session starting desk/documentation commit: `5b5b335390f810c7c01239c996b7c29d0d042f7e`. Original application/proof commit: `bb4ad4dee4f5f5c657dc8c79cf28d7b6566bd90e`.
 - Starting commit: `e85f81f4ca65c79136dbdb7869af10ab2e1a37a3`, confirmed on `origin/main` before edits.
 - Protected: `contracts/Outlay.sol`, committed `src/lib/outlay/artifact.ts`, and deployed bytecode. Do not change or regenerate them for this publication.
 - Current user authorizes the wallet-page frontend fixes, audit update, and push to main, followed by live confirmation through the existing Git/Vercel integration. No new contract deployment or blockchain transactions are authorized.
@@ -93,6 +93,7 @@ Active objective: Fix confirmed wallet-page defects, update the audit, push to m
 
 | Timestamp | Session/agent | Event | Result |
 | --- | --- | --- | --- |
+| 2026-10-01T00:08Z | Codex | Wallet-page fixes published and verified | `ffd5a9a` pushed to main; production READY for exact SHA; 39 Vitest + 9 model + 14 Foundry tests, typecheck/build, eleven local/live browser scenarios pass. Protected files and proof snapshots unchanged; no broadcasts. |
 | 2026-09-30T22:40:46Z | Codex | Four targeted fixes deployed before main push | Typecheck, 16 tests, production build, local and live light/dark at 1440px/390px pass; proof text/links/caveats and protected files unchanged. Main commit/push is next. |
 | 2026-09-30T22:42Z | Codex | Main publication confirmed after live verification | `c121032` pushed and verified on GitHub; Git-integrated production READY for the same SHA and post-push live HTML preserves fixes. Pre-existing untracked files remain untouched. |
 | 2026-09-21T22:11:05Z | Codex | Session start and repository reconciliation | Public repository is clean and authenticated; prompt-described UI and EVM tests are absent. |
