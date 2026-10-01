@@ -1,8 +1,8 @@
 # Project State
 
 Last updated: `2026-10-01`
-Status: `DEMO_VIDEO_PUBLISHING`
-Active objective: The requested Outlay demo video is complete and verified locally. Publish the final MP4, thumbnail and subtitle deliverables, confirm the public download and remote Git checkpoint, then finish the handoff. The application, contract and published proof are unchanged; no environment-file reads or blockchain broadcasts.
+Status: `DEMO_VIDEO_COMPLETE`
+Active objective: Completed: the requested 2:45 Outlay demo video, thumbnail, subtitles, transcript and editable project are verified and published on GitHub. The public MP4 download matches the local SHA-256 byte for byte. The application, contract and published proof are unchanged; no environment-file reads or blockchain broadcasts. No required video work remains.
 
 ## Demo video — 2026-10-01
 
@@ -13,11 +13,13 @@ Active objective: The requested Outlay demo video is complete and verified local
 - `demo-video/recording.json`, `src/evidence.json` and `verification.json` retain reviewable evidence. Sender-settled, incomplete Blockscout verification and no guaranteed keeper profit remain explicit. Contract/artifact/runtime/verification/proof remain byte-for-byte equal to HEAD; the application source is unchanged.
 - `npm run lint` (ESLint/TypeScript), matching Remotion versions and `node tools/verify.mjs` pass. Reviewed representative composition stills for intro, configure, evidence and outro. Studio runs locally on port 3005. Final H.264/AAC export is rendering to task-owned temporary storage before final decode/frame/audio checks and publication.
 - Root disk was nearly full; video-only dependencies, npm cache and renderer output use `/dev/shm/outlay-video-*`. No unfamiliar cache or user files were removed. The editable sources, assets, subtitles and final artifact will remain in the repository; task-created disposable raw captures/cache can be cleaned after export.
-- Next: finish the export, inspect representative encoded frames and captions, verify audio/duration/decoding, save the final MP4/thumbnail, then commit/push the finished deliverables and confirm remote hashes.
+- No work remains in the video scope. Optional future edits use `demo-video/script.json`, `src/scenes/`, and the documented re-record/render commands.
 - Editable source/assets checkpoint `b4fcb70e8b59e771ecf388eba3307bb2186e50b0` is pushed and independently confirmed on GitHub main. First full export completed and decoded cleanly, but encoded-frame review caught the following chapter entering the final cloned browser frame. Corrected each cut to end inside its deliberate hold; added `tools/verify_hold.py` to compare all seven edited clips' held states against captured screenshots. All seven pass with mean RGB pixel differences below 1.2; re-export is running with corrected footage. Final artifact publication remains pending.
 - Corrected source/footage checkpoint `26acd05047d096b881fbbb18ec2a4be8ca569724` is pushed and independently verified. Corrected full export passes native decoding, eight encoded browser-state comparisons (mean pixel differences 0.65–1.55), seven source-clip end-state comparisons, and all original timeline/receipt/protected-file checks. Representative encoded intro, settlement and recurring frames reviewed. The first-export regression is rejected by the new encoded-state check; the corrected export passes.
 - Final artifact: `demo-video/outlay-demo.mp4`, 14869351 bytes, 164.949 seconds, 1920×1080/30 fps, 4948 H.264 frames, stereo AAC at 48 kHz, fast-start MP4. SHA-256 `fc1472aa9a4b730dd271e76a233e84d0590831ac34017d77712b7ac9582c3d4a`. Audio measured -13.8 LUFS integrated, -1.9 dBFS true peak, 3.6 LU range. Narration and captions are included; separate SRT, transcript, editable sources and thumbnail accompany it.
 - `media-verification.json` and `encoded-verification.json` record final checks. Task-created raw recordings and npm cache are cleaned; committed edited clips, screenshots and recording evidence remain. `npm run verify` passes using the retained recording manifest after raw cleanup. Studio is stopped. Final commit/push and public-file hash confirmation follow.
+- Finished deliverables commit `d9f90c450fd76b6fc069242ad69527a8f50e9b7f` is pushed and independently confirmed on GitHub main. Public download `https://raw.githubusercontent.com/dmetagame/outlay/main/demo-video/outlay-demo.mp4` returns the exact 14869351-byte file and SHA-256 above; public SRT compares byte-for-byte with local. Current workspace `/home/rouma/outlay-proof/outlay`, branch `main`; this final documentation handoff follows the deliverable checkpoint. The only excluded pre-existing files remain `.env.example` and `scripts/prove-robinhood.mjs`.
+- Final cleanup removes only this task's temporary rendering/dependency/cache directories and its ignored node_modules symlink. The final MP4/thumbnail/subtitles, edited recording assets, all verification evidence and source/lockfiles are committed and retained. No website or application redesign was performed for the video.
 
 ## Audit coverage — 2026-10-01
 
@@ -124,6 +126,7 @@ Active objective: The requested Outlay demo video is complete and verified local
 
 | Timestamp | Session/agent | Event | Result |
 | --- | --- | --- | --- |
+| 2026-10-01T21:55Z | Codex | Outlay demo published and verified | `d9f90c4` pushed/confirmed; public MP4 SHA-256 and SRT match local files. 2:45 1080p narrated/captioned demo, thumbnail and editable sources delivered. Protected/application files unchanged; no signatures/broadcasts. Video scope complete. |
 | 2026-10-01T21:51Z | Codex | Final demo export verified | 2:45 1080p/30 H.264/AAC MP4; full decode, fast start, eight encoded end states and caption/audio timing pass. SHA-256 recorded above. Final deliverable publication follows; application and protected files unchanged. |
 | 2026-10-01T21:29Z | Codex | Demo composition and browser capture checkpoint | `b4fcb70` is pushed/verified; ten-scene 1080p narration/captions project is complete. Corrected scene ending after first encoded review; seven screenshot/held-frame comparisons pass. Final export/publication pending; no broadcasts or protected-file changes. |
 | 2026-10-01T16:13Z | Codex | Audit coverage publication confirmed | `b1eafd1` pushed and independently verified on GitHub main; Vercel production READY for exact SHA; live proof text/links/caveats equal pre-push HTML. Protected files unchanged; no signatures/broadcasts. Scope complete. |
