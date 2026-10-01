@@ -4,6 +4,17 @@ Last updated: `2026-10-01`
 Status: `DEMO_VIDEO_COMPLETE`
 Active objective: Completed: the requested 2:45 Outlay demo video, thumbnail, subtitles, transcript and editable project are verified and published on GitHub. The public MP4 download matches the local SHA-256 byte for byte. The application, contract and published proof are unchanged; no environment-file reads or blockchain broadcasts. No required video work remains.
 
+## Reusable build and demo standard — 2026-10-01
+
+- User's instruction after delivery: "I want you save our this is done in your memory. Let it be our standard when building". Outlay is the default quality/workflow reference for future product builds, subject to later user scope and instructions. Saved the inherited preference in `/home/rouma/AGENTS.md`; this section is its portable repository record.
+- Website: inspect supplied references, define deliberate product-specific typography/palette/layout, deliver the real end-to-end workflow with clear validation and loading/error/success states, and verify responsive desktop/mobile and accessible keyboard behavior. Adapt the visual system to each product; Outlay's colors and components are not mandatory templates. Reference: `docs/DESIGN.md`.
+- Evidence: use inspectable outcomes and proof links, retain exact facts and caveats, and respect frozen/protected artifacts. Label reconstructed/intercepted demo workflows persistently and verify real published outcomes separately. Demo reconstruction does not authorize real signatures or broadcasts.
+- Demo: use the inspected MystiqueMide Kovrell reference's framed walkthrough, deliberate cuts, concise narration, readable timed captions, evidence, and closing app/source links, with the product's own branding. The reference creator's editing software remains unknown. Include the demo in normal finished-product delivery unless the user narrows scope.
+- Deliverables: verified 1080p/30 fps H.264/AAC MP4 and download link, thumbnail, separate subtitles/transcript, editable sources/assets. Remotion with isolated dependencies is the established workflow. Verify intended scene endings, caption/audio alignment, encoded frames, complete decoding, and downloadable-file integrity. Reference: `demo-video/README.md`.
+- Completion: appropriate product checks and browser evidence, scoped recoverable commits, verified remote publication when authorized, living project handoff, and cleanup limited to confirmed disposable task files. Preserve unrelated user files, credentials, proof facts and authorization boundaries.
+- Retrieval concepts: `outlay-build-standard`, `product-specific-design`, `mystiquemide-demo-reference`, `verified-product-evidence`, `editable-demo-video`. The session has no callable memory-save backend; saved to the existing durable instruction/handoff files rather than inventing a memory-service success.
+- Reconciled before this documentation-only checkpoint: `/home/rouma/outlay-proof/outlay`, `main`, local/upstream/public main `09811369c2140ae238178dd0c6b03d4d3e930ae7`; GitHub authentication passes. The two pre-existing untracked files remain excluded. Website/video/proof artifacts are unchanged; home-level rules are local and this portable record is committed separately.
+
 ## Demo video — 2026-10-01
 
 - User explicitly requests the Outlay demo video after supplying `https://x.com/MystiqueMide/status/2105303495444246574?s=20`. Inspected the 2:43 Kovrell reference: framed application walkthrough, deliberate cuts, narration/captions and evidence. Its editing software is unconfirmed; no claim that MystiqueMide uses Remotion.
@@ -126,6 +137,7 @@ Active objective: Completed: the requested 2:45 Outlay demo video, thumbnail, su
 
 | Timestamp | Session/agent | Event | Result |
 | --- | --- | --- | --- |
+| 2026-10-01T22:32:47Z | Codex | Saved Outlay as the user's future build/demo standard | Workspace-wide instruction preference plus this portable record; documentation only, completed demo and protected artifacts preserved. Scoped checkpoint publication follows. |
 | 2026-10-01T21:55Z | Codex | Outlay demo published and verified | `d9f90c4` pushed/confirmed; public MP4 SHA-256 and SRT match local files. 2:45 1080p narrated/captioned demo, thumbnail and editable sources delivered. Protected/application files unchanged; no signatures/broadcasts. Video scope complete. |
 | 2026-10-01T21:51Z | Codex | Final demo export verified | 2:45 1080p/30 H.264/AAC MP4; full decode, fast start, eight encoded end states and caption/audio timing pass. SHA-256 recorded above. Final deliverable publication follows; application and protected files unchanged. |
 | 2026-10-01T21:29Z | Codex | Demo composition and browser capture checkpoint | `b4fcb70` is pushed/verified; ten-scene 1080p narration/captions project is complete. Corrected scene ending after first encoded review; seven screenshot/held-frame comparisons pass. Final export/publication pending; no broadcasts or protected-file changes. |
