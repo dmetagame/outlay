@@ -21,6 +21,7 @@ The public proof records 0.11 USDG funded, 0.10 paid to the payee, and 0.01 paid
 ## Preview and render
 
 This project is isolated from the wallet application's dependencies and environment files.
+Verification needs FFmpeg/FFprobe and Python with Pillow; rendering also uses FFmpeg/FFprobe for the final stream copy and decode check.
 
 ```bash
 cd demo-video
@@ -37,7 +38,7 @@ The generated narration uses `en-GB-RyanNeural` through [edge-tts](https://githu
 
 ## Re-record or change narration
 
-Requires Python with `edge-tts`, FFmpeg/FFprobe, and the root app's installed dependencies for its ABI and viem. Set `OUTLAY_BROWSER` to a local Chrome path when re-recording on another machine.
+Requires Python with `edge-tts` and Pillow, FFmpeg/FFprobe, and the root app's installed dependencies for its ABI and viem. Set `OUTLAY_BROWSER` to a local Chrome path when re-recording on another machine.
 
 ```bash
 npm run voiceover

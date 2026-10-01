@@ -18,7 +18,11 @@ for scene in scenes:
     clip = clips[scene["id"]]
     duration = scene["durationInFrames"] / 30
     # Preserve normal interaction speed, then hold the final frame for narration.
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(clip["from"]), "-t", str(clip["duration"]),
+    # Capture/video clocks can differ by a fraction of a second. Every recorded
+    # action ends with a deliberate hold; trim its final two seconds to exclude
+    # the following chapter before cloning the intended end state.
+    captured_duration = max(0.2, clip["duration"] - 2.0)
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(clip["from"]), "-t", str(captured_duration),
                     "-i", manifest["raw"], "-vf", f"fps=30,tpad=stop_mode=clone:stop_duration={duration}",
                     "-t", str(duration), "-an", "-c:v", "libx264", "-preset", "fast", "-crf", "20",
                     "-pix_fmt", "yuv420p", "-movflags", "+faststart",

@@ -1,8 +1,17 @@
 {
-  "verifiedAt": "2026-10-01T21:10:46.997Z",
+  "verifiedAt": "2026-10-01T21:34:36.562Z",
   "totalFrames": 4948,
   "durationSeconds": 164.93333333333334,
   "sceneCount": 10,
+  "heldFrameMeanPixelDifferences": {
+    "intro": 0.9029,
+    "contract": 0.5088,
+    "configure": 0.5066,
+    "approve": 0.5373,
+    "fund": 0.9606,
+    "settle": 0.7932,
+    "recurring": 0.8643
+  },
   "transferLogAssertions": 2,
   "browserErrors": 0,
   "interceptedWalletRequests": 3,
@@ -16,5 +25,5 @@
     "proof/PROOF.md": "62ed0f12ad1d284fd0f818515f4c3f7bd5aaee98c82f188bbd4dca7d43737916",
     "src/components/outlay/mainnet-proof.tsx": "9b5da722bf47d6ecf03a011e9e26668a94f89cd62216650533f4f51cac4e1c18"
   },
-  "sourceCommit": "ffa721b26b9976fac4020500d0510f133cb91a8c"
+  "sourceCommit": "b4fcb70e8b59e771ecf388eba3307bb2186e50b0"
 }

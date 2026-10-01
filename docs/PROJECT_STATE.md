@@ -14,6 +14,7 @@ Active objective: Produce the user-requested Outlay demo video following the sup
 - `npm run lint` (ESLint/TypeScript), matching Remotion versions and `node tools/verify.mjs` pass. Reviewed representative composition stills for intro, configure, evidence and outro. Studio runs locally on port 3005. Final H.264/AAC export is rendering to task-owned temporary storage before final decode/frame/audio checks and publication.
 - Root disk was nearly full; video-only dependencies, npm cache and renderer output use `/dev/shm/outlay-video-*`. No unfamiliar cache or user files were removed. The editable sources, assets, subtitles and final artifact will remain in the repository; task-created disposable raw captures/cache can be cleaned after export.
 - Next: finish the export, inspect representative encoded frames and captions, verify audio/duration/decoding, save the final MP4/thumbnail, then commit/push the finished deliverables and confirm remote hashes.
+- Editable source/assets checkpoint `b4fcb70e8b59e771ecf388eba3307bb2186e50b0` is pushed and independently confirmed on GitHub main. First full export completed and decoded cleanly, but encoded-frame review caught the following chapter entering the final cloned browser frame. Corrected each cut to end inside its deliberate hold; added `tools/verify_hold.py` to compare all seven edited clips' held states against captured screenshots. All seven pass with mean RGB pixel differences below 1.2; re-export is running with corrected footage. Final artifact publication remains pending.
 
 ## Audit coverage — 2026-10-01
 
@@ -120,6 +121,7 @@ Active objective: Produce the user-requested Outlay demo video following the sup
 
 | Timestamp | Session/agent | Event | Result |
 | --- | --- | --- | --- |
+| 2026-10-01T21:29Z | Codex | Demo composition and browser capture checkpoint | `b4fcb70` is pushed/verified; ten-scene 1080p narration/captions project is complete. Corrected scene ending after first encoded review; seven screenshot/held-frame comparisons pass. Final export/publication pending; no broadcasts or protected-file changes. |
 | 2026-10-01T16:13Z | Codex | Audit coverage publication confirmed | `b1eafd1` pushed and independently verified on GitHub main; Vercel production READY for exact SHA; live proof text/links/caveats equal pre-push HTML. Protected files unchanged; no signatures/broadcasts. Scope complete. |
 | 2026-10-01T15:56Z | Codex | Remaining audit verification completed | 57 local EVM tests, 10 canonical-USDG fork tests at block 77497119, 9 verifier tests, typecheck/frontend/model/build and formatting checks pass. Read-only chain verifier matches published build/payment. All protected files unchanged; commit/push and production confirmation follow. |
 | 2026-10-01T00:08Z | Codex | Wallet-page fixes published and verified | `ffd5a9a` pushed to main; production READY for exact SHA; 39 Vitest + 9 model + 14 Foundry tests, typecheck/build, eleven local/live browser scenarios pass. Protected files and proof snapshots unchanged; no broadcasts. |

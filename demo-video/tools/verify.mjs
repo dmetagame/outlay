@@ -9,6 +9,9 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = file => readFile(path.join(root, file), "utf8").then(JSON.parse);
 const timeline = await read("src/timeline.json");
 const evidence = await read("src/evidence.json");
+const heldFrames = await read("hold-verification.json");
+assert.equal(Object.keys(heldFrames).length, 7);
+assert(Object.values(heldFrames).every(difference => difference < 8));
 const recording = await read("public/raw/manifest.json").catch(error => {
   if (error.code !== "ENOENT") throw error;
   return read("recording.json");
@@ -55,7 +58,7 @@ for (const file of protectedFiles) {
   assert.equal(Buffer.compare(current, execFileSync("git", ["show", "HEAD:" + file], {cwd: path.join(root, "..")})), 0, "Protected file changed: " + file);
   protectedHashes[file] = createHash("sha256").update(current).digest("hex");
 }
-const report = {verifiedAt: new Date().toISOString(), totalFrames, durationSeconds: totalFrames / 30, sceneCount: timeline.length, transferLogAssertions: 2, browserErrors: 0, interceptedWalletRequests: 3, broadcasts: 0, protectedHashes, sourceCommit: execFileSync("git", ["rev-parse", "HEAD"], {cwd: path.join(root, ".."), encoding: "utf8"}).trim()};
+const report = {verifiedAt: new Date().toISOString(), totalFrames, durationSeconds: totalFrames / 30, sceneCount: timeline.length, heldFrameMeanPixelDifferences: heldFrames, transferLogAssertions: 2, browserErrors: 0, interceptedWalletRequests: 3, broadcasts: 0, protectedHashes, sourceCommit: execFileSync("git", ["rev-parse", "HEAD"], {cwd: path.join(root, ".."), encoding: "utf8"}).trim()};
 await writeFile(path.join(root, "verification.json"), JSON.stringify(report, null, 2) + "\n");
 await writeFile(path.join(root, "recording.json"), JSON.stringify({...recording, raw: "Disposable raw capture omitted; edited footage is committed."}, null, 2) + "\n");
 console.log("Verified: ten scenes, exact transfer logs, captions/audio/footage timing, three intercepted wallet requests, seven protected files unchanged.");

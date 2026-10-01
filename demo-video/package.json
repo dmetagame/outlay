@@ -26,9 +26,9 @@
   },
   "scripts": {
     "dev": "remotion studio",
-    "render": "remotion render OutlayDemo outlay-demo.mp4 --codec=h264 --crf=18 --jpeg-quality=92 --audio-codec=aac --pixel-format=yuv420p",
+    "render": "remotion render OutlayDemo out/raw.mp4 --codec=h264 --crf=18 --jpeg-quality=92 --audio-codec=aac --pixel-format=yuv420p && node tools/finalize.mjs out/raw.mp4",
     "capture": "node --experimental-strip-types tools/capture.mjs && node tools/published-proof.mjs && python3 tools/prepare.py",
-    "verify": "node tools/verify.mjs",
+    "verify": "python3 tools/verify_hold.py && node tools/verify.mjs",
     "voiceover": "python3 tools/voiceover.py",
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
