@@ -1,5 +1,5 @@
 {
-  "verifiedAt": "2026-10-01T21:34:36.562Z",
+  "verifiedAt": "2026-10-01T21:40:31.275Z",
   "totalFrames": 4948,
   "durationSeconds": 164.93333333333334,
   "sceneCount": 10,
@@ -25,5 +25,5 @@
     "proof/PROOF.md": "62ed0f12ad1d284fd0f818515f4c3f7bd5aaee98c82f188bbd4dca7d43737916",
     "src/components/outlay/mainnet-proof.tsx": "9b5da722bf47d6ecf03a011e9e26668a94f89cd62216650533f4f51cac4e1c18"
   },
-  "sourceCommit": "b4fcb70e8b59e771ecf388eba3307bb2186e50b0"
+  "sourceCommit": "26acd05047d096b881fbbb18ec2a4be8ca569724"
 }

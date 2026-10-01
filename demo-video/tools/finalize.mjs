@@ -8,6 +8,8 @@ import assert from "node:assert/strict";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const input = path.resolve(process.argv[2] || path.join(root, "out/raw.mp4"));
 const output = path.join(root, "outlay-demo.mp4");
+const timeline = JSON.parse(await readFile(path.join(root, "src/timeline.json"), "utf8"));
+const expectedFrames = timeline.reduce((frames, scene) => frames + scene.durationInFrames, 0);
 assert.notEqual(input, output, "Finalize needs a separate input file");
 execFileSync("ffmpeg", ["-v", "error", "-y", "-i", input, "-c", "copy", "-movflags", "+faststart",
   "-metadata", "title=Outlay — scheduled USDG settlement demo", "-metadata",
@@ -17,9 +19,9 @@ const video = probe.streams.find(stream => stream.codec_type === "video");
 const audio = probe.streams.find(stream => stream.codec_type === "audio");
 assert.equal(video.codec_name, "h264");
 assert.equal(video.width, 1920); assert.equal(video.height, 1080);
-assert.equal(video.r_frame_rate, "30/1"); assert.equal(video.nb_frames, "4948");
+assert.equal(video.r_frame_rate, "30/1"); assert.equal(Number(video.nb_frames), expectedFrames);
 assert.equal(audio.codec_name, "aac"); assert.equal(audio.sample_rate, "48000");
-assert(Math.abs(Number(probe.format.duration) - 4948 / 30) < 0.05);
+assert(Math.abs(Number(probe.format.duration) - expectedFrames / 30) < 0.05);
 execFileSync("ffmpeg", ["-v", "error", "-i", output, "-f", "null", "/dev/null"]);
 const bytes = await readFile(output);
 const atoms = [];
@@ -37,4 +39,4 @@ const report = {verifiedAt: new Date().toISOString(), fullDecode: "pass", fastSt
   sha256: createHash("sha256").update(bytes).digest("hex"),
   renderSourceCommit: execFileSync("git", ["rev-parse", "HEAD"], {cwd: path.join(root, ".."), encoding: "utf8"}).trim()};
 await writeFile(path.join(root, "media-verification.json"), JSON.stringify(report, null, 2) + "\n");
-console.log("Finalized: 1080p/30 H.264 + AAC, 4948 frames, fast start, full decode passed.");
+console.log(`Finalized: 1080p/30 H.264 + AAC, ${expectedFrames} frames, fast start, full decode passed.`);

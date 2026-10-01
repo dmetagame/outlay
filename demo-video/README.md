@@ -1,5 +1,9 @@
 # Outlay demo video
 
+[Watch or download the MP4](https://raw.githubusercontent.com/dmetagame/outlay/main/demo-video/outlay-demo.mp4) · [Subtitles](outlay-demo.srt) · [Transcript](transcript.txt)
+
+[![Outlay demo preview](poster.jpg)](https://raw.githubusercontent.com/dmetagame/outlay/main/demo-video/outlay-demo.mp4)
+
 An editable 1920 × 1080, 30 fps product walkthrough, 2:44.93 long. It uses the live Outlay interface, a forest-green frame, generated English narration, timed captions, and an evidence panel.
 
 The visual pacing follows the [Kovrell reference](https://x.com/MystiqueMide/status/2105303495444246574). The framing and typography use Outlay's own palette and self-hosted IBM Plex fonts. No reference footage or audio is included.
@@ -16,12 +20,13 @@ The public proof records 0.11 USDG funded, 0.10 paid to the payee, and 0.01 paid
 - `src/timeline.json`: scene durations and Remotion Caption records.
 - `public/footage/`, `public/voice/`, `public/screens/`: reusable recording assets.
 - `recording.json` and `verification.json`: capture and verification evidence.
+- `hold-verification.json`, `encoded-verification.json`, and `media-verification.json`: intended end states, encoded frame comparisons, codec/timing checks and final MP4 hash.
 - `src/scenes/`: editable scene components.
 
 ## Preview and render
 
 This project is isolated from the wallet application's dependencies and environment files.
-Verification needs FFmpeg/FFprobe and Python with Pillow; rendering also uses FFmpeg/FFprobe for the final stream copy and decode check.
+Rendering and verification need FFmpeg/FFprobe and Python with Pillow for the final stream copy, decode, and encoded-frame checks.
 
 ```bash
 cd demo-video

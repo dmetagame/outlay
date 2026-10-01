@@ -1,0 +1,23 @@
+{
+  "verifiedAt": "2026-10-01T21:50:57.184Z",
+  "fullDecode": "pass",
+  "fastStart": true,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "frames": 4948,
+  "videoCodec": "h264",
+  "audioCodec": "aac",
+  "audioSampleRate": 48000,
+  "audioChannels": 2,
+  "durationSeconds": 164.949,
+  "sizeBytes": 14869351,
+  "sha256": "fc1472aa9a4b730dd271e76a233e84d0590831ac34017d77712b7ac9582c3d4a",
+  "renderSourceCommit": "26acd05047d096b881fbbb18ec2a4be8ca569724",
+  "audioLoudness": {
+    "integratedLUFS": -13.8,
+    "truePeakDBFS": -1.9,
+    "rangeLU": 3.6
+  },
+  "encodedBrowserStates": "8 passed; see encoded-verification.json"
+}

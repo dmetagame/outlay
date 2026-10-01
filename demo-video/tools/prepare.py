@@ -6,7 +6,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 scenes = json.loads((ROOT / "src/timeline.json").read_text())
-manifest = json.loads((ROOT / "public/raw/manifest.json").read_text())
+manifest = {"clips": []} if "--subtitles-only" in sys.argv else json.loads((ROOT / "public/raw/manifest.json").read_text())
 clips = {clip["id"]: clip for clip in manifest["clips"]}
 (ROOT / "public/footage").mkdir(exist_ok=True)
 
