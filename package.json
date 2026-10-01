@@ -9,7 +9,10 @@
     "start": "node .output/server/index.mjs",
     "test": "vitest run src/lib/outlay/chains.test.ts src/lib/outlay/room-form.test.ts && node --experimental-strip-types src/lib/outlay/machine.test.ts",
     "test:contracts": "forge test -vv",
-    "check": "tsc --noEmit && npm run test && npm run build",
+    "test:contracts:robinhood": "FOUNDRY_PROFILE=robinhood forge test --fork-url https://rpc.mainnet.chain.robinhood.com --match-contract RobinhoodUSDGForkTest -vv",
+    "check:deployment": "node scripts/check-deployment.mjs",
+    "test:deployment": "node scripts/check-deployment.test.mjs",
+    "check": "tsc --noEmit && npm run test && npm run test:deployment && npm run build",
     "generate:artifact": "node scripts/generate-artifact.mjs",
     "generate:verification": "node scripts/generate-verification-kit.mjs",
     "generate": "forge build && npm run generate:artifact && npm run generate:verification"

@@ -82,13 +82,15 @@ lookalike.
 ## Contract guarantees
 
 - `amount > 0`, `bounty > 0`, `funded >= amount + bounty`, and `payee != sender` are enforced onchain.
-- Every room owns its own `remaining`; another room's deposit cannot subsidize it.
+- Every room owns its own `remaining`. Aggregate backing assumes exact-value USDG transfers and
+  no token balance loss; USDG issuer pause/freeze controls can block settlement and refund.
 - State changes precede token transfers and all mutating entry points share a reentrancy lock.
 - ERC-20 transfers support both tokens that return `bool` and tokens that return no data.
 - Recurring schedules advance from settlement time (`block.timestamp + interval`), avoiding catch-up
   bursts from an old due date.
 - One-shot settlement pays both legs, returns any remainder, zeros accounting, and closes atomically.
-- After any settlement, `refund` reverts `AlreadyPaid`.
+- After payment, `refund` reverts `AlreadyPaid` within the `uint32` counter's lifetime. Its remote
+  2^32-settlement wrap boundary is characterized in the tests and retained in the verified contract.
 
 The canonical source is [`contracts/Outlay.sol`](./contracts/Outlay.sol).
 
@@ -103,10 +105,42 @@ npm run check
 npm run dev
 ```
 
-`forge test -vv` runs 14 EVM tests with bool-return, no-return, and actively reentrant token doubles.
-`npm run check` type-checks, runs seven address/form/chain tests plus nine accounting-model tests,
-and creates the production client/SSR bundles. The TypeScript model is supplemental; the Foundry
-suite is the contract evidence.
+`forge test -vv` runs 57 EVM tests covering contract boundaries, failed-transfer rollback, callbacks
+across all mutations, token shortfalls, and three backing/accounting invariants. Six fuzz tests run
+512 cases each; each invariant runs 128 campaigns of 64 handler calls. Token doubles include
+bool-return, no-return, malformed-return, reentrant, fee, pause, and freeze behavior.
+
+`npm run check` type-checks, runs 39 frontend tests, nine supplemental accounting-model tests and
+nine deployment-verifier tests, then builds the production client/SSR bundles. The TypeScript
+model is supplemental; the Foundry suite is the contract evidence.
+
+Canonical Robinhood USDG has a separate, explicit local-fork suite. It reads public RPC data and
+simulates transfers, deployments and issuer-role impersonation only in Forge's local EVM:
+
+```bash
+npm run test:contracts:robinhood
+# Reproduce the 1 October 2026 audit snapshot if the RPC retains that block's state:
+npm run test:contracts:robinhood -- --fork-block-number 77497119
+```
+
+All ten fork tests passed at that block: unit transfers, funding/payout/bounty/leftover, full refund,
+self-payee characterization, stored balances across a time warp, issuer pause/freeze and atomic
+rollback. RPC failure or unavailable historical state fails the command; tests do not silently skip.
+These checks establish behavior at the tested snapshot, not future USDG issuer policy.
+
+The read-only verifier independently compiles the committed standard JSON without regenerating
+files, checks ABI/admin surface and constructor/runtime bytes, and checks the existing published
+deployment, receipts and transfer/event values. It never loads environment files or constructs a
+wallet client:
+
+```bash
+npm run check:deployment -- --offline
+npm run check:deployment
+# Optional: --block 77497119, --rpc-url PUBLIC_RPC_URL, --solc /path/to/solc-0.8.37
+```
+
+See [docs/AUDIT.md](./docs/AUDIT.md) for the eleven-claim coverage matrix, remaining token
+dependencies, artificial lifetime-boundary tests, and proof limitations.
 
 ## Judge click path
 
@@ -171,8 +205,12 @@ the `tanstack-start` framework; `npm start` serves the built `.output` bundle lo
 
 - `contracts/Outlay.sol` — canonical deployable contract
 - `test/Outlay.t.sol` — EVM behavior and adversarial token tests
+- `test/OutlayBoundaries.t.sol`, `test/OutlayAdversarial.t.sol`, `test/OutlayInvariant.t.sol` — expanded
+  boundary, rollback, callback and stateful invariant coverage
+- `fork-test/Robinhood.t.sol` — canonical-USDG integration and issuer-control tests on a local fork
 - `src/components/outlay` — wallet deployment, funding, room, settlement, and proof UI
 - `src/lib/outlay` — ABI/bytecode, chain constants, formatting, storage, and accounting model
 - `verification` — standard JSON and constructor encoding kit
 - `proof/PROOF.md` — completed Robinhood mainnet payment and Sourcify exact-match evidence
 - `scripts` — deterministic artifact generation and post-deploy explorer verification
+- `scripts/check-deployment.mjs` — read-only reproduction of build and published payment evidence

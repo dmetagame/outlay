@@ -1,8 +1,22 @@
 # Project State
 
 Last updated: `2026-10-01`
-Status: `WALLET_PAGE_FIXES_COMPLETE`
-Active objective: Complete. Wallet-page defects are fixed, pushed to main, and verified live. The deployed contract remains safe; contract, artifact, verification JSON, uint32 counter, and published proof are unchanged. No environment-file reads or blockchain broadcasts.
+Status: `AUDIT_COVERAGE_VERIFIED_PENDING_PUBLICATION`
+Active objective: Publish the completed eleven-claim audit coverage and read-only deployment verifier, then confirm GitHub and production. Verification is complete; USDG issuer controls and remote lifetime boundaries remain explicit dependencies/limitations. The verified contract, artifact, runtime, verification JSON, counter and published proof are preserved. No environment-file reads or blockchain broadcasts.
+
+## Audit coverage — 2026-10-01
+
+- User requests implementation of the remaining gaps following the completed wallet fixes. Reconciled main/origin/main at `8cd03ca30c5ea808158e0ef026568d120390207a`; GitHub authentication succeeds. Only the pre-existing `.env.example` and proof script are untracked and excluded.
+- Scope: test the eleven existing contract claims at their already-authorized public interfaces, including failure atomicity, cross-entry token callbacks, pooled backing assumptions, and impractical lifetime boundaries. Add a local fork test against canonical USDG and a read-only deployment verifier. Keep both residual risks explicit; tests cannot remove issuer controls from an immutable contract.
+- Protected-file SHA-256 baseline saved outside the repository. Tests/builds use `/tmp/outlay-coverage`, copied from tracked source without environment files. No real contracts will be deployed and no wallet transaction will be sent.
+- Resume reconciliation: `main` and published GitHub main both remain at `8cd03ca`; authentication succeeds. The previously recorded `/tmp/outlay-coverage` directory is absent, and no completed coverage run is recorded. Recreate an isolated source copy and protected-file baseline before validation; preserve the existing local test drafts and excluded files.
+- Resumed local coverage passes: isolated `forge test --offline -vv` reports 56 passed, 0 failed/skipped; six fuzz tests each run 512 cases and three invariants each run 128 campaigns × 64 calls with no handler reverts. Canonical-USDG fork, reproducible deployment verifier, final documentation and publication remain pending.
+- Canonical fork validation passes all ten USDG tests at the live RPC snapshot, including unit transfers, full refund, self-payee characterization, pause/freeze controls and atomic rollback. The fork profile also discovered 14 imported baseline tests; the npm command now explicitly selects `RobinhoodUSDGForkTest`. Local verifier compilation/ABI/runtime checks pass. Final expanded-suite rerun, verifier failure checks and published-chain verification remain pending.
+- Final local suite now passes 57 tests (0 failed/skipped), including short malformed ERC20 returns and the artificial beyond-uint64 timestamp boundary. Nine verifier success/drift tests pass. Read-only verifier passes at Robinhood block `77497119`, hash `0x7ec96c68422ad75d308dc11ec4e4d3eb08c9665755cfb03d6d37a5c450d3e650`: fresh compilation, exact deployed input/runtime, canonical token, all three successful receipts, USDG/Outlay payment logs and closed zero-balance room. Pin the final fork run to this block; documentation and publication follow.
+- Final fork run at block `77497119`: 10 passed, 0 failed/skipped. Final isolated `npm run check`: typecheck, 39 frontend tests, 9 model tests, 9 verifier tests and production build pass. `forge fmt --check` and `git diff --check` pass. The contract results log is `/tmp/outlay-coverage/contract-results.log`; the complete application check is `/tmp/outlay-coverage/check-results.log`.
+- Added three contract suites and two helper files, `fork-test/Robinhood.t.sol`, the read-only `scripts/check-deployment.mjs` and its drift tests. Foundry config makes fuzz/invariant budgets explicit; npm exposes fork/verifier commands and includes offline verifier tests in `check`. README and AUDIT now show the completed eleven-claim matrix and qualify pooled backing/counter guarantees.
+- Protected SHA-256 baseline and comparisons with `HEAD` confirm all seven contract/artifact/runtime/verification/proof files unchanged; the whole `src` tree is unchanged. No environment files or keys were read. No wallet sends, signatures or chain broadcasts occurred. `.env.example` and `scripts/prove-robinhood.mjs` remain excluded.
+- R1 (issuer restrictions/pooled backing) and R2 (artificial counter-wrap boundary) remain disclosed. Tests characterize the retained release; they do not remove issuer controls or establish future token policy/keeper profitability. All implementation work is complete. Next: commit/push the verified checkpoint and record GitHub/production confirmation.
 
 ## Wallet-page security fixes — 2026-10-01
 
@@ -45,7 +59,7 @@ Active objective: Complete. Wallet-page defects are fixed, pushed to main, and v
 - Current published wallet-fixes/source commit: `ffd5a9acf9913c2032fe16aa7aa66591c0634631`, verified on `origin/main` and live production on 2026-10-01; a documentation-only handoff commit follows it. Wallet session starting commit: `340f0bf426b733eed79ed026b6ccdd60b8ddc27d`. Earlier desk-fixes source commit: `c1210325f08f2a61b491415d8048baa0cbce0b1f`. Session starting desk/documentation commit: `5b5b335390f810c7c01239c996b7c29d0d042f7e`. Original application/proof commit: `bb4ad4dee4f5f5c657dc8c79cf28d7b6566bd90e`.
 - Starting commit: `e85f81f4ca65c79136dbdb7869af10ab2e1a37a3`, confirmed on `origin/main` before edits.
 - Protected: `contracts/Outlay.sol`, committed `src/lib/outlay/artifact.ts`, and deployed bytecode. Do not change or regenerate them for this publication.
-- Current user authorizes the wallet-page frontend fixes, audit update, and push to main, followed by live confirmation through the existing Git/Vercel integration. No new contract deployment or blockchain transactions are authorized.
+- Current user authorizes closing remaining audit verification gaps. Existing main-push authorization and this workspace's checkpoint policy continue to apply. No new contract deployment or blockchain transactions are authorized.
 - Do not read, print, or commit `.env` or any private key. Metadata-only Git checks confirm `.env` is ignored and untracked. Build checks run in a temporary checkout without `.env` to avoid Vite loading it.
 - The earlier proof script and `.env.example` remain local, untracked files from the broadcasting session; they are outside this publication's staged files.
 
@@ -93,6 +107,7 @@ Active objective: Complete. Wallet-page defects are fixed, pushed to main, and v
 
 | Timestamp | Session/agent | Event | Result |
 | --- | --- | --- | --- |
+| 2026-10-01T15:56Z | Codex | Remaining audit verification completed | 57 local EVM tests, 10 canonical-USDG fork tests at block 77497119, 9 verifier tests, typecheck/frontend/model/build and formatting checks pass. Read-only chain verifier matches published build/payment. All protected files unchanged; commit/push and production confirmation follow. |
 | 2026-10-01T00:08Z | Codex | Wallet-page fixes published and verified | `ffd5a9a` pushed to main; production READY for exact SHA; 39 Vitest + 9 model + 14 Foundry tests, typecheck/build, eleven local/live browser scenarios pass. Protected files and proof snapshots unchanged; no broadcasts. |
 | 2026-09-30T22:40:46Z | Codex | Four targeted fixes deployed before main push | Typecheck, 16 tests, production build, local and live light/dark at 1440px/390px pass; proof text/links/caveats and protected files unchanged. Main commit/push is next. |
 | 2026-09-30T22:42Z | Codex | Main publication confirmed after live verification | `c121032` pushed and verified on GitHub; Git-integrated production READY for the same SHA and post-push live HTML preserves fixes. Pre-existing untracked files remain untouched. |

@@ -135,14 +135,14 @@ The same admin facet was returned for `wipeFrozenAddress(address)`, but its sour
 - **Severity:** Informational, remote lifetime boundary.
 - **Location:** `contracts/Outlay.sol:22`, `contracts/Outlay.sol:124`, `contracts/Outlay.sol:151`.
 - **What could happen:** The `uint32` count wraps to zero after **2^32 settlements**. A still-active recurring room with sufficient funding could then pass the `settlements != 0` refund guard despite having paid previously.
-- **Evidence and limits:** This is the deterministic consequence of the unchecked increment and zero-based refund guard. With the smallest positive interval of one second, reaching it requires approximately **136 years** and over **4.29 billion successful transactions**; no practical exploit or wrapped room was demonstrated. The Foundry suite does not cover this boundary.
+- **Evidence and limits:** This is the deterministic consequence of the unchecked increment and zero-based refund guard. With the smallest positive interval of one second, reaching it requires approximately **136 years** and over **4.29 billion successful transactions**; no practical exploit or wrapped live room was demonstrated. The expanded `testCounterWrapCharacterizesRemoteRefundBoundary` reproduces the wrap by explicitly setting the local room counter to `uint32.max`; it does not simulate billions of real payments.
 - **Deployed Robinhood contract affected:** The code contains this theoretical boundary, but its only room is a closed one-shot with settlements **1** and cannot reach it. New very long-lived recurring rooms would carry it.
 - **Theoretical mitigation:** Authorize refunds with an irreversible paid flag rather than a counter that can wrap to zero.
 - **Decision:** No counter change is planned or implemented; wrapping is not practical, and preserving the verified deployment takes precedence.
 
-## Coverage of the eleven contract claims
+## Historical coverage of the eleven claims at the audited revision
 
-All named Foundry tests below passed. Test locations refer to `test/Outlay.t.sol` at the audited revision. A passing test proves the exercised case, not all variants listed in the claim.
+All named Foundry tests below passed. Test locations refer to `test/Outlay.t.sol` at the audited revision. This table preserves the gaps identified by the original audit; the completed coverage table below records their subsequent verification. A passing test proves the exercised case, not all possible variants of a claim.
 
 | # | Claim and audit result | Existing Foundry evidence | Coverage gaps |
 | --- | --- | --- | --- |
@@ -191,3 +191,64 @@ These successful checks do not erase the test gaps or token dependencies above. 
 - Contract, artifact, verification JSON, README, proof record, and mainnet-proof component are checked against their pre-change hashes. The pinned runtime was fetched again from the published address and matches the independently audited 4113 bytes.
 - Local production browser checks passed all eleven scenarios: entered/stored impostors rejected, all payee gates and both precision fields enforced, four reverted receipt paths show errors and transaction links, wallet rejection remains visible, valid approve/open/settle still work, and proof text plus links equal the pre-change snapshot. Every wallet send was intercepted; no broadcast occurred.
 - Live verification at **2026-10-01T00:08Z** passed the same eleven browser scenarios on `https://outlay-theta.vercel.app/`. Vercel production deployment `dpl_4vWRZH4hfU441KvetgLWQ3J8EcqK` is READY for source commit `ffd5a9acf9913c2032fe16aa7aa66591c0634631`, confirmed on remote main. The published contract address, settlement transaction, Sourcify exact-match link, sender-settled caveat, incomplete-Blockscout caveat, and all proof numbers match the original snapshot exactly. No contract deployment or blockchain broadcast occurred.
+
+## Completed contract coverage — 1 October 2026
+
+The expanded suite adds verification around the retained contract; it does not change or regenerate
+the deployed contract, browser artifact, pinned runtime, verification JSON, settlement counter, or
+published proof. Sources start from `8cd03ca30c5ea808158e0ef026568d120390207a`. Tests and production
+checks run in `/tmp/outlay-coverage`, copied without environment files.
+
+| # | Claim | Added evidence and remaining scope |
+| --- | --- | --- |
+| 1 | Positive amount/bounty and bounded cost | `OutlayBoundaries.t.sol`: invalid `costOf`/open, overflowing sums, exact `uint96.max` open/settle, and 512 fuzz cases of sum boundaries. |
+| 2 | Payee restrictions and permissionless settlement | Zero-payee rejection, payee-as-caller receiving both legs, and direct self-payee loss characterization. The canonical fork reproduces self-payee behavior; the wallet prevents this input, while direct contract callers remain able to choose it. |
+| 3 | Per-room accounting and pooled backing | Three stateful invariants check aggregate liabilities, recipient balances, funding conservation, closed-room state and refunds before payments with unit-transfer tokens. Fee-on-transfer and negative-balance doubles reproduce R1 cross-room impairment; physical token isolation is not claimed. |
+| 4 | All payout legs and final closure | Final recurring settlement returns a partial period to the sender. Failure on payout, bounty or leftover rolls back room state, all recipient balances and token effects; each mode/leg is fuzzed. Transfer order is checked explicitly. |
+| 5 | Due boundaries and one-shot finality | Repeated one-shot settlement reverts; successful second recurring settlement occurs exactly at the new due time; 512 fuzz cases check settlement-time scheduling and early rejection. |
+| 6 | Refund authorization and payment guard | Wrong sender, second refund, unknown/refunded rooms, active recurring refund after payment, full no-return-token refund and retry after token failure. R2 is characterized using artificial local storage; the counter is retained. |
+| 7 | Effects before interactions and shared lock | Callbacks during pull, recurring/one-shot payout and refund observe updated room state and attempt open, same-room settle, refund and other-room settle. All four entries return `Reentrant`. Failed operations permit a later valid retry, establishing lock rollback. |
+| 8 | ERC20 return handling and failure atomicity | True and empty returns succeed; false, invalid ABI bool, short return and reverting token fail. Fuzzed failures cover pulls, all three settlement legs and refund. No-return refund has a separate test. |
+| 9 | Canonical USDG integration and issuer controls | Ten real-token local-fork tests check exact requested balance deltas, payout/bounty/leftover, full refund, stored balances across time warp, pause, frozen Outlay/payee/caller and atomic recovery/rollback. These are snapshot-local issuer simulations, not live freezes or assurances about future issuer policy. |
+| 10 | Schedule/funding boundaries | Zero/past due, excess and partial-period funding, maximum interval, `uint64` addition-overflow rollback and explicit timestamp truncation beyond `uint64.max`. The latter two use artificial far-future timestamps and do not establish a present-day exploit. |
+| 11 | No Outlay admin/upgrade/pause/sweep path | `scripts/check-deployment.mjs` checks the exact eight public ABI functions, only three mutating entries, no fallback/receive, all constructor encodings, fresh creation/runtime bytes, and equality with the actual deployed code. This is a compiled/static property rather than a simulated ownership test. |
+
+Commands and observed results:
+
+```bash
+forge test --offline -vv
+# 57 passed, 0 failed, 0 skipped; includes 6 fuzz tests × 512 cases.
+# 3 invariants each: 128 runs × 64 calls = 8192 calls, 0 handler reverts.
+
+npm run test:contracts:robinhood -- --offline --fork-block-number 77497119
+# 10 passed, 0 failed, 0 skipped, only RobinhoodUSDGForkTest selected.
+
+npm run test:deployment
+# 9 passed: positive build match; changed source, settings, constructor,
+# ABI/admin injection, creation bytecode, runtime, compiler and credentialed RPC rejection.
+
+npm run check:deployment -- --offline
+# Exact local artifact/runtime/compiler and public mutation surface.
+
+npm run check:deployment
+# Exact published creation input/runtime, successful receipts, transfer/event values and closed room.
+```
+
+The chain verifier used block **77497119**, hash
+`0x7ec96c68422ad75d308dc11ec4e4d3eb08c9665755cfb03d6d37a5c450d3e650`.
+It binds all current state reads to one block and rechecks its hash before completing. The ten fork
+tests were rerun at that exact block. Native Solidity `0.8.37+commit.f401782d` recompiles the committed
+standard JSON in memory; ABI comparison ignores JSON key and top-level entry ordering but preserves
+parameter order. Only the disclosed duplicate `0x` creation prefix and compiler-reported immutable
+token references are normalized. No metadata is stripped.
+
+The verifier uses only a public client and read RPC methods, requires chain 4663, and rejects runtime,
+constructor, source, receipt, transfer or room-state mismatch. It does not load `.env`, regenerate
+artifacts, deploy, sign, broadcast, or claim to reproduce unavailable historical absolute balances.
+RPC errors and missing historical state cause failure rather than a skipped or successful result.
+
+R1 issuer/pooled-backing assumptions and R2 counter lifetime remain explicit. The contract counter
+and immutable published release are preserved. The sender-settled demo, unproven keeper profitability,
+incomplete Blockscout badge and historical-balance limitation remain unchanged. There are no remaining
+implementation items in the original eleven-claim verification scope; broader formal verification,
+future token upgrades and independently operated keeper economics are not established by these tests.
