@@ -1,4 +1,4 @@
-import type { Address } from "viem";
+import { isAddress, type Address } from "viem";
 
 export function contractStorageKey(chainId: number): string {
   return `outlay.contract.${chainId}`;
@@ -7,10 +7,9 @@ export function contractStorageKey(chainId: number): string {
 export function readStoredContract(chainId: number): Address | undefined {
   if (typeof window === "undefined") return undefined;
   const value = window.localStorage.getItem(contractStorageKey(chainId));
-  return value?.startsWith("0x") ? (value as Address) : undefined;
+  return value && isAddress(value) ? value : undefined;
 }
 
 export function storeContract(chainId: number, address: Address): void {
   window.localStorage.setItem(contractStorageKey(chainId), address);
 }
-

@@ -17,9 +17,11 @@ import {
 import { erc20Abi } from "../../lib/outlay/erc20";
 import { formatUsdg, shortAddress } from "../../lib/outlay/format";
 import { useNow } from "../../lib/outlay/use-now";
+import type { VerifiedOutlayContract } from "../../lib/outlay/runtime";
+import { readTransactionError, waitForSuccessfulReceipt } from "../../lib/outlay/transactions";
 
 type Props = {
-  contractAddress?: Address;
+  contract?: VerifiedOutlayContract;
   refreshKey: number;
 };
 
@@ -41,7 +43,9 @@ type PaymentProof = {
   after: bigint;
 };
 
-export function RoomList({ contractAddress, refreshKey }: Props) {
+export function RoomList({ contract, refreshKey }: Props) {
+  const chainId = useChainId();
+  const contractAddress = contract?.chainId === chainId ? contract.address : undefined;
   const count = useReadContract({
     address: contractAddress,
     abi: outlayAbi,
@@ -57,7 +61,7 @@ export function RoomList({ contractAddress, refreshKey }: Props) {
   const oldest = Math.max(1, roomCount - 19);
   const ids = Array.from({ length: roomCount - oldest + 1 }, (_, index) => BigInt(roomCount - index));
 
-  if (!contractAddress) return <p className="rooms-empty">Choose a contract, then open a room to see its settlement here.</p>;
+  if (!contractAddress || !contract) return <p className="rooms-empty">Choose a contract, then open a room to see its settlement here.</p>;
   if (count.isError) return <p className="error rooms-empty" role="alert">Rooms could not be read. Check your network and <button className="text-button" type="button" onClick={() => void count.refetch()}>try again</button>.</p>;
   if (count.isLoading) return <p className="rooms-empty" role="status">Reading rooms from the chain…</p>;
   if (roomCount === 0) return <p className="rooms-empty">No funded rooms yet; open the first room from this wallet.</p>;
@@ -77,8 +81,8 @@ export function RoomList({ contractAddress, refreshKey }: Props) {
       <div className="room-list">
         {ids.map((id) => (
           <RoomCard
-            key={id.toString()}
-            contractAddress={contractAddress}
+            key={`${contractAddress}:${id}`}
+            contract={contract}
             id={id}
             refreshKey={refreshKey}
             onChanged={() => void count.refetch()}
@@ -90,23 +94,26 @@ export function RoomList({ contractAddress, refreshKey }: Props) {
 }
 
 function RoomCard({
-  contractAddress,
+  contract,
   id,
   refreshKey,
   onChanged,
 }: {
-  contractAddress: Address;
+  contract: VerifiedOutlayContract;
   id: bigint;
   refreshKey: number;
   onChanged: () => void;
 }) {
   const { address } = useAccount();
   const chainId = useChainId();
+  const contractAddress = contract.address;
   const publicClient = usePublicClient();
   const now = useNow();
   const [proof, setProof] = useState<PaymentProof>();
+  const [settlementHash, setSettlementHash] = useState<Hash>();
   const [refundHash, setRefundHash] = useState<Hash>();
   const [error, setError] = useState("");
+  const [isConfirming, setIsConfirming] = useState(false);
   const { writeContractAsync, isPending } = useWriteContract();
   const roomRead = useReadContract({
     address: contractAddress,
@@ -124,11 +131,13 @@ function RoomCard({
 
   const due = BigInt(now) >= room.nextRunAt;
   const senderConnected = Boolean(address && address.toLowerCase() === room.sender.toLowerCase());
-  const supported = isSupportedChainId(chainId);
+  const supported = chainId === contract.chainId && isSupportedChainId(chainId);
 
   async function settle() {
-    if (!publicClient || !supported) return;
+    if (!address || !publicClient || !supported || isConfirming) return;
     setError("");
+    setProof(undefined);
+    setIsConfirming(true);
     try {
       const token = canonicalUsdg(chainId);
       const before = await publicClient.readContract({
@@ -144,7 +153,8 @@ function RoomCard({
         args: [id],
         chainId,
       });
-      await publicClient.waitForTransactionReceipt({ hash });
+      setSettlementHash(hash);
+      await waitForSuccessfulReceipt(publicClient, hash, "Settlement");
       const after = await publicClient.readContract({
         address: token,
         abi: erc20Abi,
@@ -155,13 +165,16 @@ function RoomCard({
       await roomRead.refetch();
       onChanged();
     } catch (cause) {
-      setError(readError(cause));
+      setError(readTransactionError(cause));
+    } finally {
+      setIsConfirming(false);
     }
   }
 
   async function refund() {
-    if (!publicClient || !supported) return;
+    if (!address || !publicClient || !supported || isConfirming) return;
     setError("");
+    setIsConfirming(true);
     try {
       const hash = await writeContractAsync({
         address: contractAddress,
@@ -170,12 +183,14 @@ function RoomCard({
         args: [id],
         chainId,
       });
-      await publicClient.waitForTransactionReceipt({ hash });
       setRefundHash(hash);
+      await waitForSuccessfulReceipt(publicClient, hash, "Refund");
       await roomRead.refetch();
       onChanged();
     } catch (cause) {
-      setError(readError(cause));
+      setError(readTransactionError(cause));
+    } finally {
+      setIsConfirming(false);
     }
   }
 
@@ -200,11 +215,11 @@ function RoomCard({
         <div><dt>Settlements</dt><dd>{room.settlements}</dd></div>
       </dl>
 
-      <button className="primary full" type="button" disabled={!address || !room.active || !due || isPending} onClick={settle}>
-        {isPending ? "Confirm in wallet…" : `Settle · earn ${formatUsdg(room.bounty)} USDG`}
+      <button className="primary full" type="button" disabled={!address || !supported || !room.active || !due || isPending || isConfirming} onClick={settle}>
+        {isPending ? "Confirm in wallet…" : isConfirming ? "Confirming transaction…" : `Settle · earn ${formatUsdg(room.bounty)} USDG`}
       </button>
       {senderConnected && room.active && room.settlements === 0 && (
-        <button className="text-button" type="button" disabled={isPending} onClick={refund}>
+        <button className="text-button" type="button" disabled={!supported || isPending || isConfirming} onClick={refund}>
           Refund before first settlement
         </button>
       )}
@@ -219,6 +234,9 @@ function RoomCard({
           </div>
         </div>
       )}
+      {settlementHash && !proof && supported && (
+        <a className="inline-link" href={transactionUrl(chainId, settlementHash)} target="_blank" rel="noreferrer">Settlement tx ↗</a>
+      )}
       {refundHash && supported && (
         <a className="inline-link" href={transactionUrl(chainId, refundHash)} target="_blank" rel="noreferrer">Refund transaction ↗</a>
       )}
@@ -232,9 +250,4 @@ function formatCountdown(seconds: number): string {
   const minutes = Math.floor(seconds / 60);
   const remainder = seconds % 60;
   return minutes > 0 ? `${minutes}M ${remainder}S` : `${remainder}S`;
-}
-
-function readError(cause: unknown): string {
-  if (cause instanceof Error) return cause.message.split("\n")[0];
-  return "The wallet rejected or could not send the transaction.";
 }

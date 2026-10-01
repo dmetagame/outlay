@@ -3,7 +3,11 @@ import { formatUnits, parseUnits } from "viem";
 export const USDG_DECIMALS = 6;
 
 export function parseUsdg(value: string): bigint {
-  return parseUnits(value.trim(), USDG_DECIMALS);
+  const text = value.trim();
+  if (/\.\d{7,}/.test(text)) {
+    throw new Error(`USDG allows at most ${USDG_DECIMALS} decimal places.`);
+  }
+  return parseUnits(text, USDG_DECIMALS);
 }
 
 export function formatUsdg(value: bigint, maximumFractionDigits = 2): string {
@@ -18,4 +22,3 @@ export function shortAddress(value: string, size = 4): string {
   if (value.length < size * 2 + 2) return value;
   return `${value.slice(0, size + 2)}…${value.slice(-size)}`;
 }
-

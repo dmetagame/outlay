@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
-import { getAddress, isAddress, type Address, type Hash } from "viem";
+import { useRef, useState } from "react";
+import { getAddress, isAddress, type Hash } from "viem";
 import {
   useAccount,
   useChainId,
   useDeployContract,
   usePublicClient,
-  useWaitForTransactionReceipt,
 } from "wagmi";
 import { outlayAbi, outlayBytecode } from "../../lib/outlay/artifact";
 import {
@@ -16,33 +15,33 @@ import {
 } from "../../lib/outlay/chains";
 import { shortAddress } from "../../lib/outlay/format";
 import { storeContract } from "../../lib/outlay/storage";
+import { knownOutlayRuntime, verifyOutlayContract, type VerifiedOutlayContract } from "../../lib/outlay/runtime";
+import { readTransactionError, waitForSuccessfulReceipt } from "../../lib/outlay/transactions";
 
 type Props = {
-  contractAddress?: Address;
-  onContractAddress: (address: Address) => void;
+  contract?: VerifiedOutlayContract;
+  onContract: (contract: VerifiedOutlayContract) => void;
 };
 
-export function DeployCard({ contractAddress, onContractAddress }: Props) {
+export function DeployCard({ contract, onContract }: Props) {
   const { address } = useAccount();
   const chainId = useChainId();
-  const [deploymentHash, setDeploymentHash] = useState<Hash>();
+  const [deployment, setDeployment] = useState<{ hash: Hash; chainId: number }>();
   const [existing, setExisting] = useState("");
   const [isCheckingExisting, setIsCheckingExisting] = useState(false);
   const [error, setError] = useState("");
+  const [isConfirming, setIsConfirming] = useState(false);
+  const currentChain = useRef(chainId);
+  currentChain.current = chainId;
   const publicClient = usePublicClient();
   const { deployContractAsync, isPending } = useDeployContract();
-  const receipt = useWaitForTransactionReceipt({ hash: deploymentHash });
-
-  useEffect(() => {
-    const address = receipt.data?.contractAddress;
-    if (!address || !isSupportedChainId(chainId)) return;
-    storeContract(chainId, address);
-    onContractAddress(address);
-  }, [chainId, onContractAddress, receipt.data?.contractAddress]);
+  const contractAddress = contract?.chainId === chainId ? contract.address : undefined;
+  const runtimeKnown = Boolean(knownOutlayRuntime(chainId));
 
   async function deploy() {
-    if (!isSupportedChainId(chainId)) return;
+    if (!publicClient || !isSupportedChainId(chainId) || !runtimeKnown) return;
     setError("");
+    setIsConfirming(true);
     try {
       const hash = await deployContractAsync({
         abi: outlayAbi,
@@ -50,9 +49,17 @@ export function DeployCard({ contractAddress, onContractAddress }: Props) {
         args: [canonicalUsdg(chainId)],
         chainId,
       });
-      setDeploymentHash(hash);
+      setDeployment({ hash, chainId });
+      const receipt = await waitForSuccessfulReceipt(publicClient, hash, "Deployment");
+      if (!receipt.contractAddress) throw new Error("Deployment did not return a contract address.");
+      const verified = await verifyOutlayContract(publicClient, chainId, receipt.contractAddress);
+      if (currentChain.current !== chainId) return;
+      storeContract(chainId, verified.address);
+      onContract(verified);
     } catch (cause) {
-      setError(readError(cause));
+      setError(readTransactionError(cause));
+    } finally {
+      setIsConfirming(false);
     }
   }
 
@@ -65,19 +72,12 @@ export function DeployCard({ contractAddress, onContractAddress }: Props) {
     setError("");
     setIsCheckingExisting(true);
     try {
-      const configuredToken = await publicClient.readContract({
-        address,
-        abi: outlayAbi,
-        functionName: "usdg",
-      });
-      if (getAddress(configuredToken) !== canonicalUsdg(chainId)) {
-        setError("That contract is not configured with canonical USDG on this network.");
-        return;
-      }
-      storeContract(chainId, address);
-      onContractAddress(address);
-    } catch {
-      setError("That address does not expose a readable Outlay USDG configuration.");
+      const verified = await verifyOutlayContract(publicClient, chainId, address);
+      if (currentChain.current !== chainId) return;
+      storeContract(chainId, verified.address);
+      onContract(verified);
+    } catch (cause) {
+      setError(readTransactionError(cause));
     } finally {
       setIsCheckingExisting(false);
     }
@@ -97,10 +97,11 @@ export function DeployCard({ contractAddress, onContractAddress }: Props) {
           </div>
         ) : (
           <div className="deploy-action">
-            <button className="primary" type="button" disabled={!address || !isSupportedChainId(chainId) || isPending || receipt.isLoading} onClick={deploy}>
-              {isPending ? "Confirm in wallet…" : receipt.isLoading ? "Deploying…" : "Deploy from this wallet"}
+            <button className="primary" type="button" disabled={!address || !isSupportedChainId(chainId) || !runtimeKnown || isPending || isConfirming || isCheckingExisting} onClick={deploy}>
+              {isPending ? "Confirm in wallet…" : isConfirming ? "Deploying…" : "Deploy from this wallet"}
             </button>
             {!address && <span className="control-hint">Connect your wallet to deploy.</span>}
+            {!runtimeKnown && <span className="control-hint">Contract verification is available only on Robinhood Chain.</span>}
           </div>
         )}
       </div>
@@ -111,17 +112,12 @@ export function DeployCard({ contractAddress, onContractAddress }: Props) {
             <label htmlFor="existing-contract">Outlay contract address</label>
             <input id="existing-contract" name="existing-contract" autoComplete="off" spellCheck={false} placeholder="0x…" value={existing} onChange={(event) => setExisting(event.target.value)} />
           </div>
-          <button type="button" className="secondary" disabled={isCheckingExisting} onClick={useExisting}>{isCheckingExisting ? "Checking…" : "Use address"}</button>
+          <button type="button" className="secondary" disabled={isCheckingExisting || isConfirming || isPending} onClick={useExisting}>{isCheckingExisting ? "Checking…" : "Use address"}</button>
         </div>
-        <p className="control-hint">The address must use canonical USDG on the selected network.</p>
+        <p className="control-hint">Only verified Outlay contracts on the selected network can be used.</p>
       </details>
-      {deploymentHash && isSupportedChainId(chainId) && <a className="inline-link" href={transactionUrl(chainId, deploymentHash)} target="_blank" rel="noreferrer">Deployment transaction ↗</a>}
+      {deployment && isSupportedChainId(deployment.chainId) && <a className="inline-link" href={transactionUrl(deployment.chainId, deployment.hash)} target="_blank" rel="noreferrer">Deployment transaction ↗</a>}
       {error && <p className="error" role="alert">{error}</p>}
     </section>
   );
-}
-
-function readError(cause: unknown): string {
-  if (cause instanceof Error) return cause.message.split("\n")[0];
-  return "The wallet rejected or could not send the transaction.";
 }

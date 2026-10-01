@@ -1,8 +1,16 @@
 # Project State
 
-Last updated: `2026-09-30`
-Status: `SETTLEMENT_DESK_FIXES_COMPLETE`
-Active objective: Complete. All four targeted fixes are live, verified in light/dark at 1440px/390px, and pushed to main after live verification. Proof content and protected files are preserved.
+Last updated: `2026-10-01`
+Status: `WALLET_PAGE_FIXES_READY_TO_PUBLISH`
+Active objective: Fix confirmed wallet-page defects, update the audit, push to main, and confirm the live proof is unchanged. Preserve the verified deployment, contract, artifact, verification JSON, uint32 counter, and proof. No environment-file reads or blockchain broadcasts.
+
+## Wallet-page security fixes — 2026-10-01
+
+- Reconciled `main` / `origin/main` at `340f0bf426b733eed79ed026b6ccdd60b8ddc27d`; GitHub authentication succeeds as `dmetagame`. The previous objective below is historical. Current user authorization is frontend fixes, audit update, and main push followed by live confirmation; no new contract deployment.
+- The prior read-only audit remains in `docs/AUDIT.md`; user requested F1 severity Medium because selection requires pasting an address, wallet spender disclosure, and a finite room allowance. Added the preventing files under all five findings; contract verdict remains safe.
+- `runtime.ts` pins the independently audited 4113-byte Robinhood runtime. Entered, stored, and wallet-deployed candidates must match `getCode`; unknown-chain runtime verification fails closed. Only chain-bound verified contracts reach wallet funding actions.
+- Approve/open/settle/refund explicitly require receipt status success; reverted transactions keep links and show errors, without room refresh or payment proof. Payee validation rejects zero/sender/Outlay/USDG, gates Approve and opening, and USDG parsing rejects more than six fractional digits before rounding.
+- Isolated typecheck, 39 Vitest tests in the existing files, nine supplemental model tests, unchanged 14 Foundry tests, and production build pass. Eleven local production browser scenarios pass: entered/stored impostors rejected; payee and precision gates; errors and links for four reverted paths; visible wallet rejection; successful approve/open/settle; exact published proof snapshot. All wallet sends are intercepted. Main push and live verification are next. No environment files are copied into the isolated build.
 
 ## Four targeted desk fixes — 2026-09-30
 
@@ -37,7 +45,7 @@ Active objective: Complete. All four targeted fixes are live, verified in light/
 - Current published fixes/source commit: `c1210325f08f2a61b491415d8048baa0cbce0b1f`, verified on `origin/main` on 2026-09-30; the final handoff-only commit follows it. Session starting desk/documentation commit: `5b5b335390f810c7c01239c996b7c29d0d042f7e`. Original application/proof commit: `bb4ad4dee4f5f5c657dc8c79cf28d7b6566bd90e`.
 - Starting commit: `e85f81f4ca65c79136dbdb7869af10ab2e1a37a3`, confirmed on `origin/main` before edits.
 - Protected: `contracts/Outlay.sol`, committed `src/lib/outlay/artifact.ts`, and deployed bytecode. Do not change or regenerate them for this publication.
-- Current user authorizes production deployment and commit/push to main only after the live page shows these four fixes. No new blockchain transactions are needed.
+- Current user authorizes the wallet-page frontend fixes, audit update, and push to main, followed by live confirmation through the existing Git/Vercel integration. No new contract deployment or blockchain transactions are authorized.
 - Do not read, print, or commit `.env` or any private key. Metadata-only Git checks confirm `.env` is ignored and untracked. Build checks run in a temporary checkout without `.env` to avoid Vite loading it.
 - The earlier proof script and `.env.example` remain local, untracked files from the broadcasting session; they are outside this publication's staged files.
 
