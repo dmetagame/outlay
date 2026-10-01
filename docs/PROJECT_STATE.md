@@ -1,8 +1,15 @@
 # Project State
 
-Last updated: `2026-10-01`
-Status: `DEMO_VIDEO_COMPLETE`
-Active objective: Completed: the requested 2:45 Outlay demo video, thumbnail, subtitles, transcript and editable project are verified and published on GitHub. The public MP4 download matches the local SHA-256 byte for byte. The application, contract and published proof are unchanged; no environment-file reads or blockchain broadcasts. No required video work remains.
+Last updated: `2026-10-02`
+Status: `LOGO_EXPORTS_COMPLETE`
+Active objective: Completed: exported the existing Outlay logo as verified 1024×1024 PNG and JPEG for download. The narrated demo remains complete and published. Application, original SVG, contracts and published proof are unchanged; no environment-file reads or blockchain broadcasts.
+
+## Logo download exports — 2026-10-02
+
+- User requests PNG or JPEG after receiving `public/favicon.svg`. Reconciled worktree `/home/rouma/outlay-proof/outlay`, branch `main`, local/public main `7cc0698b9049742c11578fc8c51421235e304c78`; GitHub authentication passes. The two pre-existing untracked files remain excluded.
+- Rasterized the existing SVG directly using FFmpeg's librsvg decoder at 1024×1024: `ffmpeg -v error -width 1024 -height 1024 -i public/favicon.svg -frames:v 1 -update 1 -c:v png public/outlay-logo.png`. Saved the JPEG with Pillow at quality 98, no chroma subsampling; transparent outer corners use the original stone background `#fafaf9` in JPEG.
+- Downloads: `public/outlay-logo.png` (17158 bytes; SHA-256 `250f42c5bc8ab9fc09e727e2fdb2151c86fbe635ff2ae88d04af5df25e6a4bbb`) and `public/outlay-logo.jpg` (28778 bytes; SHA-256 `65201b3f1802c8886352253c0744a67d0d1d314339a5d8dc16bac74e01bf6c67`). Both decode successfully at 1024×1024; PNG transparency and original forest/stone colors verified; rendered PNG inspected visually. Original SVG bytes are unchanged.
+- Initial browser rasterization timed out; FFmpeg conversion succeeded. The task's disposable `/dev/shm/outlay-logo-chrome-*` profile was removed. No new dependencies, design changes, contract actions or website-source edits. Scoped export checkpoint and remote verification follow; no required conversion work remains.
 
 ## Reusable build and demo standard — 2026-10-01
 
@@ -138,6 +145,7 @@ Active objective: Completed: the requested 2:45 Outlay demo video, thumbnail, su
 
 | Timestamp | Session/agent | Event | Result |
 | --- | --- | --- | --- |
+| 2026-10-01T23:38:13Z | Codex | Exported existing logo for PNG/JPEG downloads | Both 1024×1024 files decode and preserve original brand colors/geometry; hashes recorded. Original SVG and product/proof artifacts unchanged; scoped checkpoint publication follows. |
 | 2026-10-01T22:34:35Z | Codex | Verified saved future build/demo standard | `4416a14` pushed and independently confirmed on GitHub main; workspace instructions and portable record readback pass. Documentation only; completed demo, protected artifacts and user files preserved. |
 | 2026-10-01T21:55Z | Codex | Outlay demo published and verified | `d9f90c4` pushed/confirmed; public MP4 SHA-256 and SRT match local files. 2:45 1080p narrated/captioned demo, thumbnail and editable sources delivered. Protected/application files unchanged; no signatures/broadcasts. Video scope complete. |
 | 2026-10-01T21:51Z | Codex | Final demo export verified | 2:45 1080p/30 H.264/AAC MP4; full decode, fast start, eight encoded end states and caption/audio timing pass. SHA-256 recorded above. Final deliverable publication follows; application and protected files unchanged. |
