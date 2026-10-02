@@ -1,8 +1,18 @@
 # Project State
 
 Last updated: `2026-10-02`
-Status: `LOGO_EXPORTS_COMPLETE`
-Active objective: Completed: exported the existing Outlay logo as verified 1024×1024 PNG and JPEG for download. The narrated demo remains complete and published. Application, original SVG, contracts and published proof are unchanged; no environment-file reads or blockchain broadcasts.
+Status: `PROJECT_IMAGES_READY`
+Active objective: Completed: prepared four Outlay upload images at the requested 1280×720 resolution, copied them to the user's PC Downloads folder, and verified each image. Two show the separately captured published payment proof; the payment-setup reconstruction is clearly labeled. Original application and release artifacts remain unchanged.
+
+## Project upload images — 2026-10-02
+
+- User requests up to four project images sized 500×300 or 1280×720. Prepared four downloadable 1280×720 JPEGs using the existing Outlay demo poster, the published-proof screenshot taken in a fresh browser, and selected frames from the completed demo.
+- `public/project-images/outlay-overview.jpg` — framed product overview featuring the published payment record.
+- `public/project-images/onchain-payment-proof.jpg` — the real published app proof, captured separately without demo wallet/RPC fixtures.
+- `public/project-images/settlement-evidence.jpg` — receipt, token transfers, transaction links, verification state and qualifications from the actual published payment.
+- `public/project-images/payment-setup-demo.jpg` — payout configuration; the in-image “Reconstructed workflow · no new transactions” label stays visible.
+- Image dimensions and JPEG decoding verified; representative imagery reviewed. All four copies in the PC's actual Downloads folder compare byte-for-byte with the repository originals. The published-proof and evidence images preserve the sender-settled and incomplete Blockscout qualifications. No app, contract, proof or dependency files were changed. The two excluded pre-existing untracked files remain untouched.
+- Source checkpoint and push follow. User's requested images are in Windows Downloads and in this repository for direct linking; no image-generation or thumbnail service was installed.
 
 ## Logo download exports — 2026-10-02
 
@@ -146,6 +156,7 @@ Active objective: Completed: exported the existing Outlay logo as verified 1024�
 
 | Timestamp | Session/agent | Event | Result |
 | --- | --- | --- | --- |
+| 2026-10-02T00:15:58Z | Codex | Prepared and delivered Outlay project-upload images | Four reviewed JPEGs, all 1280×720; PC Downloads copies byte-verified. Real published proof is separated from visibly labeled reconstructed workflow. Scoped repository checkpoint follows. |
 | 2026-10-01T23:39:53Z | Codex | Verified PNG/JPEG logo delivery | `90e5cb6` pushed and independently confirmed; both public downloads match local bytes/hashes. Recovery confirms intact 1024×1024 exports and preserved user files; scope complete. |
 | 2026-10-01T22:34:35Z | Codex | Verified saved future build/demo standard | `4416a14` pushed and independently confirmed on GitHub main; workspace instructions and portable record readback pass. Documentation only; completed demo, protected artifacts and user files preserved. |
 | 2026-10-01T21:55Z | Codex | Outlay demo published and verified | `d9f90c4` pushed/confirmed; public MP4 SHA-256 and SRT match local files. 2:45 1080p narrated/captioned demo, thumbnail and editable sources delivered. Protected/application files unchanged; no signatures/broadcasts. Video scope complete. |
