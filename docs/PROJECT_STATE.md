@@ -1,8 +1,13 @@
 # Project State
 
 Last updated: `2026-10-02`
-Status: `PROJECT_IMAGES_READY`
-Active objective: Completed: prepared four Outlay upload images at the requested 1280×720 resolution, copied them to the user's PC Downloads folder, and verified each image. Two show the separately captured published payment proof; the payment-setup reconstruction is clearly labeled. Original application and release artifacts remain unchanged.
+Status: `HACKATHON_PROGRESS_DOCUMENTED`
+Active objective: Document Outlay's completed, evidence-backed hackathon checkpoints in `docs/HACKATHON_PROGRESS.md`; preserve the precise scope of the real payment proof and all previously delivered project assets.
+
+## Hackathon progress timeline — 2026-10-02
+
+- Added `docs/HACKATHON_PROGRESS.md`, a copy-ready project submission timeline with dated milestones and links to source commits, live app, published proof, Sourcify verification, and demo. It distinguishes confirmed results from limitations, especially sender-triggered settlement and unproven bounty profitability after gas.
+- Documentation only. The four project-upload images, logo exports, app, contracts, deployment, proof and demo are unchanged; the pre-existing untracked `.env.example` and `scripts/prove-robinhood.mjs` remain untouched.
 
 ## Project upload images — 2026-10-02
 
@@ -157,6 +162,7 @@ Active objective: Completed: prepared four Outlay upload images at the requested
 
 | Timestamp | Session/agent | Event | Result |
 | --- | --- | --- | --- |
+| 2026-10-02T08:52:12+01:00 | Codex | Hackathon progress timeline documented | Added `docs/HACKATHON_PROGRESS.md` with dated, source-linked checkpoints and explicit proof limitations; pending commit/push. |
 | 2026-10-02T00:17:14Z | Codex | Verified Outlay project-upload images | `159c8b0` pushed and independently confirmed; all four 1280×720 files match public GitHub downloads and PC Downloads copies byte-for-byte. Source art, real proof, and reconstruction labeling preserved. |
 | 2026-10-01T23:39:53Z | Codex | Verified PNG/JPEG logo delivery | `90e5cb6` pushed and independently confirmed; both public downloads match local bytes/hashes. Recovery confirms intact 1024×1024 exports and preserved user files; scope complete. |
 | 2026-10-01T22:34:35Z | Codex | Verified saved future build/demo standard | `4416a14` pushed and independently confirmed on GitHub main; workspace instructions and portable record readback pass. Documentation only; completed demo, protected artifacts and user files preserved. |
