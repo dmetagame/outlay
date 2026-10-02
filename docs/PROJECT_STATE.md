@@ -12,7 +12,8 @@ Active objective: Completed: prepared four Outlay upload images at the requested
 - `public/project-images/settlement-evidence.jpg` — receipt, token transfers, transaction links, verification state and qualifications from the actual published payment.
 - `public/project-images/payment-setup-demo.jpg` — payout configuration; the in-image “Reconstructed workflow · no new transactions” label stays visible.
 - Image dimensions and JPEG decoding verified; representative imagery reviewed. All four copies in the PC's actual Downloads folder compare byte-for-byte with the repository originals. The published-proof and evidence images preserve the sender-settled and incomplete Blockscout qualifications. No app, contract, proof or dependency files were changed. The two excluded pre-existing untracked files remain untouched.
-- Source checkpoint and push follow. User's requested images are in Windows Downloads and in this repository for direct linking; no image-generation or thumbnail service was installed.
+- Source/assets commit `159c8b0fb65160c859c44de1676abf7b950014f4` is pushed and independently confirmed on GitHub main; local, upstream, and remote main match. All four public raw GitHub file downloads and all four Windows Downloads copies compare byte-for-byte with the verified local 1280×720 JPEGs. Only the two pre-existing unrelated files remain untracked. Temporary image-review frames created for this task have been removed.
+- No app, contract, proof, or dependency files changed. No image-generation or thumbnail service was installed. The exported images are ready for upload; no other project images are required.
 
 ## Logo download exports — 2026-10-02
 
@@ -156,7 +157,7 @@ Active objective: Completed: prepared four Outlay upload images at the requested
 
 | Timestamp | Session/agent | Event | Result |
 | --- | --- | --- | --- |
-| 2026-10-02T00:15:58Z | Codex | Prepared and delivered Outlay project-upload images | Four reviewed JPEGs, all 1280×720; PC Downloads copies byte-verified. Real published proof is separated from visibly labeled reconstructed workflow. Scoped repository checkpoint follows. |
+| 2026-10-02T00:17:14Z | Codex | Verified Outlay project-upload images | `159c8b0` pushed and independently confirmed; all four 1280×720 files match public GitHub downloads and PC Downloads copies byte-for-byte. Source art, real proof, and reconstruction labeling preserved. |
 | 2026-10-01T23:39:53Z | Codex | Verified PNG/JPEG logo delivery | `90e5cb6` pushed and independently confirmed; both public downloads match local bytes/hashes. Recovery confirms intact 1024×1024 exports and preserved user files; scope complete. |
 | 2026-10-01T22:34:35Z | Codex | Verified saved future build/demo standard | `4416a14` pushed and independently confirmed on GitHub main; workspace instructions and portable record readback pass. Documentation only; completed demo, protected artifacts and user files preserved. |
 | 2026-10-01T21:55Z | Codex | Outlay demo published and verified | `d9f90c4` pushed/confirmed; public MP4 SHA-256 and SRT match local files. 2:45 1080p narrated/captioned demo, thumbnail and editable sources delivered. Protected/application files unchanged; no signatures/broadcasts. Video scope complete. |
